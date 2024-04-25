@@ -2,7 +2,10 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({ subsets: ["devanagari"], weight: ["400"] });
+const poppins = Poppins({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata = {
   title: "SIG UNILA",
@@ -13,6 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );

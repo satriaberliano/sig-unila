@@ -5,6 +5,7 @@ import tujuan2 from "./landing-page/logo-tujuan-2.png";
 import tujuan3 from "./landing-page/logo-tujuan-3.png";
 import navigasi from "./landing-page/navigate.jpg";
 import fasilitas from "./landing-page/building1.png";
+import defaultImage from "./admin/default-image.png";
 
 export default {
   banner,
@@ -14,4 +15,5 @@ export default {
   tujuan3,
   navigasi,
   fasilitas,
+  defaultImage,
 };

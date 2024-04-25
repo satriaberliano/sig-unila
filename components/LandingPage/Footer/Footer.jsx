@@ -65,7 +65,7 @@ export default function Footer() {
                 admin@sigunila.ac.id
               </li>
               <li className="flex justify-center items-center gap-3 text-2xl pt-2">
-                <Link href="https://www.instagram.com/geomuda.id/" target="_blank">
+                <Link href="#" target="_blank">
                   <RiInstagramFill />
                 </Link>
                 <Link href="#">
