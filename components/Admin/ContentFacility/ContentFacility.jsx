@@ -67,7 +67,7 @@ export const ContentFacility = ({ facilities }) => {
       </div>
 
       <div className='w-full space-y-4'>
-        <div className='grid grid-cols-10 text-center text-sm font-medium gap-2'>
+        <div className='grid grid-cols-10 text-center text-sm font-medium gap-2 mt-4'>
           <span className='col-start-1 col-end-2'>No</span>
           <span className='col-start-2 col-end-4'>Gambar</span>
           <span className='col-start-4 col-end-6'>Nama</span>
@@ -78,18 +78,20 @@ export const ContentFacility = ({ facilities }) => {
           facilities && facilities.length > 0 ? (
             <>
               {facilities.map((fasilitas, index) => (
-                <div className='bg-gray-200 rounded-lg p-2 py-5 grid grid-cols-10 text-center gap-2' key={index}>
+                <div className='bg-gray-200 rounded-lg p-2 py-4 grid grid-cols-10 text-center gap-2' key={index}>
                   <p className='col-start-1 col-end-2 text-sm'>{index+1}</p>
-                  <Image alt={`Gambar Fasilitas ${fasilitas.name}`} src={fasilitas.url_image ? fasilitas.url_image : assets.defaultImage} className='mx-auto rounded-md col-start-2 col-end-4' width={100} height={75} />
+                  <Image alt={`Gambar Fasilitas ${fasilitas.name}`} src={fasilitas.url_image ? fasilitas.url_image : assets.defaultImage} className='mx-auto rounded-md col-start-2 col-end-4' width={75} height={0} />
                   <p className='text-xs col-start-4 col-end-6'>{fasilitas.name || "-"}</p>
-                  <p className='text-xs text-left col-start-6 col-end-8'>{fasilitas.description || "-"}</p>
-                  <div className='text-xs col-start-8 col-end-10'>
-                    {fasilitas.coordinate && true ? (
+                  <p className='text-xs text-left col-start-6 col-end-8 line-clamp-3'>{fasilitas.description || "-"}</p>
+                  <div className='text-xs col-start-8 col-end-10 text-left space-y-2'>
+                    {/* {fasilitas.coordinate && true ? (
                       fasilitas.coordinate.map((coordinate, coordIndex) => (
                         <p key={coordIndex}>{coordinate}</p>
                       ))
                     ) : <p>-</p>
-                    }
+                    } */}
+                    <p>Latitude : {fasilitas.latitude || "-"},</p>
+                    <p>Longitude : {fasilitas.longitude || '-'}</p>
                   </div>
                   <div className='flex justify-center items-center gap-5 col-start-10 col-end-11'>
                     <button className='bg-slate-100 rounded-md p-2' >
