@@ -12,7 +12,7 @@ export default function Tujuan() {
         tujuanList.map((data, index) => 
           <div className="flex flex-col items-center space-y-2" key={index}>
             <Image src={data.image} alt={`Gambar tujuan ${index+1}`} className="w-6/12 md:w-8/12" />
-            <p className="text-white w-96">
+            <p className="text-white lg:w-96">
               {data.description}
             </p>
           </div>
