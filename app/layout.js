@@ -1,10 +1,14 @@
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["devanagari"],
   weight: ["400", "500", "600", "700", "800"],
+});
+const jakarta_sans = Plus_Jakarta_Sans({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["cyrillic-ext"],
 });
 
 export const metadata = {
@@ -19,7 +23,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={poppins.className}>{children}</body>
+      <body className={jakarta_sans.className}>{children}</body>
     </html>
   );
 }
