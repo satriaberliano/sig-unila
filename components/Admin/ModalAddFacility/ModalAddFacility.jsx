@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
 import assets from "@/assets/assets";
 import { useImages } from "@/zustand/useImages";
 
-import { useModalAddFacility } from "@/zustand/useModalAddFacility";
+import { useModalFacility } from "@/zustand/useModalFacility";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import Image from "next/image";
@@ -16,12 +16,12 @@ import Swal from "sweetalert2";
 const ModalAddFacility = () => {
   const [image, setImage] = useState();
   const [imageUpload, setImageUpload] = useState(null);
-  const [imageUrl, setImageUrl] = useState();
-  const [imagePath, setImagePath] = useState();
+  // const [imageUrl, setImageUrl] = useState();
+  // const [imagePath, setImagePath] = useState();
 
   // const { imageUrl, setImageUrl } = useImages()
 
-  const { setFacility } = useModalAddFacility();
+  const { setFacility } = useModalFacility();
 
   const supabase = createClientComponentClient();
 
@@ -38,50 +38,51 @@ const ModalAddFacility = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm()
-
+  } = useForm();
 
   // useEffect(() => {
   // }, [imageUrl]);
 
-  const onSubmitHandler = async ( input ) => {
-
+  const onSubmitHandler = async (input) => {
     try {
       //Store Image on Storage Supabase
       const { data: dataImage, error: errorImage } = await supabase.storage
-        .from('image')
+        .from("image")
         .upload(`fasilitas/${imageUpload.name}`, imageUpload, {
-          upsert: true
-        })
-      
+          upsert: true,
+        });
+
       //Get Image URL from Storage Supabase
-      if(dataImage){
-        const { data: getImages } = supabase.storage.from('image').getPublicUrl(dataImage.path)
-        setImageUrl(getImages.publicUrl);
+      if (dataImage) {
+        const { data: getImages } = supabase.storage
+          .from("image")
+          .getPublicUrl(dataImage.path);
+        // setImageUrl(getImages.publicUrl);
 
         const { error } = await supabase
-        .from('fasilitas')
-        .insert([
-          {
-            url_image: getImages.publicUrl,
-            latitude: input.latitude,
-            longitude: input.longitude,
-            name: input.name,
-            description: input.description
-          }
-        ])
-        .select()
+          .from("fasilitas")
+          .insert([
+            {
+              url_image: getImages.publicUrl,
+              latitude: input.latitude,
+              longitude: input.longitude,
+              name: input.name,
+              description: input.description,
+            },
+          ])
+          .select();
 
-        if(!error){
+        if (!error) {
           Swal.fire({
             title: "Berhasil",
             icon: "success",
             text: "Data Berhasil Ditambahkan",
           }).then(() => {
             reset();
-            setFacility(true)
+            setFacility(true);
+            setImage(null);
             router.refresh();
-          })
+          });
         } else {
           Swal.fire({
             title: "Gagal",
@@ -92,11 +93,11 @@ const ModalAddFacility = () => {
       } else {
         Swal.fire({
           title: "Gagal",
-          text:  errorImage.message,
+          text: errorImage.message,
           icon: "error",
-        })
+        });
       }
-    
+
       // if(imageUrl){
       //   // Store Data Fasilitas on Database
       //   const { error } = await supabase
@@ -129,24 +130,27 @@ const ModalAddFacility = () => {
       //     });
       //   }
       // }
-    } catch(error) {
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
+
+  const closeHandler = () => {
+    setFacility();
+    setImage(null);
+  };
 
   return (
-    <div className='flex flex-col justify-center items-center h-screen'>
-
+    <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-6/12 space-y-5 border-2 p-6 rounded-xl bg-white">
         <div className="flex justify-between items-center border-b-2 pb-4">
-          <h2 className='font-semibold text-xl'>Tambah Fasilitas</h2>
-          <button className="text-3xl font-semibold" onClick={setFacility}>
+          <h2 className="font-semibold text-xl">Tambah Fasilitas</h2>
+          <button className="text-3xl font-semibold" onClick={closeHandler}>
             <IoIosClose />
           </button>
         </div>
 
         <form onSubmit={handleSubmit(onSubmitHandler)}>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-6">
             <div className="flex flex-col">
               <label className="font-medium">Gambar Fasilitas</label>
@@ -164,12 +168,19 @@ const ModalAddFacility = () => {
                 <div className="text-[#0F6EE3] text-xs">
                   <h2 className="text-sm font-medium text-black">Syarat :</h2>
                   <ul>
-                    <li className="text-xs">Ukuran gambar harus di bawah 1MB</li>
+                    <li className="text-xs">
+                      Ukuran gambar harus di bawah 1MB
+                    </li>
                     <li className="text-xs">Gambar harus 16 x 9</li>
                   </ul>
                 </div>
                 <div>
-                  <label htmlFor="imageUploads" className="cursor-pointer text-xs px-3 py-2 rounded-md text-white bg-[#0F6EE3]">Pilih Berkas</label>
+                  <label
+                    htmlFor="imageUploads"
+                    className="cursor-pointer text-xs px-3 py-2 rounded-md text-white bg-[#0F6EE3]"
+                  >
+                    Pilih Berkas
+                  </label>
                   <input
                     name="position"
                     type="file"
@@ -185,25 +196,43 @@ const ModalAddFacility = () => {
 
             <div className="flex flex-col space-y-2">
               <h3 className="font-medium">Nama Fasilitas</h3>
-              <input type="text" className="border-2 rounded-md pl-2 py-1 text-sm" {...register('name')}/>
+              <input
+                type="text"
+                className="border-2 rounded-md pl-2 py-1 text-sm"
+                {...register("name")}
+              />
             </div>
             <div className="flex flex-col space-y-2">
               <h3 className="font-medium">Deskripsi Fasilitas</h3>
-              <textarea name="" id=""  rows="8" className="border-2 rounded-md pl-2 py-1 text-xs " {...register('description')}></textarea>
+              <textarea
+                name=""
+                id=""
+                rows="8"
+                className="border-2 rounded-md pl-2 py-1 text-xs "
+                {...register("description")}
+              ></textarea>
             </div>
             <div className="flex flex-col space-y-3">
               <h3 className="font-medium pb-1">Titik Koordinat</h3>
               <div className="w-full space-y-1">
                 <h4 className="text-sm">Garis Lintang (Latitude)</h4>
-                <input type="text" className="border-2 rounded-md pl-2 py-1 text-sm w-full" {...register('latitude')}/>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                  {...register("latitude")}
+                />
               </div>
               <div className="w-full space-y-1">
                 <h4 className="text-sm">Garis Bujur (Longitude)</h4>
-                <input type="text" className="border-2 rounded-md pl-2 py-1 text-sm w-full" {...register('longitude')}/>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                  {...register("longitude")}
+                />
               </div>
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={`flex justify-center items-center w-full gap-x-2 text-sm text-white py-2 rounded-md col-start-1 col-end-3 bg-[#0F6EE3]`}
               // disabled={!imageUrl}
               // onClick={onSubmitHandler}
@@ -212,12 +241,10 @@ const ModalAddFacility = () => {
               <p>Simpan</p>
             </button>
           </div>
-
         </form>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default ModalAddFacility
+export default ModalAddFacility;
