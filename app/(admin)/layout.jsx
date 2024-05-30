@@ -1,10 +1,10 @@
-import ContentAdmin from '@/components/Admin/ContentAdmin/ContentAdmin'
-import NavbarAdmin from '@/components/Admin/NavbarAdmin/NavbarAdmin'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import ContentAdmin from "@/components/Admin/ContentAdmin/ContentAdmin";
+import NavbarAdmin from "@/components/Admin/NavbarAdmin/NavbarAdmin";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export async function AdminLayout({ children }){
+export async function AdminLayout({ children }) {
   const supabase = createServerComponentClient({ cookies });
 
   const {
@@ -16,11 +16,11 @@ export async function AdminLayout({ children }){
   }
 
   return (
-    <div className='h-screen'>
+    <div className="h-screen">
       <NavbarAdmin />
       <ContentAdmin>{children}</ContentAdmin>
     </div>
-  )
+  );
 }
 
-export default AdminLayout
+export default AdminLayout;
