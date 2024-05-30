@@ -2,18 +2,19 @@
 
 import React from 'react'
 import NavLeft from '../NavLeft/NavLeft'
-import { useModalAddFacility } from '@/zustand/useModalAddFacility'
+import { useModalFacility } from '@/zustand/useModalFacility'
 import ModalAddFacility from '../ModalAddFacility/ModalAddFacility';
 import { useSidebar } from '@/zustand/useSidebar';
+import ModalEditFacility from '../ModalEditFacility/ModalEditFacility';
 
 export default function ContentAdmin({ children }) {
-  const { facility, isEdit: isEditFacility } = useModalAddFacility();
+  const { facility, isEdit: isEditFacility } = useModalFacility();
   const { open } = useSidebar();
 
   return (
     <div className='relative flex mt-10 bg-white'>
       <div className="mt-6">
-        <div className={`fixed w-[16rem] ${ open ? "transform-none" : "" } -translate-x-full duration-700 transition-transform`}>
+        <div className={`fixed w-[16rem] ${ open ? "transform-none" : "" } -translate-x-full duration-700 transition-transform z-10 border-r-2`}>
           <NavLeft />
         </div>
       </div>
@@ -27,7 +28,15 @@ export default function ContentAdmin({ children }) {
         <ModalAddFacility />
       </div>
 
-      <div className={`${ open ? "pl-[16rem]" : "pl-0"} w-full h-screen duration-700 ease-in-out`}>{children}</div>
+      <div
+        className={` ${
+          !isEditFacility ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
+        <ModalEditFacility />
+      </div>
+
+      <div className={`${ open ? "lg:pl-[16rem]" : "pl-0"} h-screen w-full duration-700 ease-in-out`}>{children}</div>
 
     </div>
   )
