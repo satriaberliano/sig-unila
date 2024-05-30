@@ -1,40 +1,38 @@
-import { supabase } from '@/lib/supabase';
-import React from 'react'
-import { RiBuilding4Fill } from "react-icons/ri";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import CardDashboard from "../CardDashboard/CardDashboard";
+import MetricCardDashboard from "../MetricCardDashboard/MetricCardDashboard";
 
-export default function HeadDashboard() {
+const HeadDashboard = async () => {
+  const supabase = createServerComponentClient({ cookies });
+
+  let { data: fasilitas, error } = await supabase.from("fasilitas").select();
+
   return (
     <div className="space-y-2 mb-14">
       <h1 className="text-3xl mb-10 font-medium">Dashboard</h1>
-      <div className='grid grid-cols-3 gap-5 w-full'>
-        <div className='relative overflow-hidden shadow-md max-w-lg rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4'>
-          <h2 className='font-medium text-neutral-700'>Jumlah Fasilitas</h2>
-          <p className='text-xl font-semibold'>20</p>
-          <div className='absolute -bottom-2 right-0'>
-            <RiBuilding4Fill className='text-[5.5rem] text-neutral-300'/>
-          </div>
-        </div>
-        <div className='relative overflow-hidden shadow-md max-w-lg rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4'>
-          <h2 className='font-medium text-neutral-700'>Fasilitas Baru</h2>
-          <p className='text-xl font-semibold'>2</p>
-          <div className='absolute -bottom-2 right-0'>
-            <RiBuilding4Fill className='text-[5.5rem] text-neutral-300'/>
-          </div>
-        </div>
-        <div className='relative overflow-hidden shadow-md max-w-lg rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4'>
-          <h2 className='font-medium text-neutral-700'>Fasilitas Baru</h2>
-          <p className='text-xl font-semibold'>2</p>
-          <div className='absolute -bottom-2 right-0'>
-            <RiBuilding4Fill className='text-[5.5rem] text-neutral-300'/>
-          </div>
-        </div>
+      <div className="grid grid-cols-3 gap-5 w-full">
+        <CardDashboard
+          total={fasilitas.length}
+          titleCard={"Jumlah Fasilitas"}
+        />
+        <CardDashboard total={""} titleCard={"Jumlah Lokasi"} />
+        <CardDashboard total={""} titleCard={"No Information"} />
       </div>
-      <div className='grid grid-cols-2 gap-5 pt-5'>
-        <div className='flex flex-col shadow-md max-w-lg rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4'>
-          <h2 className='text-lg font-medium'>Overview Metrics</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
+        {/* <MetricCardDashboard /> */}
+        <div className="flex flex-col shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4">
+          <h2 className="text-lg font-medium">Overview Metrics</h2>
+          <p>Unknown value</p>
+        </div>
+        <div className="flex flex-col shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4">
+          <h2 className="text-lg font-medium">Overview Metrics</h2>
           <p>Unknown value</p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default HeadDashboard;
