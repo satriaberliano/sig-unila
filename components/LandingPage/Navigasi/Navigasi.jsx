@@ -37,6 +37,7 @@ export default function Navigasi() {
         className="w-full absolute -bottom-0 -z-[10000]"
         width={500}
         height={500}
+        alt="wave image"
       />
     </div>
   );
