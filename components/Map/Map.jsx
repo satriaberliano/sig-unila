@@ -13,6 +13,7 @@ import {
   Polygon,
   LayersControl,
   LayerGroup,
+  ScaleControl,
 } from "react-leaflet";
 import { useState } from "react";
 import {
@@ -37,36 +38,8 @@ import {
 const Map = ({ facilities, search }) => {
   const [coord, setCoord] = useState([-5.364621, 105.243562]);
 
-  // const SearchLocation = () => {
-  //   return (
-  //     <div className="search-location">
-  //       <input type="text" placeholder="Search Location" />
-  //     </div>
-  //   );
-  // };
-
-  // const GetMyLocation = () => {
-  //   const getMyLocation = () => {
-  //     if (navigator.geolocation) {
-  //       navigator.geolocation.getCurrentPosition((position) => {
-  //         setCoord([position.coords.latitude, position.coords.longitude]);
-  //       });
-  //     } else {
-  //       console.log("Geolocation is not supported by this browser.");
-  //     }
-  //   };
-
-  //   return (
-  //     <div className="get-my-location">
-  //       <button onClick={getMyLocation}>Get My Location</button>
-  //     </div>
-  //   );
-  // };
-
   return (
     <div className="flex justify-center items-center flex-col">
-      {/* <SearchLocation />
-            <GetMyLocation /> */}
       <MapContainer
         center={coord}
         zoom={16}
@@ -111,6 +84,7 @@ const Map = ({ facilities, search }) => {
         ) : (
           <></>
         )}
+        <ScaleControl position="bottomright"></ScaleControl>
 
         <LayersControl position="topright">
           <LayersControl.Overlay checked name="Fakultas">
