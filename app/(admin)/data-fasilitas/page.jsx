@@ -1,11 +1,14 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ContentFacility } from "@/components/Admin/ContentFacility/ContentFacility";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
+import supabaseServer from "@/lib/supabaseServer";
 
 const DataFasilitas = async () => {
-  const supabase = createServerComponentClient({ cookies });
+  // const supabase = createServerComponentClient({ cookies });
 
-  const { data: facilities } = await supabase.from("fasilitas").select();
+  const { data: facilities } = await supabaseServer()
+    .from("fasilitas")
+    .select();
 
   return (
     <div className="px-10 py-14 h-full bg-white">

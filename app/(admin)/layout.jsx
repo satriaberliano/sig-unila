@@ -1,15 +1,16 @@
 import ContentAdmin from "@/components/Admin/ContentAdmin/ContentAdmin";
 import NavbarAdmin from "@/components/Admin/NavbarAdmin/NavbarAdmin";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import supabaseServer from "@/lib/supabaseServer";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function AdminLayout({ children }) {
-  const supabase = createServerComponentClient({ cookies });
+  // const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await supabaseServer().auth.getUser();
 
   if (!user) {
     redirect("/masuk");
