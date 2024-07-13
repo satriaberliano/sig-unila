@@ -16,10 +16,6 @@ import Swal from "sweetalert2";
 const ModalAddFacility = () => {
   const [image, setImage] = useState();
   const [imageUpload, setImageUpload] = useState(null);
-  // const [imageUrl, setImageUrl] = useState();
-  // const [imagePath, setImagePath] = useState();
-
-  // const { imageUrl, setImageUrl } = useImages()
 
   const { setFacility } = useModalFacility();
 
@@ -40,9 +36,6 @@ const ModalAddFacility = () => {
     formState: { errors },
   } = useForm();
 
-  // useEffect(() => {
-  // }, [imageUrl]);
-
   const onSubmitHandler = async (input) => {
     try {
       //Store Image on Storage Supabase
@@ -57,7 +50,6 @@ const ModalAddFacility = () => {
         const { data: getImages } = supabase.storage
           .from("image")
           .getPublicUrl(dataImage.path);
-        // setImageUrl(getImages.publicUrl);
 
         const { error } = await supabase
           .from("fasilitas")
@@ -68,6 +60,10 @@ const ModalAddFacility = () => {
               longitude: input.longitude,
               name: input.name,
               description: input.description,
+              jam_buka: input.jam_buka,
+              jam_tutup: input.jam_tutup,
+              kontak: input.kontak,
+              akses: input.akses,
             },
           ])
           .select();
@@ -97,41 +93,12 @@ const ModalAddFacility = () => {
           icon: "error",
         });
       }
-
-      // if(imageUrl){
-      //   // Store Data Fasilitas on Database
-      //   const { error } = await supabase
-      //   .from('fasilitas')
-      //   .insert([
-      //     {
-      //       url_image: imageUrl,
-      //       latitude: input.latitude,
-      //       longitude: input.longitude,
-      //       name: input.name,
-      //       description: input.description
-      //     }
-      //   ])
-      //   .select()
-
-      //   if(!error){
-      //     Swal.fire({
-      //       title: "Berhasil",
-      //       icon: "success",
-      //       text: "Data Berhasil Ditambahkan",
-      //     });
-
-      //     reset();
-      //     setFacility(true)
-      //   } else {
-      //     Swal.fire({
-      //       title: "Gagal",
-      //       icon: "error",
-      //       text: error.message,
-      //     });
-      //   }
-      // }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        icon: "warning",
+      });
     }
   };
 
@@ -194,14 +161,49 @@ const ModalAddFacility = () => {
               </div>
             </div>
 
-            <div className="flex flex-col space-y-2">
-              <h3 className="font-medium">Nama Fasilitas</h3>
-              <input
-                type="text"
-                className="border-2 rounded-md pl-2 py-1 text-sm"
-                {...register("name")}
-              />
+            <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Nama Fasilitas</h3>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm"
+                  {...register("name")}
+                />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Jam Operasional</h3>
+                <div className="flex justify-center items-center gap-5">
+                  <input
+                    type="time"
+                    className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                    {...register("jam_buka")}
+                  />
+                  {"s.d"}
+                  <input
+                    type="time"
+                    className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                    {...register("jam_tutup")}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Kontak</h3>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm"
+                  {...register("kontak")}
+                />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Akses</h3>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm"
+                  {...register("akses")}
+                />
+              </div>
             </div>
+
             <div className="flex flex-col space-y-2">
               <h3 className="font-medium">Deskripsi Fasilitas</h3>
               <textarea

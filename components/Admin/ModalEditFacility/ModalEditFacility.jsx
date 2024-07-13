@@ -42,12 +42,18 @@ const ModalEditFacility = () => {
     setValue("description", edit.description);
     setValue("latitude", edit.latitude);
     setValue("longitude", edit.longitude);
+    setValue("jam_buka", edit.jam_buka);
+    setValue("jam_tutup", edit.jam_tutup);
+    setValue("akses", edit.akses);
+    setValue("kontak", edit.kontak);
   }, [edit]);
 
   const onSubmitHandler = async (input) => {
     try {
       //Delete Image
-      // await supabase.storage.from('bucket').remove(['object-key-1'])
+      // await supabase.storage
+      //   .from("image")
+      //   .remove([`fasilitas/${edit.url_image.slice(72)}`]);
 
       // Add New Image
       if (imageUpload) {
@@ -56,6 +62,11 @@ const ModalEditFacility = () => {
           .upload(`fasilitas/${imageUpload.name}`, imageUpload, {
             upsert: true,
           });
+
+        // console.log(edit.url_image.slice(72));
+        await supabase.storage
+          .from("image")
+          .remove([`${edit.url_image.slice(72)}`]);
 
         //Get Image URL from Storage Supabase
         if (dataImage) {
@@ -72,6 +83,10 @@ const ModalEditFacility = () => {
                 longitude: input.longitude,
                 name: input.name,
                 description: input.description,
+                jam_buka: input.jam_buka,
+                jam_tutup: input.jam_tutup,
+                kontak: input.kontak,
+                akses: input.akses,
               },
             ])
             .eq("id", edit.id)
@@ -81,7 +96,7 @@ const ModalEditFacility = () => {
             Swal.fire({
               title: "Berhasil",
               icon: "success",
-              text: "Data Berhasil Ditambahkan",
+              text: "Data Berhasil Disunting",
             }).then(() => {
               setIsEdit();
               router.refresh();
@@ -109,6 +124,10 @@ const ModalEditFacility = () => {
               longitude: input.longitude,
               name: input.name,
               description: input.description,
+              jam_buka: input.jam_buka,
+              jam_tutup: input.jam_tutup,
+              kontak: input.kontak,
+              akses: input.akses,
             },
           ])
           .eq("id", edit.id)
@@ -118,7 +137,7 @@ const ModalEditFacility = () => {
           Swal.fire({
             title: "Berhasil",
             icon: "success",
-            text: "Data Berhasil Ditambahkan",
+            text: "Data Berhasil Disunting",
           }).then(() => {
             setIsEdit();
             setImage(null);
@@ -133,7 +152,11 @@ const ModalEditFacility = () => {
         }
       }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        icon: "warning",
+      });
     }
   };
 
@@ -152,6 +175,7 @@ const ModalEditFacility = () => {
           </button>
         </div>
 
+        {/* {console.log(edit.url_image.slice(72))} */}
         <form onSubmit={handleSubmit(onSubmitHandler)}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-6">
             <div className="flex flex-col">
@@ -196,15 +220,50 @@ const ModalEditFacility = () => {
               </div>
             </div>
 
-            <div className="flex flex-col space-y-2">
-              <h3 className="font-medium">Nama Fasilitas</h3>
-              <input
-                name="name"
-                type="text"
-                className="border-2 rounded-md pl-2 py-1 text-sm"
-                {...register("name")}
-              />
+            <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Nama Fasilitas</h3>
+                <input
+                  name="name"
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm"
+                  {...register("name")}
+                />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Jam Operasional</h3>
+                <div className="flex justify-center items-center gap-5">
+                  <input
+                    type="time"
+                    className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                    {...register("jam_buka")}
+                  />
+                  {"s.d"}
+                  <input
+                    type="time"
+                    className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                    {...register("jam_tutup")}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Kontak</h3>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm"
+                  {...register("kontak")}
+                />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-medium">Akses</h3>
+                <input
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-1 text-sm"
+                  {...register("akses")}
+                />
+              </div>
             </div>
+
             <div className="flex flex-col space-y-2">
               <h3 className="font-medium">Deskripsi Fasilitas</h3>
               <textarea
