@@ -2,6 +2,7 @@
 
 // ** Import Assets
 import assets from "@/assets/assets";
+import dynamic from "next/dynamic";
 
 // ** Import Next
 import Image from "next/image";
@@ -10,9 +11,17 @@ import { notFound } from "next/navigation";
 
 // ** Import Icons
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { LuClock4 } from "react-icons/lu";
 
 // ** Import Components
-import MapEachFacility from "../MapEachFacility/MapEachFacility";
+// import MapEachFacility from "../MapEachFacility/MapEachFacility";
+
+const MapEachFacility = dynamic(
+  () => import("@/components/LandingPage/MapEachFacility/MapEachFacility"),
+  {
+    ssr: false,
+  }
+);
 
 const DetailFasilitas = ({ facility }) => {
   // if (facility.length == 0) {
@@ -50,8 +59,17 @@ const DetailFasilitas = ({ facility }) => {
                     onClick=""
                   >
                     <FaMapMarkerAlt />
-                    <p className="text-sm">Navigasi</p>
+                    <p className="text-base font-medium">Navigasi</p>
                   </Link>
+                  <div className="flex items-center gap-3">
+                    <LuClock4 />
+                    <p>
+                      {/* {(fasilitas.jam_buka && fasilitas.jam_tutup) == null
+                        ? `${fasilitas.jam_buka} - ${fasilitas.jam_tutup}`
+                        : "Tidak ada data"} */}
+                      {`${fasilitas.jam_buka} - ${fasilitas.jam_tutup}`}
+                    </p>
+                  </div>
                   <p className="text-base">{fasilitas.description}</p>
                 </div>
               </div>
@@ -59,6 +77,7 @@ const DetailFasilitas = ({ facility }) => {
                 facilityLat={fasilitas.latitude}
                 facilityLong={fasilitas.longitude}
                 facilityName={fasilitas.name}
+                id="map-each-container"
               />
             </div>
           ))

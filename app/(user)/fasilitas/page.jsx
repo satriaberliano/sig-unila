@@ -1,8 +1,9 @@
 "use client";
 
 import assets from "@/assets/assets";
-import Map from "@/components/Map/Map";
+import Loading from "@/components/Admin/Loading/Loading";
 import { supabase } from "@/lib/supabase";
+import dynamic from "next/dynamic";
 
 // ** Import Next
 import Image from "next/image";
@@ -11,10 +12,15 @@ import Link from "next/link";
 // ** Import React
 import React, { useEffect, useState } from "react";
 
+const Map = dynamic(() => import("@/components/Map/Map"), {
+  ssr: false,
+});
+
 const Fasilitas = () => {
   const [facilities, setFacilities] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   const [search, setSearch] = useState("");
+  // const [debounceTimeout, setDebounceTimeout] = useState(null);
 
   useEffect(() => {
     const fetchFacilities = async () => {
@@ -34,18 +40,21 @@ const Fasilitas = () => {
     fetchFacilities();
   }, []);
 
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div className="bg-white pt-28 pb-24 px-12 sm:px-20 md:px-28 lg:px-32 min-h-screen">
       <h2 className="text-3xl font-semibold text-center mb-10">Fasilitas</h2>
-      <Map facilities={facilities} search={search} />
+      <Map facilities={facilities} search={search} id="map-container" />
       <div className="flex justify-center items-center my-10">
         <input
           className="border-2 p-2 w-full rounded-lg placeholder:text-sm placeholder:px-2"
+          type="text"
+          value={search}
           placeholder="Cari fasilitas..."
-          onChange={(e) => {
-            // setInterval(setSearch(e.target.value), 10000);
-            setSearch(e.target.value);
-          }}
+          onChange={handleSearchChange}
         ></input>
       </div>
       <div>
