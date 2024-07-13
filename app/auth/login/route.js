@@ -2,17 +2,19 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request = NextRequest) {
+export default async function POST(request = NextRequest) {
   const url = new URL(request.url);
   const cookieStore = cookies();
 
-  const formData = await req.formData();
+  const formData = await request.formData();
 
   const email = formData.get("email");
   const password = formData.get("password");
 
   const supabase = createRouteHandlerClient({
-    coookie: () => cookieStore,
+    cookie: () => {
+      return cookieStore;
+    },
   });
 
   await supabase.auth.signInWithPassword({
@@ -21,6 +23,6 @@ export async function POST(request = NextRequest) {
   });
 
   return NextResponse.redirect(url.origin, {
-    status: 301,
+    status: 302,
   });
 }

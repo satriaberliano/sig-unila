@@ -1,14 +1,18 @@
 // ** Import Assets
-import assets from '@/assets/assets'
+import assets from "@/assets/assets";
 
 // ** Import Next
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 
 // ** Import Icons
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { RiInstagramFill, RiFacebookBoxFill, RiYoutubeFill } from "react-icons/ri";
+import {
+  RiInstagramFill,
+  RiFacebookBoxFill,
+  RiYoutubeFill,
+} from "react-icons/ri";
 
 export default function Footer() {
   return (
@@ -20,33 +24,30 @@ export default function Footer() {
               src={assets.logoUnila}
               className="w-20 -mt-2 md:-mt-9 mx-auto md:mx-0"
               alt="logo geomuda indonesia text white"
-              />
-            <h4 className="font-semibold text-xl text-center md:text-left">SIG UNILA</h4>
-            <p className="text-sm text-center md:text-left">Sistem Informasi Geografis Universitas Lampung sebagai penyedia informasi pemetaan fasilitas yang ada</p>
+            />
+            <h4 className="font-semibold text-xl text-center md:text-left">
+              SIG UNILA
+            </h4>
+            <p className="text-sm text-center md:text-left">
+              Sistem Informasi Geografis Universitas Lampung sebagai penyedia
+              informasi pemetaan fasilitas yang ada
+            </p>
           </div>
 
           <div className="space-y-5">
             <h4 className="font-semibold text-lg">Website</h4>
-              <div className="space-y-1 text-sm flex flex-col">
-                <Link href="/">
-                  Beranda
-                </Link>
-                <Link href="/fasilitas">
-                  Fasilitas
-                </Link>
-                <Link href="/tentang">
-                  Tentang
-                </Link>
-              </div>
+            <div className="space-y-1 text-sm flex flex-col">
+              <Link href="/">Beranda</Link>
+              <Link href="/fasilitas">Fasilitas</Link>
+              <Link href="/tentang">Tentang</Link>
+            </div>
           </div>
 
           <div className="space-y-5">
-            <h4 className="font-semibold text-lg">
-              Alamat
-            </h4>
+            <h4 className="font-semibold text-lg">Alamat</h4>
             <p className="text-sm">
-            Jl. Prof. Dr. Sumantri Brojonegoro No. 1 <br />
-            Bandar Lampung, 35145
+              Jl. Prof. Dr. Sumantri Brojonegoro No. 1 <br />
+              Bandar Lampung, 35145
             </p>
           </div>
 
@@ -64,7 +65,7 @@ export default function Footer() {
                 <MdEmail />
                 admin@sigunila.ac.id
               </li>
-              <li className="flex justify-center items-center gap-3 text-2xl pt-2">
+              {/* <li className="flex justify-center items-center gap-3 text-2xl pt-2">
                 <Link href="#" target="_blank">
                   <RiInstagramFill />
                 </Link>
@@ -74,7 +75,7 @@ export default function Footer() {
                 <Link href="#">
                   <RiYoutubeFill />
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -82,9 +83,11 @@ export default function Footer() {
         <div className="py-[1px] bg-[#DADADA] my-8"></div>
 
         <div>
-          <p className="font-medium text-sm text-center">© 2023 SIG UNILA. All rights reserved</p>
+          <p className="font-medium text-sm text-center">
+            © 2023 SIG UNILA. All rights reserved
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
