@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+th,
+td {
+  padding: 10px;
+  border: 2px solid rgba(55, 55, 55, 0.109);
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.569);
+}
+
+table {
+  border-radius: 20px;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
