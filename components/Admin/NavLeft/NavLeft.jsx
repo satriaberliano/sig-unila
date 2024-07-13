@@ -47,47 +47,52 @@ export default function NavLeft() {
   };
 
   return (
-    <div className="basis-1/6 bg-[#F1F1F1] py-4 h-screen space-y-10">
-      <div className="py-8 space-y-4">
+    <div className="basis-1/6 bg-[#F1F1F1] py-4 h-screen space-y-3">
+      <div className="py-8 space-y-4 px-4">
         <Image
           src={assets.logoUnila}
           alt="Universitas Lampung logo"
           className="w-2/6 mx-auto"
         ></Image>
-        <h3 className="text-lg text-center font-semibold">SIG UNILA</h3>
+        <h3 className="text-lg text-center font-semibold">
+          Sistem Informasi Geografis Universitas Lampung
+        </h3>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-1 text-sm">
         <Link
           href="/dashboard"
-          className={`p-4 flex justify-center items-center gap-4  hover:font-medium ${
+          // flex justify-center items-center
+          className={`p-4 grid grid-cols-3 gap-2 hover:font-medium px-10 ${
             pathname === "/dashboard"
               ? "bg-[#0F6EE3] text-white hover:text-black"
               : "hover:bg-[#0F6EE3] hover:text-white"
           }`}
         >
-          <MdMonitor className="text-2xl" />
-          <span>Dashboard</span>
+          <MdMonitor className="text-2xl col-start-1 col-end-2 justify-self-center" />
+          <span className="col-start-2 col-end-4 self-center">Dashboard</span>
         </Link>
 
         <Link
           href="/data-fasilitas"
-          className={`p-4 flex justify-center items-center gap-4 hover:font-medium  ${
+          className={`p-4 grid grid-cols-3 justify-self-center gap-2 hover:font-medium px-10  ${
             pathname === "/data-fasilitas"
               ? "bg-[#0F6EE3] text-white hover:text-black"
               : "hover:bg-[#0F6EE3] hover:text-white"
           }`}
         >
-          <FiDatabase className="text-2xl" />
-          <span>Data Fasilitas</span>
+          <FiDatabase className="text-2xl col-start-1 col-end-2 justify-self-center" />
+          <span className="col-start-2 col-end-4 self-center">
+            Data Fasilitas
+          </span>
         </Link>
 
         <div
           onClick={onHandlerLogOut}
-          className="p-4 flex cursor-pointer justify-center items-center gap-4 hover:bg-[#0F6EE3] hover:text-white hover:font-medium "
+          className="p-4 grid grid-cols-3 justify-self-center gap-2 hover:bg-[#0F6EE3] hover:text-white hover:font-medium px-10"
         >
-          <TbLogout2 className="text-2xl" />
-          <p>Logout</p>
+          <TbLogout2 className="text-2xl col-start-1 col-end-2 justify-self-center" />
+          <span className="col-start-2 col-end-4 self-center">Logout</span>
         </div>
       </div>
     </div>
