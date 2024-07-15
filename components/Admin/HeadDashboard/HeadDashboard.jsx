@@ -39,16 +39,14 @@ const HeadDashboard = async () => {
         />
         <CardDashboard
           total={""}
-          titleCard={"Jumlah Fasilitas dalam Pemeliharaan (Belum Fix)"}
+          titleCard={"Jumlah Fasilitas dalam Pemeliharaan"}
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
         {/* <MetricCardDashboard /> */}
         <MetricCardDashboard title={"Metrik Penambahan Data Fasilitas"} />
-        <MetricCardDashboard
-          title={"Metrik Fasilitas dalam Pemeliharaan (Belum Fix)"}
-        />
+        <MetricCardDashboard title={"Metrik Fasilitas dalam Pemeliharaan"} />
       </div>
 
       <div className="grid grid-cols-1 gap-5 pt-5">
