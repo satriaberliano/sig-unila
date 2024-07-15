@@ -50,11 +50,6 @@ const ModalEditFacility = () => {
 
   const onSubmitHandler = async (input) => {
     try {
-      //Delete Image
-      // await supabase.storage
-      //   .from("image")
-      //   .remove([`fasilitas/${edit.url_image.slice(72)}`]);
-
       // Add New Image
       if (imageUpload) {
         const { data: dataImage, error: errorImage } = await supabase.storage
@@ -63,7 +58,7 @@ const ModalEditFacility = () => {
             upsert: true,
           });
 
-        // console.log(edit.url_image.slice(72));
+        //Delete Old Image
         await supabase.storage
           .from("image")
           .remove([`${edit.url_image.slice(72)}`]);
