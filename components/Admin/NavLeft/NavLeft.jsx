@@ -15,6 +15,7 @@ import { TbLogout2 } from "react-icons/tb";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 export default function NavLeft() {
   const supabase = createClientComponentClient();
@@ -79,7 +80,15 @@ export default function NavLeft() {
             pathname === "/data-fasilitas"
               ? "bg-[#0F6EE3] text-white hover:text-black"
               : "hover:bg-[#0F6EE3] hover:text-white"
-          }`}
+          }
+          
+          ${
+            pathname === "/data-fasilitas/tambah-fasilitas"
+              ? "bg-[#0F6EE3] text-white hover:text-black"
+              : "hover:bg-[#0F6EE3] hover:text-white"
+          }
+
+          `}
         >
           <FiDatabase className="text-2xl col-start-1 col-end-2 justify-self-center" />
           <span className="col-start-2 col-end-4 self-center">
