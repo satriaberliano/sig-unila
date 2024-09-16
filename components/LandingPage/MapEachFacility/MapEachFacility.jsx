@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import MarkerIcon from "../../../node_modules/leaflet/dist/images/marker-icon.png";
 import MarkerShadow from "../../../node_modules/leaflet/dist/images/marker-shadow.png";
@@ -12,6 +12,7 @@ import {
   Polygon,
   LayersControl,
   LayerGroup,
+  useMap,
 } from "react-leaflet";
 import {
   agricultureOptions,
@@ -35,9 +36,34 @@ import {
 const MapEachFacility = ({ facilityLat, facilityLong, facilityName }) => {
   const [coord, setCoord] = useState([-5.364621, 105.243562]);
 
-  {
-    console.log(facilityLat);
-  }
+  const CustomMap = () => {
+    const map = useMap();
+
+    useEffect(() => {
+      // Function to update zoom level based on screen size
+      const updateZoomLevel = () => {
+        const isMobile = window.innerWidth <= 768; // Assuming 768px as the mobile breakpoint
+        map.setZoom(isMobile ? 15 : 16);
+      };
+
+      // Initial zoom level adjustment
+      updateZoomLevel();
+
+      // Add event listener for screen resize
+      window.addEventListener("resize", updateZoomLevel);
+
+      // Cleanup the event listener on component unmount
+      return () => {
+        window.removeEventListener("resize", updateZoomLevel);
+      };
+    }, [map]);
+
+    return null;
+  };
+
+  // {
+  //   console.log(facilityLat);
+  // }
 
   return (
     <div className="flex justify-center items-center flex-col">
@@ -69,12 +95,7 @@ const MapEachFacility = ({ facilityLat, facilityLong, facilityName }) => {
         >
           <Popup>{facilityName}</Popup>
         </Marker>
-        {/* ))}
-          </>
-        ) : (
-          <></>
-        )} */}
-
+        <CustomMap />
         <LayersControl position="topright">
           <LayersControl.Overlay checked name="Fakultas">
             <LayerGroup>
