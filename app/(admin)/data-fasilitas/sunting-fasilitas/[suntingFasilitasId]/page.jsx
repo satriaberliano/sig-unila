@@ -349,6 +349,7 @@ const SuntingFasilitasPage = ({ params }) => {
                       !image && "flex justify-center items-center"
                     }`}
                     fill
+                    sizes="(max-width: 768px) 100vw"
                   />
                 </div>
                 <div className="flex justify-between items-center">
@@ -531,7 +532,7 @@ const SuntingFasilitasPage = ({ params }) => {
                   <div className="flex flex-col space-y-3">
                     <h3 className="font-medium">
                       Jam Operasional{" "}
-                      {edit.jam_operasional.length > 1 ? `${index} + 1` : ""}
+                      {edit.jam_operasional.length > 1 ? `${index + 1}` : ""}
                     </h3>
                     <div className="flex flex-row gap-x-4 w-full">
                       <input
