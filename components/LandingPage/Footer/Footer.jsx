@@ -57,13 +57,13 @@ export default function Footer() {
               Kontak
             </h4>
             <ul className="space-y-1 text-sm">
-              <li className="flex justify-center items-center gap-2">
+              {/* <li className="flex justify-center items-center gap-2">
                 <BsFillTelephoneFill />
                 +62-812-3456-7890
-              </li>
+              </li> */}
               <li className="flex justify-center items-center gap-2">
                 <MdEmail />
-                admin@sigunila.ac.id
+                unila.sig@gmail.com
               </li>
               {/* <li className="flex justify-center items-center gap-3 text-2xl pt-2">
                 <Link href="#" target="_blank">
