@@ -34,17 +34,27 @@ import {
   scienceOptions,
   sospolOptions,
 } from "@/constant/fasilitas-polygon";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import Link from "next/link";
 
-const Map = ({ facilities, search }) => {
+const jakarta_sans = Plus_Jakarta_Sans({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["cyrillic-ext"],
+});
+
+const Map = ({ facilities, search, height }) => {
   const [coord, setCoord] = useState([-5.364621, 105.243562]);
+  const [navigateGoogle, setNavigateGoogle] = useState(
+    "https://www.google.com/maps/place/"
+  );
 
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className={`flex justify-center items-center flex-col z-0`}>
       <MapContainer
         center={coord}
         zoom={16}
         scrollWheelZoom={false}
-        className="w-full h-[28rem] rounded-md"
+        className={`w-full ${height} rounded-md`}
         attributionControl={false}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -77,7 +87,23 @@ const Map = ({ facilities, search }) => {
                   }
                   position={[`${fasilitas.latitude}`, `${fasilitas.longitude}`]}
                 >
-                  <Popup>{fasilitas.name}</Popup>
+                  <Popup className={jakarta_sans.className}>
+                    <p className="font-semibold text-sm">{fasilitas.name}</p>
+                    <div className="flex justify-start items-center text-white gap-x-3">
+                      <Link
+                        className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
+                        href={`fasilitas/${fasilitas.id}`}
+                      >
+                        <span className="text-white">Rincian</span>
+                      </Link>
+                      <Link
+                        className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
+                        href={`${navigateGoogle}${fasilitas.latitude}+${fasilitas.longitude}`}
+                      >
+                        <span className="text-white">Navigasi</span>
+                      </Link>
+                    </div>
+                  </Popup>
                 </Marker>
               ))}
           </>
@@ -87,49 +113,67 @@ const Map = ({ facilities, search }) => {
         <ScaleControl position="bottomright"></ScaleControl>
 
         <LayersControl position="topright">
-          <LayersControl.Overlay checked name="Fakultas">
+          <LayersControl.Overlay
+            checked
+            name="Fakultas"
+            className={jakarta_sans.className}
+          >
             <LayerGroup>
               <Polygon
                 pathOptions={engineeringOptions}
                 positions={facultyOfEngineering}
               >
-                <Popup>Fakultas Teknik</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Teknik
+                </Popup>
               </Polygon>
               <Polygon
                 pathOptions={agricultureOptions}
                 positions={facultyOfAgriculture}
               >
-                <Popup>Fakultas Pertanian</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Pertanian
+                </Popup>
               </Polygon>
               <Polygon
                 pathOptions={scienceOptions}
                 positions={facultyOfScience}
               >
-                <Popup>Fakultas Matematika dan Ilmu Pengetahuan Alam</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Matematika dan Ilmu Pengetahuan Alam
+                </Popup>
               </Polygon>
               <Polygon
                 pathOptions={educationOptions}
                 positions={facultyOfEducation}
               >
-                <Popup>Fakultas Keguruan dan Ilmu Pendidikan</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Keguruan dan Ilmu Pendidikan
+                </Popup>
               </Polygon>
               <Polygon pathOptions={sospolOptions} positions={facultyOfSosPol}>
-                <Popup>Fakultas Ilmu Sosial dan Ilmu Politik</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Ilmu Sosial dan Ilmu Politik
+                </Popup>
               </Polygon>
               <Polygon
                 pathOptions={businessOptions}
                 positions={facultyOfBusiness}
               >
-                <Popup>Fakultas Ekonomi dan Bisnis</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Ekonomi dan Bisnis
+                </Popup>
               </Polygon>
               <Polygon pathOptions={lawOptions} positions={facultyOfLaw}>
-                <Popup>Fakultas Hukum</Popup>
+                <Popup className={jakarta_sans.className}>Fakultas Hukum</Popup>
               </Polygon>
               <Polygon
                 pathOptions={medicineOptions}
                 positions={facultyOfMedicine}
               >
-                <Popup>Fakultas Kedokteran</Popup>
+                <Popup className={jakarta_sans.className}>
+                  Fakultas Kedokteran
+                </Popup>
               </Polygon>
             </LayerGroup>
           </LayersControl.Overlay>
