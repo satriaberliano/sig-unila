@@ -262,6 +262,7 @@ const TambahFasilitasPage = () => {
                       !image && "flex justify-center items-center"
                     }`}
                     fill
+                    sizes="(max-width: 768px) 100vw"
                   />
                 </div>
                 <div className="flex justify-between items-center">
@@ -443,7 +444,7 @@ const TambahFasilitasPage = () => {
                 <div className="flex flex-col space-y-3" key={item.id}>
                   <h3 className="font-medium">
                     {fields.length > 1
-                      ? `Jam Operasional ${index + 1}`
+                      ? `Jam Operasional ${index}`
                       : "Jam Operasional"}
                   </h3>
                   <div className="flex flex-row gap-x-4 w-full">
