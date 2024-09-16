@@ -4,7 +4,7 @@ import Loading from "../Loading/Loading";
 
 const CardDashboard = ({ total, titleCard }) => {
   return (
-    <div className="relative overflow-hidden shadow-md max-w-lg rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4">
+    <div className="relative overflow-hidden shadow-md  rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4">
       <div className="flex flex-col justify-between h-full space-y-3">
         <h2 className="font-medium text-neutral-700">{titleCard}</h2>
         {total ? (
