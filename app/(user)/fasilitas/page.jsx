@@ -132,30 +132,32 @@ const Fasilitas = () => {
                       height={100}
                     />
                     <div className="p-6 space-y-4">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-semibold">
-                          {fasilitas.name}
-                        </h3>
-                        <div
-                          className={`rounded-full p-1 border-2 ${
-                            fasilitas.akses === "Umum dan Civitas Akademika"
-                              ? "bg-[#25aa1e]"
-                              : fasilitas.akses === "Civitas Akademika"
-                              ? "bg-[#2163bf]"
-                              : fasilitas.akses === "Tidak untuk umum"
-                              ? "bg-[#b42f20]"
-                              : ""
-                          } `}
-                        >
-                          <FaUser className="text-[10px] text-white" />
+                      <div className="grid grid-rows-2 gap-y-3">
+                        <div className="flex justify-between items-baseline gap-x-3">
+                          <h3 className="text-lg font-semibold">
+                            {fasilitas.name}
+                          </h3>
+                          <span
+                            className={`flex  h-fit rounded-full p-1 border-2 ${
+                              fasilitas.akses === "Umum dan Civitas Akademika"
+                                ? "bg-[#25aa1e]"
+                                : fasilitas.akses === "Civitas Akademika"
+                                ? "bg-[#2163bf]"
+                                : fasilitas.akses === "Tidak untuk umum"
+                                ? "bg-[#b42f20]"
+                                : ""
+                            } `}
+                          >
+                            <FaUser className="text-[10px] text-white" />
+                          </span>
                         </div>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: `${fasilitas.description}`,
+                          }}
+                          className="desc-content text-sm line-clamp-3"
+                        />
                       </div>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: `${fasilitas.description}`,
-                        }}
-                        className="desc-content text-sm line-clamp-3"
-                      />
                     </div>
                   </Link>
                 </div>
