@@ -36,6 +36,7 @@ import {
 } from "@/constant/fasilitas-polygon";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Link from "next/link";
+import { useFetchData } from "@/zustand/useFetchData";
 
 const jakarta_sans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
@@ -47,6 +48,12 @@ const Map = ({ facilities, search, height }) => {
   const [navigateGoogle, setNavigateGoogle] = useState(
     "https://www.google.com/maps/place/"
   );
+
+  const { setFacility } = useFetchData();
+
+  const dataFacilityHandler = (val) => {
+    setFacility(val);
+  };
 
   return (
     <div className={`flex justify-center items-center flex-col z-0`}>
@@ -93,6 +100,7 @@ const Map = ({ facilities, search, height }) => {
                       <Link
                         className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
                         href={`fasilitas/${fasilitas.id}`}
+                        onClick={() => dataFacilityHandler(fasilitas)}
                       >
                         <span className="text-white">Rincian</span>
                       </Link>
