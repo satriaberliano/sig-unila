@@ -33,37 +33,44 @@ const FormLogin = () => {
 
   const onSubmitHandler = async (input) => {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
-      email: input.email,
-      password: input.password,
-    });
 
-    if (!error) {
-      Swal.fire({
-        icon: "success",
-        title: "Berhasil",
-        text: "Login Telah Berhasil",
-        showConfirmButton: false,
-        timer: 2000,
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: input.email,
+        password: input.password,
       });
 
-      setLoading(false);
-      router.push("/dashboard");
-    } else if (error.message === "Invalid login credentials") {
-      Swal.fire({
-        icon: "error",
-        title: "Gagal",
-        text: "Email atau kata sandi salah",
-      }).then(() => setLoading(false));
-    } else {
+      if (!error) {
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil",
+          text: "Login Telah Berhasil",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+
+        setLoading(false);
+        router.push("/dashboard");
+      } else if (error.message === "Invalid login credentials") {
+        Swal.fire({
+          icon: "error",
+          title: "Gagal",
+          text: "Email atau kata sandi salah",
+        }).then(() => setLoading(false));
+      } else {
+        throw error;
+      }
+
+      router.refresh();
+    } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Gagal",
         text: error.message,
       }).then(() => setLoading(false));
+    } finally {
+      setLoading(false);
     }
-
-    router.refresh();
   };
 
   return (
@@ -111,7 +118,10 @@ const FormLogin = () => {
           )}
         </label>
       </div>
-      <button className="w-full border-[1px] text-sm font-semibold p-2 rounded-lg text-white bg-[#0F6EE3]">
+      <button
+        disabled={loading}
+        className="w-full border-[1px] text-sm font-semibold p-2 rounded-lg text-white bg-[#0F6EE3]"
+      >
         {loading ? <Loading /> : "Masuk"}
       </button>
     </form>
