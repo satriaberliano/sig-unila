@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { IoIosClose } from "react-icons/io";
 import { useImages } from "@/zustand/useImages";
+import assets from "@/assets/assets";
 
 const ModalImageFacility = () => {
-  const { images, setImage } = useImages();
+  const { dataImages, setImage } = useImages();
 
   const closeHandler = () => {
     setImage();
@@ -21,7 +22,7 @@ const ModalImageFacility = () => {
         <div className="flex items-center justify-center">
           <Image
             alt="Gambar fasilitas"
-            src={images}
+            src={!dataImages ? assets.defaultImage : dataImages}
             className="w-64"
             width={125}
             height={125}

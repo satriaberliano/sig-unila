@@ -16,7 +16,7 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 
 export const ContentFacility = ({ facilities }) => {
   const { setFacility, setData, setIsEdit } = useModalFacility();
-  const { setImage, setImages } = useImages();
+  const { setImage, setDataImages } = useImages();
 
   const router = useRouter();
   const supabase = createClientComponentClient();
@@ -66,7 +66,7 @@ export const ContentFacility = ({ facilities }) => {
   };
 
   const onImageHandler = (val) => {
-    setImages(val);
+    setDataImages(val);
     setImage();
   };
 
@@ -116,7 +116,7 @@ export const ContentFacility = ({ facilities }) => {
                             ? fasilitas.url_image
                             : assets.defaultImage
                         }
-                        className="rounded-sm mx-auto"
+                        className="rounded-sm mx-auto w-auto h-auto"
                         width={40}
                         height={40}
                       />
