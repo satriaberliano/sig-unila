@@ -17,7 +17,10 @@ const FasilitasLain = ({ params }) => {
     <>
       {/* {console.log(facility)} */}
       {params.fasilitasId == facility.id ? (
-        <DetailFasilitas params={params} facility={facility} />
+        <DetailFasilitas
+          // params={params}
+          facility={facility}
+        />
       ) : (
         notFound()
       )}
