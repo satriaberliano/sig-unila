@@ -9,9 +9,10 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { IoIosClose, IoMdSave } from "react-icons/io";
 import Swal from "sweetalert2";
+import RichTextEditor from "../RichTextEditor/RichTextEditor";
 
 const ModalAddFacility = () => {
   const [image, setImage] = useState();
@@ -33,6 +34,7 @@ const ModalAddFacility = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -109,7 +111,7 @@ const ModalAddFacility = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <div className="w-6/12 space-y-5 border-2 p-6 rounded-xl bg-white">
+      <div className="w-7/12 space-y-5 border-2 p-6 rounded-xl bg-white">
         <div className="flex justify-between items-center border-b-2 pb-4">
           <h2 className="font-semibold text-xl">Tambah Fasilitas</h2>
           <button className="text-3xl font-semibold" onClick={closeHandler}>
@@ -132,31 +134,33 @@ const ModalAddFacility = () => {
                     fill
                   />
                 </div>
-                <div className="text-[#0F6EE3] text-xs">
-                  <h2 className="text-sm font-medium text-black">Syarat :</h2>
-                  <ul>
-                    <li className="text-xs">
-                      Ukuran gambar harus di bawah 1MB
-                    </li>
-                    <li className="text-xs">Gambar harus 16 x 9</li>
-                  </ul>
-                </div>
-                <div>
-                  <label
-                    htmlFor="imageUploads"
-                    className="cursor-pointer text-xs px-3 py-2 rounded-md text-white bg-[#0F6EE3]"
-                  >
-                    Pilih Berkas
-                  </label>
-                  <input
-                    name="position"
-                    type="file"
-                    id="imageUploads"
-                    accept="image/*"
-                    onChange={ImageChangeHandler}
-                    className={`border-2 bg-[#E7E7E7] p-2 rounded-lg w-full text-xs font-light hidden`}
-                    multiple
-                  />
+                <div className="flex justify-between items-center">
+                  <div className="text-[#0F6EE3] text-xs">
+                    <h2 className="text-sm font-medium text-black">Syarat :</h2>
+                    <ul>
+                      <li className="text-xs">
+                        Ukuran gambar harus di bawah 1MB
+                      </li>
+                      <li className="text-xs">Gambar harus 16 x 9</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="imageUploads"
+                      className="cursor-pointer text-xs px-3 py-2 rounded-md text-white bg-[#0F6EE3]"
+                    >
+                      Pilih Berkas
+                    </label>
+                    <input
+                      name="position"
+                      type="file"
+                      id="imageUploads"
+                      accept="image/*"
+                      onChange={ImageChangeHandler}
+                      className={`border-2 bg-[#E7E7E7] p-2 rounded-lg w-full text-xs font-light hidden`}
+                      multiple
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -206,31 +210,45 @@ const ModalAddFacility = () => {
 
             <div className="flex flex-col space-y-2">
               <h3 className="font-medium">Deskripsi Fasilitas</h3>
-              <textarea
+              {/* <textarea
                 name=""
                 id=""
                 rows="8"
                 className="border-2 rounded-md pl-2 py-1 text-xs "
                 {...register("description")}
-              ></textarea>
+              ></textarea> */}
+              <Controller
+                name="description"
+                control={control}
+                render={({ field }) => (
+                  <RichTextEditor
+                    className="text-xs max-h-10 h-full"
+                    value={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+                rules={{ required: true }}
+              />
             </div>
             <div className="flex flex-col space-y-3">
               <h3 className="font-medium pb-1">Titik Koordinat</h3>
-              <div className="w-full space-y-1">
-                <h4 className="text-sm">Garis Lintang (Latitude)</h4>
-                <input
-                  type="text"
-                  className="border-2 rounded-md pl-2 py-1 text-sm w-full"
-                  {...register("latitude")}
-                />
-              </div>
-              <div className="w-full space-y-1">
-                <h4 className="text-sm">Garis Bujur (Longitude)</h4>
-                <input
-                  type="text"
-                  className="border-2 rounded-md pl-2 py-1 text-sm w-full"
-                  {...register("longitude")}
-                />
+              <div className="flex gap-5">
+                <div className="w-full space-y-1">
+                  <h4 className="text-sm">Garis Lintang (Latitude)</h4>
+                  <input
+                    type="text"
+                    className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                    {...register("latitude")}
+                  />
+                </div>
+                <div className="w-full space-y-1">
+                  <h4 className="text-sm">Garis Bujur (Longitude)</h4>
+                  <input
+                    type="text"
+                    className="border-2 rounded-md pl-2 py-1 text-sm w-full"
+                    {...register("longitude")}
+                  />
+                </div>
               </div>
             </div>
             <button
