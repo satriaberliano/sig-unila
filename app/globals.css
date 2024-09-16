@@ -16,6 +16,16 @@ table {
   border-radius: 20px;
 }
 
+.desc-content ol {
+  padding-left: 20px;
+  list-style: decimal;
+}
+
+.desc-content ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
