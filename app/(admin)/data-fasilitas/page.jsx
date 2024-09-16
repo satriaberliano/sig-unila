@@ -6,9 +6,27 @@ import supabaseServer from "@/lib/supabaseServer";
 const DataFasilitas = async () => {
   // const supabase = createServerComponentClient({ cookies });
 
-  const { data: facilities } = await supabaseServer()
-    .from("fasilitas")
-    .select();
+  const { data: facilities } = await supabaseServer().from("fasilitas")
+    .select(`id,
+      name,
+      description,
+      latitude,
+      longitude,
+      url_image,
+      akses,
+      kontak (
+        nama_kontak,
+        nomor_telepon
+      ),
+      jam_operasional (
+        id_jam,
+        hari_awal,
+        hari_akhir,
+        jam_buka,
+        jam_tutup
+      )`);
+
+  // console.log(facilities);
 
   return (
     <div className="px-10 py-14 h-full bg-white">
