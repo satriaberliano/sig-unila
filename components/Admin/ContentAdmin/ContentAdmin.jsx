@@ -6,9 +6,12 @@ import { useModalFacility } from "@/zustand/useModalFacility";
 import ModalAddFacility from "../ModalAddFacility/ModalAddFacility";
 import { useSidebar } from "@/zustand/useSidebar";
 import ModalEditFacility from "../ModalEditFacility/ModalEditFacility";
+import { useImages } from "@/zustand/useImages";
+import ModalImageFacility from "../ModalImageFacility/ModalImageFacility";
 
 export default function ContentAdmin({ children }) {
   const { facility, isEdit: isEditFacility } = useModalFacility();
+  const { image } = useImages();
   const { open } = useSidebar();
 
   return (
@@ -32,7 +35,16 @@ export default function ContentAdmin({ children }) {
         <ModalAddFacility />
       </div>
 
+      {/* Gambar Fasilitas */}
       <div
+        className={` ${
+          !image ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
+        <ModalImageFacility />
+      </div>
+
+      {/* <div
         className={` ${
           !isEditFacility
             ? "hidden"
@@ -40,7 +52,7 @@ export default function ContentAdmin({ children }) {
         }`}
       >
         <ModalEditFacility />
-      </div>
+      </div> */}
 
       <div
         className={`${
