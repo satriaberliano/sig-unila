@@ -28,7 +28,7 @@ const HeadDashboard = async () => {
   return (
     <div className="space-y-2">
       <h1 className="text-3xl mb-10 font-medium">Dashboard</h1>
-      <div className="grid grid-cols-3 gap-5 w-full">
+      <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-none gap-5 w-full">
         <CardDashboard
           total={fasilitas.length}
           titleCard={"Jumlah Fasilitas"}
@@ -50,7 +50,7 @@ const HeadDashboard = async () => {
       </div>
 
       <div className="grid grid-cols-1 gap-5 pt-5">
-        <Map facilities={null} />
+        <Map facilities={null} height={"h-[26rem]"} />
       </div>
     </div>
   );
