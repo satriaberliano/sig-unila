@@ -64,10 +64,22 @@ const KontakKamiPage = () => {
         // setSubmitted(true);
       } else {
         const result = await response.json();
-        setError(result.error || "Gagal mengirim pesan, silakan coba lagi.");
+        Swal.fire({
+          title: "Error!",
+          text: result.error || "Gagal mengirim pesan, silakan coba lagi.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+        // setError(result.error || "Gagal mengirim pesan, silakan coba lagi.");
       }
     } catch (err) {
-      setError("Ada masalah dalam pengiriman, silakan coba lagi.");
+      Swal.fire({
+        title: "Error!",
+        text: "Ada masalah dalam pengiriman, silakan coba lagi.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      // setError("Ada masalah dalam pengiriman, silakan coba lagi.");
     } finally {
       setIsUpdating(false);
     }
@@ -163,7 +175,7 @@ const KontakKamiPage = () => {
         </button>
       </form>
 
-      {error && <p className="text-center">{error}</p>}
+      {/* {error && <p className="text-center">{error}</p>} */}
     </div>
   );
 };
