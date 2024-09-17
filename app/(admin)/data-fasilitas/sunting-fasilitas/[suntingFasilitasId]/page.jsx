@@ -557,6 +557,8 @@ const SuntingFasilitasPage = ({ params }) => {
                               <option value={"Rabu"}>Rabu</option>
                               <option value={"Kamis"}>Kamis</option>
                               <option value={"Jumat"}>Jumat</option>
+                              <option value={"Sabtu"}>Sabtu</option>
+                              <option value={"Minggu"}>Minggu</option>
                             </select>
                             {"s.d"}
                             <select
@@ -573,6 +575,8 @@ const SuntingFasilitasPage = ({ params }) => {
                               <option value={"Rabu"}>Rabu</option>
                               <option value={"Kamis"}>Kamis</option>
                               <option value={"Jumat"}>Jumat</option>
+                              <option value={"Sabtu"}>Sabtu</option>
+                              <option value={"Minggu"}>Minggu</option>
                             </select>
                           </div>
                         </div>
