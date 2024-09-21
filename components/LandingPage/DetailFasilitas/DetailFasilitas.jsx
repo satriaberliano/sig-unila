@@ -82,17 +82,17 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
                   </div>
                   <div className="text-sm lg:basis-1/2">
                     {fasilitas.akses === "Umum dan Civitas Akademika" ? (
-                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#0c3d0a] bg-[#30dd27] rounded-full flex items-center w-fit">
+                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#2EB723] bg-[#bdffb7] rounded-full flex items-center w-fit">
                         <FaUser className="inline" />
                         <span>{`${fasilitas.akses}`}</span>
                       </span>
                     ) : fasilitas.akses === "Civitas Akademika" ? (
-                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#0a113d] bg-[#2773dd] rounded-full flex items-center w-fit">
+                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#236db7] bg-[#97c9fb] rounded-full flex items-center w-fit">
                         <FaUser className="inline" />
                         <span>{`${fasilitas.akses}`}</span>
                       </span>
                     ) : fasilitas.akses === "Tidak untuk umum" ? (
-                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#3d0f0a] bg-[#dd3927] rounded-full flex items-center w-fit">
+                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#b72d23] bg-[#f8b1ac] rounded-full flex items-center w-fit">
                         <FaUser className="inline" />
                         <span>{`${fasilitas.akses}`}</span>
                       </span>
@@ -111,14 +111,17 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
                   {fasilitas.kontak ? (
                     <div className="flex items-center gap-2">
                       <BiSolidContact />
-                      {fasilitas.kontak.nama_kontak === null ? (
+                      {fasilitas.kontak.nama_kontak &&
+                      fasilitas.kontak.nomor_telepon ? (
+                        <span>{`Kontak: ${fasilitas.kontak.nama_kontak} - ${fasilitas.kontak.nomor_telepon}`}</span>
+                      ) : fasilitas.kontak.nomor_telepon ? (
                         <span>{`Kontak: ${fasilitas.kontak.nomor_telepon}`}</span>
                       ) : (
-                        <span>{`Kontak: ${fasilitas.kontak.nama_kontak} - ${fasilitas.kontak.nomor_telepon}`}</span>
+                        <span>Kontak: Tidak ada informasi</span>
                       )}
                     </div>
                   ) : (
-                    " "
+                    "Kontak: Tidak ada informasi"
                   )}
                 </div>
               </div>
