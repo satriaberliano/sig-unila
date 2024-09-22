@@ -85,6 +85,17 @@ export default function Navbar() {
                   Tentang
                 </Link>
                 <Link
+                  href="/panduan"
+                  onClick={() => setDropdown(false)}
+                  className={`${
+                    pathname === "/panduan"
+                      ? "underline font-semibold"
+                      : "no-underline font-normal"
+                  } hover:underline`}
+                >
+                  Panduan
+                </Link>
+                <Link
                   href="/kontak-kami"
                   onClick={() => setDropdown(false)}
                   className={`${
@@ -157,6 +168,17 @@ export default function Navbar() {
           onClick={setOpenPublic}
         >
           Tentang
+        </Link>
+        <Link
+          href="/panduan"
+          className={`${
+            pathname === "/panduan"
+              ? "underline font-semibold"
+              : "no-underline font-normal"
+          } hover:underline`}
+          onClick={setOpenPublic}
+        >
+          Panduan
         </Link>
         <Link
           href="/kontak-kami"
