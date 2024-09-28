@@ -14,8 +14,9 @@ import {
   LayersControl,
   LayerGroup,
   ScaleControl,
+  useMap,
 } from "react-leaflet";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   agricultureOptions,
   businessOptions,
@@ -37,6 +38,7 @@ import {
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Link from "next/link";
 import { useFetchData } from "@/zustand/useFetchData";
+import ResetZoomButton from "../LandingPage/ResetZoomButton/ResetZoomButton";
 
 const jakarta_sans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
@@ -45,6 +47,8 @@ const jakarta_sans = Plus_Jakarta_Sans({
 
 const Map = ({ facilities, search, height }) => {
   const [coord, setCoord] = useState([-5.364621, 105.243562]);
+  const [defLat, setDefLat] = useState("-5.364621");
+  const [defLng, setDefLon] = useState("105.243562");
   const [navigateGoogle, setNavigateGoogle] = useState(
     "https://www.google.com/maps/place/"
   );
@@ -56,15 +60,28 @@ const Map = ({ facilities, search, height }) => {
   };
 
   return (
-    <div className={`flex justify-center items-center flex-col z-0`}>
+    <div
+      className={`flex justify-center items-center flex-col z-0 shadow-sm border-[2px] rounded-md`}
+    >
       <MapContainer
         center={coord}
         zoom={16}
         scrollWheelZoom={false}
-        className={`w-full ${height} rounded-md`}
+        className={`w-full ${height} rounded-md `}
         attributionControl={false}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer
+          // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url={
+            `https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}@2x.png?apikey=6e5478c8a4f54c779f85573c0e399391` ||
+            `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
+          }
+        />
+        <ResetZoomButton
+          defaultLat={defLat}
+          defaultLng={defLng}
+          defaultZoom={16}
+        />
         {facilities && facilities.length > 0 ? (
           <>
             {facilities

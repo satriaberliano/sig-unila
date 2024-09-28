@@ -32,9 +32,12 @@ import {
   scienceOptions,
   sospolOptions,
 } from "@/constant/fasilitas-polygon";
+import ResetZoomButton from "../ResetZoomButton/ResetZoomButton";
 
 const MapEachFacility = ({ facilityLat, facilityLong, facilityName }) => {
   const [coord, setCoord] = useState([-5.364621, 105.243562]);
+  const [defLat, setDefLat] = useState("-5.364621");
+  const [defLng, setDefLon] = useState("105.243562");
 
   const CustomMap = () => {
     const map = useMap();
@@ -61,10 +64,6 @@ const MapEachFacility = ({ facilityLat, facilityLong, facilityName }) => {
     return null;
   };
 
-  // {
-  //   console.log(facilityLat);
-  // }
-
   return (
     <div className="flex justify-center items-center flex-col">
       <MapContainer
@@ -74,10 +73,17 @@ const MapEachFacility = ({ facilityLat, facilityLong, facilityName }) => {
         className="w-full h-[28rem] rounded-md"
         attributionControl={false}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {/* {facility && facility.length > 0 ? (
-          <>
-            {facility.map((fasilitas, index) => ( */}
+        <TileLayer
+          url={
+            `https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}@2x.png?apikey=6e5478c8a4f54c779f85573c0e399391` ||
+            `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
+          }
+        />
+        <ResetZoomButton
+          defaultLat={defLat}
+          defaultLng={defLng}
+          defaultZoom={16}
+        />
         <Marker
           // key={index}
           icon={
