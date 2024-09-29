@@ -85,16 +85,16 @@ const Map = ({ facilities, search, height }) => {
         {facilities && facilities.length > 0 ? (
           <>
             {facilities
-              .filter((value) => {
-                if (search === "") {
-                  return value;
-                } else if (
-                  value.name.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return value;
-                }
-                return null;
-              })
+              // .filter((value) => {
+              //   if (search === "") {
+              //     return value;
+              //   } else if (
+              //     value.name.toLowerCase().includes(search.toLowerCase())
+              //   ) {
+              //     return value;
+              //   }
+              //   return null;
+              // })
               .map((fasilitas, index) => (
                 <Marker
                   key={index}

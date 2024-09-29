@@ -1,18 +1,201 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+// "use client";
+
+// import assets from "@/assets/assets";
+// import Loading from "@/components/Admin/Loading/Loading";
+// import { supabase } from "@/lib/supabase";
+// import { useFetchData } from "@/zustand/useFetchData";
+// import dynamic from "next/dynamic";
+
+// // ** Import Next
+// import Image from "next/image";
+// import Link from "next/link";
+
+// // ** Import React
+// import React, { useEffect, useState } from "react";
+// import { FaUser } from "react-icons/fa";
+
+// const Map = dynamic(() => import("@/components/Map/Map"), {
+//   ssr: false,
+// });
+
+// const Fasilitas = () => {
+//   const [facilities, setFacilities] = useState(null);
+//   const [fetchError, setFetchError] = useState(null);
+//   const [search, setSearch] = useState("");
+//   // const [debounceTimeout, setDebounceTimeout] = useState(null);
+
+//   const { setFacility } = useFetchData();
+
+//   useEffect(() => {
+//     const fetchFacilities = async () => {
+//       const { data, error } = await supabase.from("fasilitas").select(`id,
+//       name,
+//       description,
+//       latitude,
+//       longitude,
+//       url_image,
+//       akses,
+//       kontak (
+//         nama_kontak,
+//         nomor_telepon
+//       ),
+//       jam_operasional (
+//         id_jam,
+//         hari_awal,
+//         hari_akhir,
+//         jam_buka,
+//         jam_tutup
+//       )`);
+
+//       if (error) {
+//         setFetchError(`Tidak dapat melakukan fetch data Fasilitas`);
+//         setFacilities(null);
+//       }
+
+//       if (data) {
+//         setFacilities(data);
+//         setFetchError(null);
+//       }
+//     };
+
+//     fetchFacilities();
+//   }, []);
+
+//   const dataFacilityHandler = (val) => {
+//     setFacility(val);
+//   };
+
+//   const handleSearchChange = (e) => {
+//     setSearch(e.target.value);
+//   };
+
+//   return (
+//     <div className="bg-white pt-28 pb-24 px-12 sm:px-20 md:px-28 lg:px-32 min-h-screen">
+//       <h2 className="text-3xl font-semibold text-center mb-10">Fasilitas</h2>
+//       <Map
+//         facilities={facilities}
+//         search={search}
+//         height={"h-[28rem]"}
+//         id="map-container"
+//       />
+//       <div className="flex justify-center items-center my-10">
+//         <input
+//           className="border-2 p-2 w-full rounded-lg placeholder:text-sm placeholder:px-2"
+//           type="text"
+//           value={search}
+//           placeholder="Cari fasilitas..."
+//           onChange={handleSearchChange}
+//         ></input>
+//       </div>
+//       <div>
+//         {fetchError && <p className="text-center">{fetchError}</p>}
+//         {facilities && facilities.length > 0 ? (
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-7">
+//             {facilities
+//               .filter((value) => {
+//                 if (search === "") {
+//                   return value;
+//                 } else if (
+//                   value.name.toLowerCase().includes(search.toLowerCase())
+//                 ) {
+//                   return value;
+//                 }
+//                 return null;
+//               })
+//               .sort(function (a, b) {
+//                 if (a.name.toLowerCase() < b.name.toLowerCase()) {
+//                   return -1;
+//                 }
+//                 if (a.name.toLowerCase() > b.name.toLowerCase()) {
+//                   return 1;
+//                 }
+//                 return 0;
+//               })
+//               .map((fasilitas, index) => (
+//                 <div
+//                   className="w-full shadow-md rounded-md overflow-hidden border hover:shadow-slate-400 hover:ease-in hover:duration-500"
+//                   key={index}
+//                 >
+//                   <Link
+//                     href={`fasilitas/${fasilitas.id}`}
+//                     onClick={() => dataFacilityHandler(fasilitas)}
+//                   >
+//                     <Image
+//                       src={
+//                         fasilitas.url_image
+//                           ? fasilitas.url_image
+//                           : assets.defaultImage
+//                       }
+//                       className="aspect-video object-cover"
+//                       alt={`${fasilitas.name} image`}
+//                       width={600}
+//                       height={100}
+//                     />
+//                     <div className="p-6 space-y-4">
+//                       <div className="grid grid-rows-2 gap-y-3">
+//                         <div className="flex justify-between items-baseline gap-x-3">
+//                           <h3 className="text-lg font-semibold">
+//                             {fasilitas.name}
+//                           </h3>
+//                           <span
+//                             className={`flex  h-fit rounded-full p-1 border-2 ${
+//                               fasilitas.akses === "Umum dan Civitas Akademika"
+//                                 ? "bg-[#25aa1e]"
+//                                 : fasilitas.akses === "Civitas Akademika"
+//                                 ? "bg-[#2163bf]"
+//                                 : fasilitas.akses === "Tidak untuk umum"
+//                                 ? "bg-[#b42f20]"
+//                                 : ""
+//                             } `}
+//                           >
+//                             <FaUser className="text-[10px] text-white" />
+//                           </span>
+//                         </div>
+//                         <div
+//                           dangerouslySetInnerHTML={{
+//                             __html: `${fasilitas.description}`,
+//                           }}
+//                           className="desc-content text-sm line-clamp-3"
+//                         />
+//                       </div>
+//                     </div>
+//                   </Link>
+//                 </div>
+//               ))}
+//             {facilities.filter((value) =>
+//               value.name.toLowerCase().includes(search.toLowerCase())
+//             ).length === 0 && (
+//               <p className="col-start-1 col-end-5 text-center italic text-gray-500 p-4 text-sm sm:text-base">
+//                 Tidak ditemukan fasilitas yang cocok dengan pencarian Anda
+//               </p>
+//             )}
+//           </div>
+//         ) : (
+//           <p className="text-center content-center italic text-gray-500 p-4">
+//             Tidak ada fasilitas yang ditampilkan
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Fasilitas;
 "use client";
 
-import assets from "@/assets/assets";
-import Loading from "@/components/Admin/Loading/Loading";
-import { supabase } from "@/lib/supabase";
-import { useFetchData } from "@/zustand/useFetchData";
-import dynamic from "next/dynamic";
-
-// ** Import Next
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// ** Import React
-import React, { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import { FaSort, FaUser } from "react-icons/fa";
+
+import { supabase } from "@/lib/supabase";
+import { useFetchData } from "@/zustand/useFetchData";
+import assets from "@/assets/assets";
+
+import dynamic from "next/dynamic";
+import Fuse from "fuse.js";
 
 const Map = dynamic(() => import("@/components/Map/Map"), {
   ssr: false,
@@ -22,30 +205,36 @@ const Fasilitas = () => {
   const [facilities, setFacilities] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   const [search, setSearch] = useState("");
-  // const [debounceTimeout, setDebounceTimeout] = useState(null);
+  const [sortOrder, setSortOrder] = useState("asc"); // "asc" atau "desc"
+  const [selectedFaculty, setSelectedFaculty] = useState("all");
 
   const { setFacility } = useFetchData();
 
+  const faculties = ["FMIPA", "FT", "FEB", "FKIP", "FH", "FP", "FK", "FISIP"];
+
   useEffect(() => {
     const fetchFacilities = async () => {
-      const { data, error } = await supabase.from("fasilitas").select(`id,
-      name,
-      description,
-      latitude,
-      longitude,
-      url_image,
-      akses,
-      kontak (
-        nama_kontak,
-        nomor_telepon
-      ),
-      jam_operasional (
-        id_jam,
-        hari_awal,
-        hari_akhir,
-        jam_buka,
-        jam_tutup
-      )`);
+      const { data, error } = await supabase.from("fasilitas").select(`
+        id,
+        name,
+        description,
+        latitude,
+        longitude,
+        url_image,
+        akses,
+        fakultas,
+        kontak (
+          nama_kontak,
+          nomor_telepon
+        ),
+        jam_operasional (
+          id_jam,
+          hari_awal,
+          hari_akhir,
+          jam_buka,
+          jam_tutup
+        )
+      `);
 
       if (error) {
         setFetchError(`Tidak dapat melakukan fetch data Fasilitas`);
@@ -61,6 +250,75 @@ const Fasilitas = () => {
     fetchFacilities();
   }, []);
 
+  // Konfigurasi Fuse.js
+  const fuseOptions = {
+    keys: ["name", "description"],
+    threshold: 0.3,
+    includeScore: true,
+  };
+
+  // Inisialisasi Fuse instance
+  const fuse = useMemo(
+    () => facilities && new Fuse(facilities, fuseOptions),
+    [facilities]
+  );
+
+  // Fungsi pencarian fuzzy
+  // const getFuzzySearchResults = (searchTerm) => {
+  //   if (!fuse) return [];
+  //   const results = fuse.search(searchTerm);
+  //   return results.map((result) =>
+  //     // result.item
+  //     ({ ...result.item, score: result.score })
+  //   );
+  // };
+
+  const getFuzzySearchResults = (searchTerm) => {
+    if (!fuse || searchTerm === "") return facilities || [];
+    const results = fuse.search(searchTerm);
+    return results.map((result) => ({ ...result.item, score: result.score }));
+  };
+
+  const sortFacilities = (facilities, order) => {
+    return [...facilities].sort((a, b) => {
+      if (order === "asc") {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.name.localeCompare(a.name);
+      }
+    });
+  };
+
+  const filterByFaculty = (facilities, faculty) => {
+    if (faculty === "all") return facilities;
+    return facilities.filter((facility) => facility.fakultas === faculty);
+  };
+
+  // Hasil pencarian
+  // const searchResults = useMemo(() => {
+  //   if (search === "") return facilities || [];
+  //   return getFuzzySearchResults(search);
+  // }, [search, facilities, fuse]);
+
+  const filteredAndSearchedResults = useMemo(() => {
+    // Langkah 1: Lakukan pencarian fuzzy
+    let results = getFuzzySearchResults(search);
+
+    // Langkah 2: Filter berdasarkan fakultas
+    results = filterByFaculty(results, selectedFaculty);
+
+    // Langkah 3: Urutkan hasil
+    // Jika ada pencarian, urutkan berdasarkan skor relevansi
+    if (search !== "") {
+      results.sort((a, b) => a.score - b.score);
+    } else {
+      // Jika tidak ada pencarian, urutkan berdasarkan nama
+      results = sortFacilities(results, sortOrder);
+    }
+
+    return results;
+  }, [search, facilities, selectedFaculty, sortOrder]);
+
   const dataFacilityHandler = (val) => {
     setFacility(val);
   };
@@ -69,110 +327,115 @@ const Fasilitas = () => {
     setSearch(e.target.value);
   };
 
+  const handleSortToggle = () => {
+    setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+  };
+
+  const handleFacultyFilter = (faculty) => {
+    setSelectedFaculty((prevFaculty) =>
+      prevFaculty === faculty ? "all" : faculty
+    );
+  };
+
   return (
     <div className="bg-white pt-28 pb-24 px-12 sm:px-20 md:px-28 lg:px-32 min-h-screen">
       <h2 className="text-3xl font-semibold text-center mb-10">Fasilitas</h2>
       <Map
-        facilities={facilities}
-        search={search}
+        // facilities={searchResults}
+        facilities={filteredAndSearchedResults}
+        // search={search}
         height={"h-[28rem]"}
         id="map-container"
       />
-      <div className="flex justify-center items-center my-10">
+      <div className="flex justify-center items-center mt-10 mb-3">
         <input
-          className="border-2 p-2 w-full rounded-lg placeholder:text-sm placeholder:px-2"
+          className="border-[1px] border-[#0F6EE3] p-2 w-full rounded-lg placeholder:text-sm placeholder:px-2 basis-11/12"
           type="text"
           value={search}
           placeholder="Cari fasilitas..."
           onChange={handleSearchChange}
-        ></input>
+        />
+        <button
+          onClick={handleSortToggle}
+          className="ml-2 p-2 bg-blue-500 text-white rounded-lg flex items-center justify-center basis-1/12 gap-x-2"
+        >
+          <FaSort />
+          <span>{sortOrder === "asc" ? "A-Z" : "Z-A"}</span>
+        </button>
+      </div>
+      <div className="flex flex-wrap gap-2 mb-10">
+        {faculties.map((faculty) => (
+          <button
+            key={faculty}
+            onClick={() => handleFacultyFilter(faculty)}
+            className={`px-3 py-1 rounded-full text-sm ${
+              selectedFaculty === faculty
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            {faculty}
+          </button>
+        ))}
       </div>
       <div>
         {fetchError && <p className="text-center">{fetchError}</p>}
-        {facilities && facilities.length > 0 ? (
+        {/* {searchResults && searchResults.length > 0 ? ( */}
+        {filteredAndSearchedResults && filteredAndSearchedResults.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-7">
-            {facilities
-              .filter((value) => {
-                if (search === "") {
-                  return value;
-                } else if (
-                  value.name.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return value;
-                }
-                return null;
-              })
-              .sort(function (a, b) {
-                if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                  return -1;
-                }
-                if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                  return 1;
-                }
-                return 0;
-              })
-              .map((fasilitas, index) => (
-                <div
-                  className="w-full shadow-md rounded-md overflow-hidden border hover:shadow-slate-400 hover:ease-in hover:duration-500"
-                  key={index}
+            {filteredAndSearchedResults.map((fasilitas, index) => (
+              <div
+                className="w-full shadow-md rounded-md overflow-hidden border hover:shadow-slate-400 hover:ease-in hover:duration-500"
+                key={index}
+              >
+                <Link
+                  href={`fasilitas/${fasilitas.id}`}
+                  onClick={() => dataFacilityHandler(fasilitas)}
                 >
-                  <Link
-                    href={`fasilitas/${fasilitas.id}`}
-                    onClick={() => dataFacilityHandler(fasilitas)}
-                  >
-                    <Image
-                      src={
-                        fasilitas.url_image
-                          ? fasilitas.url_image
-                          : assets.defaultImage
-                      }
-                      className="aspect-video object-cover"
-                      alt={`${fasilitas.name} image`}
-                      width={600}
-                      height={100}
-                    />
-                    <div className="p-6 space-y-4">
-                      <div className="grid grid-rows-2 gap-y-3">
-                        <div className="flex justify-between items-baseline gap-x-3">
-                          <h3 className="text-lg font-semibold">
-                            {fasilitas.name}
-                          </h3>
-                          <span
-                            className={`flex  h-fit rounded-full p-1 border-2 ${
-                              fasilitas.akses === "Umum dan Civitas Akademika"
-                                ? "bg-[#25aa1e]"
-                                : fasilitas.akses === "Civitas Akademika"
-                                ? "bg-[#2163bf]"
-                                : fasilitas.akses === "Tidak untuk umum"
-                                ? "bg-[#b42f20]"
-                                : ""
-                            } `}
-                          >
-                            <FaUser className="text-[10px] text-white" />
-                          </span>
-                        </div>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: `${fasilitas.description}`,
-                          }}
-                          className="desc-content text-sm line-clamp-3"
-                        />
+                  <Image
+                    src={fasilitas.url_image || assets.defaultImage}
+                    className="aspect-video object-cover"
+                    alt={`${fasilitas.name} image`}
+                    width={600}
+                    height={100}
+                  />
+                  <div className="p-6 space-y-4">
+                    <div className="grid grid-rows-2 gap-y-3">
+                      <div className="flex justify-between items-baseline gap-x-3">
+                        <h3 className="text-lg font-semibold">
+                          {fasilitas.name}
+                        </h3>
+                        <span
+                          className={`flex h-fit rounded-full p-1 border-2 ${
+                            fasilitas.akses === "Umum dan Civitas Akademika"
+                              ? "bg-[#25aa1e]"
+                              : fasilitas.akses === "Civitas Akademika"
+                              ? "bg-[#2163bf]"
+                              : fasilitas.akses === "Tidak untuk umum"
+                              ? "bg-[#b42f20]"
+                              : ""
+                          }`}
+                        >
+                          <FaUser className="text-[10px] text-white" />
+                        </span>
                       </div>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: fasilitas.description,
+                        }}
+                        className="desc-content text-sm line-clamp-3"
+                      />
                     </div>
-                  </Link>
-                </div>
-              ))}
-            {facilities.filter((value) =>
-              value.name.toLowerCase().includes(search.toLowerCase())
-            ).length === 0 && (
-              <p className="col-start-1 col-end-5 text-center italic text-gray-500 p-4 text-sm sm:text-base">
-                Tidak ditemukan fasilitas yang cocok dengan pencarian Anda
-              </p>
-            )}
+                  </div>
+                </Link>
+              </div>
+            ))}
           </div>
         ) : (
           <p className="text-center content-center italic text-gray-500 p-4">
-            Tidak ada fasilitas yang ditampilkan
+            {facilities
+              ? `Tidak ditemukan fasilitas yang cocok dengan pencarian Anda "${search}"`
+              : "Tidak ada fasilitas yang ditampilkan"}
           </p>
         )}
       </div>
