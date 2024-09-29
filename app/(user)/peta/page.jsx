@@ -15,9 +15,24 @@ const Peta = () => {
 
   useEffect(() => {
     const fetchFacilities = async () => {
-      const { data, error } = await supabase
-        .from("fasilitas")
-        .select(`id, name, latitude, longitude`);
+      const { data, error } = await supabase.from("fasilitas").select(`id,
+      name,
+      description,
+      latitude,
+      longitude,
+      url_image,
+      akses,
+      kontak (
+        nama_kontak,
+        nomor_telepon
+      ),
+      jam_operasional (
+        id_jam,
+        hari_awal,
+        hari_akhir,
+        jam_buka,
+        jam_tutup
+      )`);
 
       if (error) {
         setFetchError(`Tidak dapat melakukan fetch data Fasilitas`);
@@ -35,6 +50,7 @@ const Peta = () => {
 
   return (
     <div className="h-screen pt-16 z-0">
+      {console.log(facilities)}
       <Map height={"h-[95vh]"} facilities={facilities} search={search} />
     </div>
   );
