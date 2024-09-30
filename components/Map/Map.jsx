@@ -66,12 +66,11 @@ const Map = ({ facilities, search, height }) => {
       <MapContainer
         center={coord}
         zoom={16}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         className={`w-full ${height} rounded-md `}
         attributionControl={false}
       >
         <TileLayer
-          // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           url={
             `https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}@2x.png?apikey=6e5478c8a4f54c779f85573c0e399391` ||
             `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
@@ -84,53 +83,42 @@ const Map = ({ facilities, search, height }) => {
         />
         {facilities && facilities.length > 0 ? (
           <>
-            {facilities
-              // .filter((value) => {
-              //   if (search === "") {
-              //     return value;
-              //   } else if (
-              //     value.name.toLowerCase().includes(search.toLowerCase())
-              //   ) {
-              //     return value;
-              //   }
-              //   return null;
-              // })
-              .map((fasilitas, index) => (
-                <Marker
-                  key={index}
-                  icon={
-                    new L.Icon({
-                      iconUrl: MarkerIcon.src,
-                      iconRetinaUrl: MarkerIcon.src,
-                      iconSize: [25, 41],
-                      iconAnchor: [12.5, 41],
-                      popupAnchor: [0, -41],
-                      shadowUrl: MarkerShadow.src,
-                      shadowSize: [41, 41],
-                    })
-                  }
-                  position={[`${fasilitas.latitude}`, `${fasilitas.longitude}`]}
-                >
-                  <Popup className={jakarta_sans.className}>
-                    <p className="font-semibold text-sm">{fasilitas.name}</p>
-                    <div className="flex justify-start items-center text-white gap-x-3">
-                      <Link
-                        className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
-                        href={`fasilitas/${fasilitas.id}`}
-                        onClick={() => dataFacilityHandler(fasilitas)}
-                      >
-                        <span className="text-white">Rincian</span>
-                      </Link>
-                      <Link
-                        className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
-                        href={`${navigateGoogle}${fasilitas.latitude}+${fasilitas.longitude}`}
-                      >
-                        <span className="text-white">Navigasi</span>
-                      </Link>
-                    </div>
-                  </Popup>
-                </Marker>
-              ))}
+            {facilities.map((fasilitas, index) => (
+              <Marker
+                key={index}
+                icon={
+                  new L.Icon({
+                    iconUrl: MarkerIcon.src,
+                    iconRetinaUrl: MarkerIcon.src,
+                    iconSize: [25, 41],
+                    iconAnchor: [12.5, 41],
+                    popupAnchor: [0, -41],
+                    shadowUrl: MarkerShadow.src,
+                    shadowSize: [41, 41],
+                  })
+                }
+                position={[`${fasilitas.latitude}`, `${fasilitas.longitude}`]}
+              >
+                <Popup className={jakarta_sans.className}>
+                  <p className="font-semibold text-sm">{fasilitas.name}</p>
+                  <div className="flex justify-start items-center text-white gap-x-3">
+                    <Link
+                      className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
+                      href={`fasilitas/${fasilitas.id}`}
+                      onClick={() => dataFacilityHandler(fasilitas)}
+                    >
+                      <span className="text-white">Rincian</span>
+                    </Link>
+                    <Link
+                      className="bg-[#0F6EE3] px-2 py-1 rounded-sm text-xs"
+                      href={`${navigateGoogle}${fasilitas.latitude}+${fasilitas.longitude}`}
+                    >
+                      <span className="text-white">Navigasi</span>
+                    </Link>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
           </>
         ) : (
           <></>
