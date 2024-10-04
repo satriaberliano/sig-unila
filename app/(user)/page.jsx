@@ -1,4 +1,8 @@
+"use client";
+
+import BackToTopButton from "@/components/LandingPage/BackToTopButton/BackToTopButton";
 import Banner from "@/components/LandingPage/Banner/Banner";
+import MotionScrollDown from "@/components/LandingPage/MotionScrollDown/MotionScrollDown";
 import Navigasi from "@/components/LandingPage/Navigasi/Navigasi";
 import Tentang from "@/components/LandingPage/Tentang/Tentang";
 import Tujuan from "@/components/LandingPage/Tujuan/Tujuan";
@@ -10,6 +14,7 @@ export default function Home() {
       <Tentang />
       <Tujuan />
       <Navigasi />
+      <BackToTopButton />
     </div>
   );
 }
