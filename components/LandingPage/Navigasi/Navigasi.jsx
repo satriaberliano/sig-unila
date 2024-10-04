@@ -1,7 +1,8 @@
 import assets from "@/assets/assets";
 import Image from "next/image";
 import Link from "next/link";
-import { IoMdNavigate } from "react-icons/io";
+import { FaMapMarkerAlt } from "react-icons/fa";
+// import { IoMdNavigate } from "react-icons/io";
 
 export default function Navigasi() {
   return (
@@ -27,7 +28,8 @@ export default function Navigasi() {
             href="https://maps.app.goo.gl/GRNcpv2Sph2PUytk8"
             className="flex justify-center items-center bg-[#0F6EE3] rounded-lg p-2 text-white gap-2 w-4/12 mx-auto"
           >
-            <IoMdNavigate />
+            {/* <IoMdNavigate /> */}
+            <FaMapMarkerAlt />
             <span>Navigasi</span>
           </Link>
         </div>
