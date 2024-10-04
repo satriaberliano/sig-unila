@@ -188,7 +188,7 @@ import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaSort, FaUser } from "react-icons/fa";
+import { FaSort, FaUser, FaSearch } from "react-icons/fa";
 
 import { supabase } from "@/lib/supabase";
 import { useFetchData } from "@/zustand/useFetchData";
@@ -196,15 +196,24 @@ import assets from "@/assets/assets";
 
 import dynamic from "next/dynamic";
 import Fuse from "fuse.js";
+import { useRouter, useSearchParams } from "next/navigation";
+
+const MapSkeleton = () => (
+  <div className="animate-pulse bg-gray-200 rounded-lg h-[28rem] w-full" />
+);
 
 const Map = dynamic(() => import("@/components/Map/Map"), {
+  loading: () => <MapSkeleton />,
   ssr: false,
 });
 
 const Fasilitas = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [facilities, setFacilities] = useState(null);
   const [fetchError, setFetchError] = useState(null);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(searchParams.get("search") || "");
   const [sortOrder, setSortOrder] = useState("asc"); // "asc" atau "desc"
   const [selectedFaculty, setSelectedFaculty] = useState("all");
 
@@ -250,6 +259,15 @@ const Fasilitas = () => {
     fetchFacilities();
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (search) params.set("search", search);
+    // if (sortOrder !== "asc") params.set("sort", sortOrder);
+    // if (selectedFaculty !== "all") params.set("faculty", selectedFaculty);
+
+    router.push(`/fasilitas?${params.toString()}`, { scroll: false });
+  }, [search, router]);
+
   // Konfigurasi Fuse.js
   const fuseOptions = {
     keys: ["name", "description"],
@@ -262,16 +280,6 @@ const Fasilitas = () => {
     () => facilities && new Fuse(facilities, fuseOptions),
     [facilities]
   );
-
-  // Fungsi pencarian fuzzy
-  // const getFuzzySearchResults = (searchTerm) => {
-  //   if (!fuse) return [];
-  //   const results = fuse.search(searchTerm);
-  //   return results.map((result) =>
-  //     // result.item
-  //     ({ ...result.item, score: result.score })
-  //   );
-  // };
 
   const getFuzzySearchResults = (searchTerm) => {
     if (!fuse || searchTerm === "") return facilities || [];
@@ -294,25 +302,17 @@ const Fasilitas = () => {
     return facilities.filter((facility) => facility.fakultas === faculty);
   };
 
-  // Hasil pencarian
-  // const searchResults = useMemo(() => {
-  //   if (search === "") return facilities || [];
-  //   return getFuzzySearchResults(search);
-  // }, [search, facilities, fuse]);
-
   const filteredAndSearchedResults = useMemo(() => {
-    // Langkah 1: Lakukan pencarian fuzzy
+    //Lakukan pencarian fuzzy
     let results = getFuzzySearchResults(search);
 
-    // Langkah 2: Filter berdasarkan fakultas
+    //Filter berdasarkan fakultas
     results = filterByFaculty(results, selectedFaculty);
 
-    // Langkah 3: Urutkan hasil
-    // Jika ada pencarian, urutkan berdasarkan skor relevansi
+    //Urutkan hasil
     if (search !== "") {
       results.sort((a, b) => a.score - b.score);
     } else {
-      // Jika tidak ada pencarian, urutkan berdasarkan nama
       results = sortFacilities(results, sortOrder);
     }
 
@@ -347,14 +347,18 @@ const Fasilitas = () => {
         height={"h-[28rem]"}
         id="map-container"
       />
-      <div className="flex justify-center items-center mt-10 mb-3">
-        <input
-          className="border-[1px] border-[#0F6EE3] p-2 w-full rounded-lg placeholder:text-sm placeholder:px-2 basis-11/12"
-          type="text"
-          value={search}
-          placeholder="Cari fasilitas..."
-          onChange={handleSearchChange}
-        />
+      <div className="flex justify-center items-center mt-10 mb-5">
+        <div className="relative flex-grow">
+          <input
+            // className="border-[2px] p-2 w-full rounded-lg pl-9 placeholder:text-sm"
+            className="block ps-10 p-3 w-full pl-9 placeholder:text-sm text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            type="text"
+            value={search}
+            placeholder="Cari Fasilitas..."
+            onChange={handleSearchChange}
+          />
+          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+        </div>
         <button
           onClick={handleSortToggle}
           className="ml-2 p-2 bg-blue-500 text-white rounded-lg flex items-center justify-center basis-1/12 gap-x-2"
@@ -363,7 +367,7 @@ const Fasilitas = () => {
           <span>{sortOrder === "asc" ? "A-Z" : "Z-A"}</span>
         </button>
       </div>
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-4">
         {faculties.map((faculty) => (
           <button
             key={faculty}
@@ -377,6 +381,12 @@ const Fasilitas = () => {
             {faculty}
           </button>
         ))}
+      </div>
+      <div className="mb-10 text-sm text-gray-500">
+        Total Fasilitas :{" "}
+        {filteredAndSearchedResults
+          ? filteredAndSearchedResults.length
+          : "Loading"}
       </div>
       <div>
         {fetchError && <p className="text-center">{fetchError}</p>}
