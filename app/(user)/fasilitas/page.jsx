@@ -216,6 +216,7 @@ const Fasilitas = () => {
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [sortOrder, setSortOrder] = useState("asc"); // "asc" atau "desc"
   const [selectedFaculty, setSelectedFaculty] = useState("all");
+  const [mapError, setMapError] = useState(null);
 
   const { setFacility } = useFetchData();
 
@@ -337,21 +338,40 @@ const Fasilitas = () => {
     );
   };
 
+  const handleMapError = (error) => {
+    console.error("Map failed to load:", error);
+    setMapError("Peta gagal dimuat. Silakan coba muat ulang halaman.");
+  };
+
   return (
     <div className="bg-white pt-28 pb-24 px-12 sm:px-20 md:px-28 lg:px-32 min-h-screen">
       <h2 className="text-3xl font-semibold text-center mb-10">Fasilitas</h2>
-      <Map
-        // facilities={searchResults}
+      {mapError ? (
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+          role="alert"
+        >
+          <strong className="font-bold">Error: </strong>
+          <span className="block sm:inline">{mapError}</span>
+        </div>
+      ) : (
+        <Map
+          facilities={filteredAndSearchedResults}
+          height={"h-[28rem]"}
+          id="map-container"
+          onError={handleMapError}
+        />
+      )}
+      {/* <Map
         facilities={filteredAndSearchedResults}
-        // search={search}
         height={"h-[28rem]"}
         id="map-container"
-      />
+      /> */}
       <div className="flex justify-center items-center mt-10 mb-5">
         <div className="relative flex-grow">
           <input
             // className="border-[2px] p-2 w-full rounded-lg pl-9 placeholder:text-sm"
-            className="block ps-10 p-3 w-full pl-9 placeholder:text-sm text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block ps-10 p-3 w-full pl-9 placeholder:text-sm text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             value={search}
             placeholder="Cari Fasilitas..."
@@ -361,9 +381,9 @@ const Fasilitas = () => {
         </div>
         <button
           onClick={handleSortToggle}
-          className="ml-2 p-2 bg-blue-500 text-white rounded-lg flex items-center justify-center basis-1/12 gap-x-2"
+          className="ml-2 p-2 bg-blue-500 text-white rounded-lg flex items-center justify-center whitespace-nowrap min-w-[80px] h-[46px]"
         >
-          <FaSort />
+          <FaSort className="mr-2" />
           <span>{sortOrder === "asc" ? "A-Z" : "Z-A"}</span>
         </button>
       </div>
@@ -382,6 +402,7 @@ const Fasilitas = () => {
           </button>
         ))}
       </div>
+
       <div className="mb-10 text-sm text-gray-500">
         Total Fasilitas :{" "}
         {filteredAndSearchedResults
@@ -442,11 +463,29 @@ const Fasilitas = () => {
             ))}
           </div>
         ) : (
-          <p className="text-center content-center italic text-gray-500 p-4">
-            {facilities
-              ? `Tidak ditemukan fasilitas yang cocok dengan pencarian Anda "${search}"`
-              : "Tidak ada fasilitas yang ditampilkan"}
-          </p>
+          <div className="text-center content-center text-gray-500 px-4 py-8 flex flex-col items-center gap-5">
+            <Image
+              alt="Search Not Found"
+              src="/images/search-facility.png"
+              width={175}
+              height={175}
+              // className=""
+            />
+            <div className="space-y-8">
+              <p className="text-[#0F6EE3] ">
+                {facilities
+                  ? `Fasilitas "${search}" tidak ditemukan berdasarkan masukkan Anda`
+                  : "Tidak ada fasilitas yang ditampilkan"}
+              </p>
+              <p className="text-sm">
+                Klik di sini{" "}
+                <Link href="/kontak-kami" className="font-medium underline">
+                  Kontak Kami
+                </Link>{" "}
+                untuk menyarankan penambahan fasilitas kepada admin.
+              </p>
+            </div>
+          </div>
         )}
       </div>
     </div>
