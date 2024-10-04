@@ -13,7 +13,7 @@ export async function AdminLayout({ children }) {
   } = await supabaseServer().auth.getUser();
 
   if (!user) {
-    redirect("/masuk");
+    redirect("/admin");
   }
 
   return (
