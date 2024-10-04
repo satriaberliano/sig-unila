@@ -11,9 +11,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 // ** Import Icons
-import { FaMapMarkerAlt, FaUser } from "react-icons/fa";
+import { FaClock, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 import { BiSolidContact } from "react-icons/bi";
 import { LuClock4 } from "react-icons/lu";
+import { FaBuildingUser } from "react-icons/fa6";
 
 // ** Import Components
 // import MapEachFacility from "../MapEachFacility/MapEachFacility";
@@ -49,38 +50,50 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
               </div>
               <div className=" md:basis-1/2 space-y-8">
                 <h2 className="text-3xl font-semibold">{fasilitas.name}</h2>
-                <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
-                  <div className="lg:basis-1/2 space-y-4">
+                <div className="flex flex-col space-y-4 lg:space-y-0">
+                  <div className="space-y-6">
                     <Link
-                      className="flex items-center gap-3 text-red-700 w-fit"
+                      // className="flex items-center gap-3 text-red-700 w-fit"
+                      className="py-2 px-3 gap-x-2 font-semibold text-[#b72d23] bg-[#f8b1ac] rounded-full flex items-center w-fit"
                       href={`https://www.google.com/maps/place/${fasilitas.latitude}+${fasilitas.longitude}`}
                       target="_blank"
                       onClick=""
                     >
                       <FaMapMarkerAlt />
-                      <p className="text-base font-medium">Navigasi</p>
+                      <span className="text-sm font-semibold">Google Maps</span>
                     </Link>
-                    <div className="flex items-start gap-3">
-                      <div className="flex items-center justify-center text-lg">
-                        <LuClock4 />
+
+                    <div className="flex flex-col md:flex-row gap-y-6 gap-x-2 items-start text-sm">
+                      <div className="md:basis-1/2 space-y-2">
+                        <div className="flex items-center gap-x-3">
+                          <FaClock className="text-[#0f6ee3cb]" />
+                          <h3 className="font-medium">Jam Operasional</h3>
+                        </div>
+                        <div>
+                          {fasilitas.jam_operasional
+                            ? fasilitas.jam_operasional.map((item) => (
+                                <div key={item.id_jam}>
+                                  <span>{`${item.jam_buka} - ${item.jam_tutup} `}</span>
+                                  {item.hari_awal === item.hari_akhir ? (
+                                    <span>{`(${item.hari_awal})`}</span>
+                                  ) : (
+                                    <span>{`(${item.hari_awal} s.d ${item.hari_akhir})`}</span>
+                                  )}
+                                </div>
+                              ))
+                            : "No Information"}
+                        </div>
                       </div>
-                      <div className="flex flex-col text-sm">
-                        {fasilitas.jam_operasional
-                          ? fasilitas.jam_operasional.map((item) => (
-                              <div key={item.id_jam}>
-                                <span>{`${item.jam_buka} - ${item.jam_tutup} `}</span>
-                                {item.hari_awal === item.hari_akhir ? (
-                                  <span>{`(${item.hari_awal})`}</span>
-                                ) : (
-                                  <span>{`(${item.hari_awal} s.d ${item.hari_akhir})`}</span>
-                                )}
-                              </div>
-                            ))
-                          : "No Information"}
+                      <div className="md:basis-1/2 space-y-2">
+                        <div className="flex items-center gap-x-3 ">
+                          <FaBuildingUser className="text-[#0f6ee3cb]" />
+                          <h3 className="font-medium">Akses</h3>
+                        </div>
+                        <div>{fasilitas.akses}</div>
                       </div>
                     </div>
                   </div>
-                  <div className="text-sm lg:basis-1/2">
+                  {/* <div className="text-sm lg:basis-1/2">
                     {fasilitas.akses === "Umum dan Civitas Akademika" ? (
                       <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#2EB723] bg-[#bdffb7] rounded-full flex items-center w-fit">
                         <FaUser className="inline" />
@@ -99,7 +112,7 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
                     ) : (
                       "Tidak ada informasi akses"
                     )}
-                  </div>
+                  </div> */}
                 </div>
                 <div
                   dangerouslySetInnerHTML={{
@@ -110,7 +123,7 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
                 <div className="text-sm">
                   {fasilitas.kontak ? (
                     <div className="flex items-center gap-2">
-                      <BiSolidContact />
+                      <BiSolidContact className="text-[#0f6ee3cb]" />
                       {fasilitas.kontak.nama_kontak &&
                       fasilitas.kontak.nomor_telepon ? (
                         <span>{`Kontak: ${fasilitas.kontak.nama_kontak} - ${fasilitas.kontak.nomor_telepon}`}</span>
