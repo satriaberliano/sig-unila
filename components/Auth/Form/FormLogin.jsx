@@ -85,7 +85,7 @@ const FormLogin = () => {
           id="email_input"
           placeholder=" "
           {...register("email")}
-          className={`p-2 text-sm placeholder:text-xs placeholder:px-2 rounded-md border-2 w-full ${
+          className={`p-2 text-sm placeholder:text-xs placeholder:px-2 rounded-md border-2 w-full focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
             errors.email ? "border-red-600" : "border-slate-300"
           } `}
         />
@@ -104,7 +104,7 @@ const FormLogin = () => {
           type="password"
           placeholder=" "
           {...register("password")}
-          className={`p-2 text-sm placeholder:text-xs placeholder:px-2 rounded-md border-2 w-full ${
+          className={`p-2 text-sm placeholder:text-xs placeholder:px-2 rounded-md border-2 w-full focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
             errors.password ? "border-red-600" : "border-slate-300"
           }`}
         />
