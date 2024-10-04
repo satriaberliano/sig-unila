@@ -110,9 +110,9 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/masuk" className="hover:underline">
+          {/* <Link href="/masuk" className="hover:underline">
             Admin
-          </Link>
+          </Link> */}
         </div>
       </nav>
 
@@ -191,9 +191,9 @@ export default function Navbar() {
         >
           Kontak Kami
         </Link>
-        <Link href="/masuk" className="hover:underline">
+        {/* <Link href="/masuk" className="hover:underline">
           Admin
-        </Link>
+        </Link> */}
       </nav>
     </>
   );
