@@ -41,7 +41,7 @@ export default function NavLeft() {
             text: "Anda Telah Berhasil Logout",
             showConfirmButton: false,
             timer: 1500,
-          }).then(() => router.push("/masuk"));
+          }).then(() => router.push("/admin"));
         });
       }
     });
