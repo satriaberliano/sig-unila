@@ -87,7 +87,7 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
                       <div className="md:basis-1/2 space-y-2">
                         <div className="flex items-center gap-x-3 ">
                           <FaBuildingUser className="text-[#0f6ee3cb]" />
-                          <h3 className="font-medium">Akses</h3>
+                          <h3 className="font-medium">Dapat Diakses oleh</h3>
                         </div>
                         <div>{fasilitas.akses}</div>
                       </div>
