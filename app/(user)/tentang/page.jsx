@@ -39,7 +39,7 @@ export default function TentangPage() {
       <div className="grid grid-row-2 md:grid-cols-6 pt-16 gap-16 md:gap-12">
         {/* flex justify-center flex-col md:flex-row items-center md:w-1/2 self-start*/}
         <div className="w-full md:col-start-1 lg:col-start-2 md:col-end-4 space-y-4">
-          <h3 className="text-2xl font-semibold">Manfaat</h3>
+          <h3 className="text-2xl font-semibold">Tujuan</h3>
           <ol className="list-decimal ml-4">
             <li>
               Penyedia informasi fasilitas yang ada di Universitas Lampung
@@ -52,7 +52,7 @@ export default function TentangPage() {
           </ol>
         </div>
         <div className="w-full md:col-start-4 lg:col-end-6 md:col-end-7 space-y-4">
-          <h3 className="text-2xl font-semibold">Tujuan</h3>
+          <h3 className="text-2xl font-semibold">Manfaat</h3>
           <ol className="list-decimal ml-4">
             <li>Kemudahan akses informasi</li>
             <li>Peningkatan efektivitas dan efisiensi</li>
