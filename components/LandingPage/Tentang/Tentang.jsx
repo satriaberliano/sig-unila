@@ -1,6 +1,7 @@
 import assets from "@/assets/assets";
 import Image from "next/image";
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Tentang() {
   return (
@@ -14,9 +15,10 @@ export default function Tentang() {
         </h4>
         <Link
           href="/tentang"
-          className="px-3 py-2 bg-[#0F6EE3] text-white w-fit rounded-md text-sm"
+          className="px-3 py-2 bg-[#0F6EE3] text-white w-fit rounded-md text-sm flex items-center gap-x-4"
         >
-          Selengkapnya
+          <span>Selengkapnya</span>
+          <FaArrowRight />
         </Link>
       </div>
       <Image

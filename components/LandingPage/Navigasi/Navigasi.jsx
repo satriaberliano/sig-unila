@@ -16,7 +16,7 @@ export default function Navigasi() {
           height={500}
         />
         <div className="text-center space-y-6 my-auto md:p-8">
-          <h4 className="font-semibold text-3xl">
+          <h4 className="font-semibold text-2xl sm:text-3xl">
             Kunjungi Universitas Lampung
           </h4>
           <p>

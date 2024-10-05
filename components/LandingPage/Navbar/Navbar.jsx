@@ -6,20 +6,42 @@ import { useSidebar } from "@/zustand/useSidebar";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoIosClose } from "react-icons/io";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 export default function Navbar() {
   const [dropdown, setDropdown] = useState(false);
-
+  const [scroll, setScroll] = useState(0);
   const pathname = usePathname();
   const { openPublic, setOpenPublic } = useSidebar();
 
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+
+  useEffect(() => {
+    if (pathname === "/") {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [pathname]);
+
+  const isHomePage = pathname === "/";
+  const navbarClassName = `px-10 md:px-16 py-3 flex items-center justify-between text-white fixed top-0 w-full z-[10000] ${
+    isHomePage
+      ? scroll
+        ? "bg-[#0F6EE3] duration-500"
+        : "bg-transparent duration-500"
+      : "bg-[#0F6EE3]"
+  }`;
+
   return (
     <>
-      <nav className="px-10 md:px-16 py-3 flex items-center justify-between bg-[#0F6EE3] text-white fixed top-0 w-full z-[10000]">
+      <nav className={navbarClassName}>
         <Image
           src={assets.logoUnila}
           alt="universitas lampung logo"
