@@ -197,6 +197,7 @@ import assets from "@/assets/assets";
 import dynamic from "next/dynamic";
 import Fuse from "fuse.js";
 import { useRouter, useSearchParams } from "next/navigation";
+import PetunjukVisual from "@/components/LandingPage/PetunjukVisual/PetunjukVisual";
 
 const MapSkeleton = () => (
   <div className="animate-pulse bg-gray-200 rounded-lg h-[28rem] w-full" />
@@ -348,11 +349,13 @@ const Fasilitas = () => {
       <h2 className="text-3xl font-semibold text-center mb-10">Fasilitas</h2>
       {mapError ? (
         <div
-          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 h-[28rem]"
           role="alert"
         >
           <strong className="font-bold">Error: </strong>
-          <span className="block sm:inline">{mapError}</span>
+          <span className="block sm:inline">
+            {mapError || "Peta gagal dimuat"}
+          </span>
         </div>
       ) : (
         <Map
@@ -367,7 +370,10 @@ const Fasilitas = () => {
         height={"h-[28rem]"}
         id="map-container"
       /> */}
-      <div className="flex justify-center items-center mt-10 mb-5">
+
+      <PetunjukVisual />
+
+      <div className="flex justify-center items-center mt-8 mb-5">
         <div className="relative flex-grow">
           <input
             // className="border-[2px] p-2 w-full rounded-lg pl-9 placeholder:text-sm"
@@ -436,7 +442,7 @@ const Fasilitas = () => {
                         <h3 className="text-lg font-semibold">
                           {fasilitas.name}
                         </h3>
-                        <span
+                        {/* <span
                           className={`flex h-fit rounded-full p-1 border-2 ${
                             fasilitas.akses === "Umum dan Civitas Akademika"
                               ? "bg-[#25aa1e]"
@@ -448,7 +454,7 @@ const Fasilitas = () => {
                           }`}
                         >
                           <FaUser className="text-[10px] text-white" />
-                        </span>
+                        </span> */}
                       </div>
                       <div
                         dangerouslySetInnerHTML={{
@@ -469,7 +475,6 @@ const Fasilitas = () => {
               src="/images/search-facility.png"
               width={175}
               height={175}
-              // className=""
             />
             <div className="space-y-8">
               <p className="text-[#0F6EE3] ">
