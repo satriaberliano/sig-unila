@@ -4,6 +4,7 @@ import BackToTopButton from "@/components/LandingPage/BackToTopButton/BackToTopB
 import Banner from "@/components/LandingPage/Banner/Banner";
 import MotionScrollDown from "@/components/LandingPage/MotionScrollDown/MotionScrollDown";
 import Navigasi from "@/components/LandingPage/Navigasi/Navigasi";
+import StatistikKampus from "@/components/LandingPage/StatisikKampus/StatistikKampus";
 import Tentang from "@/components/LandingPage/Tentang/Tentang";
 import Tujuan from "@/components/LandingPage/Tujuan/Tujuan";
 
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Banner />
       <Tentang />
+      <StatistikKampus />
       <Tujuan />
       <Navigasi />
       <BackToTopButton />
