@@ -22,6 +22,7 @@ const Peta = () => {
       longitude,
       url_image,
       akses,
+      fakultas,
       kontak (
         nama_kontak,
         nomor_telepon
