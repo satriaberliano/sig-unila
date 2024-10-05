@@ -73,7 +73,12 @@ const DetailFasilitas = ({ facility: fasilitas }) => {
                           {fasilitas.jam_operasional
                             ? fasilitas.jam_operasional.map((item) => (
                                 <div key={item.id_jam}>
-                                  <span>{`${item.jam_buka} - ${item.jam_tutup} `}</span>
+                                  {item.jam_buka === "00:01" &&
+                                  item.jam_tutup === "23:59" ? (
+                                    <span>Buka 24 jam </span>
+                                  ) : (
+                                    <span>{`${item.jam_buka} - ${item.jam_tutup} `}</span>
+                                  )}
                                   {item.hari_awal === item.hari_akhir ? (
                                     <span>{`(${item.hari_awal})`}</span>
                                   ) : (
