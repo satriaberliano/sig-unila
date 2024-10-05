@@ -201,7 +201,25 @@ const Map = ({ facilities, search, height }) => {
                 positions={facultyOfEngineering}
               >
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Teknik
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Teknik
+                  </h4>
+                  {facilities.filter((facility) => facility.fakultas === "FT")
+                    .length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FT")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>Tidak ada fasilitas untuk Fakultas Teknik (FT)</p>
+                  )}
                 </Popup>
               </Polygon>
               <Polygon
@@ -209,7 +227,25 @@ const Map = ({ facilities, search, height }) => {
                 positions={facultyOfAgriculture}
               >
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Pertanian
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Pertanian
+                  </h4>
+                  {facilities.filter((facility) => facility.fakultas === "FP")
+                    .length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FP")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>Tidak ada fasilitas untuk Fakultas Pertanian (FP)</p>
+                  )}
                 </Popup>
               </Polygon>
               <Polygon
@@ -217,7 +253,29 @@ const Map = ({ facilities, search, height }) => {
                 positions={facultyOfScience}
               >
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Matematika dan Ilmu Pengetahuan Alam
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Matematika dan Ilmu Pengetahuan Alam
+                  </h4>
+                  {facilities.filter(
+                    (facility) => facility.fakultas === "FMIPA"
+                  ).length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FMIPA")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>
+                      Tidak ada fasilitas untuk Fakultas Matematika dan Ilmu
+                      Pengetahuan Alam (FMIPA)
+                    </p>
+                  )}
                 </Popup>
               </Polygon>
               <Polygon
@@ -225,12 +283,55 @@ const Map = ({ facilities, search, height }) => {
                 positions={facultyOfEducation}
               >
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Keguruan dan Ilmu Pendidikan
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Keguruan dan Ilmu Pendidikan
+                  </h4>
+                  {facilities.filter((facility) => facility.fakultas === "FKIP")
+                    .length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FKIP")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>
+                      Tidak ada fasilitas untuk Fakultas Keguruan dan Ilmu
+                      Pendidikan (FKIP)
+                    </p>
+                  )}
                 </Popup>
               </Polygon>
               <Polygon pathOptions={sospolOptions} positions={facultyOfSosPol}>
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Ilmu Sosial dan Ilmu Politik
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Ilmu Sosial dan Ilmu Politik
+                  </h4>
+                  {facilities.filter(
+                    (facility) => facility.fakultas === "FISIP"
+                  ).length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FISIP")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>
+                      Tidak ada fasilitas untuk Fakultas Ilmu Sosial dan Ilmu
+                      Politik (FISIP)
+                    </p>
+                  )}
                 </Popup>
               </Polygon>
               <Polygon
@@ -238,18 +339,77 @@ const Map = ({ facilities, search, height }) => {
                 positions={facultyOfBusiness}
               >
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Ekonomi dan Bisnis
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Ekonomi dan Bisnis
+                  </h4>
+                  {facilities.filter((facility) => facility.fakultas === "FEB")
+                    .length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FEB")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>
+                      Tidak ada fasilitas untuk Fakultas Ekonomi dan Bisnis
+                      (FEB)
+                    </p>
+                  )}
                 </Popup>
               </Polygon>
               <Polygon pathOptions={lawOptions} positions={facultyOfLaw}>
-                <Popup className={jakarta_sans.className}>Fakultas Hukum</Popup>
+                <Popup className={jakarta_sans.className}>
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Hukum
+                  </h4>
+                  {facilities.filter((facility) => facility.fakultas === "FH")
+                    .length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FH")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>Tidak ada fasilitas untuk Fakultas Hukum (FH)</p>
+                  )}
+                </Popup>
               </Polygon>
               <Polygon
                 pathOptions={medicineOptions}
                 positions={facultyOfMedicine}
               >
                 <Popup className={jakarta_sans.className}>
-                  Fakultas Kedokteran
+                  <h4 className="font-medium text-center mb-2">
+                    Fakultas Kedokteran
+                  </h4>
+                  {facilities.filter((facility) => facility.fakultas === "FK")
+                    .length > 0 ? (
+                    <>
+                      <ol className="list-decimal pl-2">
+                        {facilities
+                          .filter((facility) => facility.fakultas === "FK")
+                          .map((facility, index) => (
+                            <div key={index}>
+                              <li className="text-[11px]">{facility.name}</li>
+                            </div>
+                          ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <p>Tidak ada fasilitas untuk Fakultas Kedokteran (FK)</p>
+                  )}
                 </Popup>
               </Polygon>
             </LayerGroup>
