@@ -51,7 +51,7 @@ const Peta = () => {
 
   return (
     <div className="h-screen pt-16 z-0">
-      {console.log(facilities)}
+      {/* {console.log(facilities)} */}
       <Map height={"h-[95vh]"} facilities={facilities} search={search} />
     </div>
   );
