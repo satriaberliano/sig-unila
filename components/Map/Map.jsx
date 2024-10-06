@@ -204,7 +204,8 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Teknik
                   </h4>
-                  {facilities.filter((facility) => facility.fakultas === "FT")
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FT")
                     .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
@@ -230,7 +231,8 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Pertanian
                   </h4>
-                  {facilities.filter((facility) => facility.fakultas === "FP")
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FP")
                     .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
@@ -256,9 +258,9 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Matematika dan Ilmu Pengetahuan Alam
                   </h4>
-                  {facilities.filter(
-                    (facility) => facility.fakultas === "FMIPA"
-                  ).length > 0 ? (
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FMIPA")
+                    .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
                         {facilities
@@ -286,7 +288,8 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Keguruan dan Ilmu Pendidikan
                   </h4>
-                  {facilities.filter((facility) => facility.fakultas === "FKIP")
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FKIP")
                     .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
@@ -312,9 +315,9 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Ilmu Sosial dan Ilmu Politik
                   </h4>
-                  {facilities.filter(
-                    (facility) => facility.fakultas === "FISIP"
-                  ).length > 0 ? (
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FISIP")
+                    .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
                         {facilities
@@ -342,7 +345,8 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Ekonomi dan Bisnis
                   </h4>
-                  {facilities.filter((facility) => facility.fakultas === "FEB")
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FEB")
                     .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
@@ -368,7 +372,8 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Hukum
                   </h4>
-                  {facilities.filter((facility) => facility.fakultas === "FH")
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FH")
                     .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
@@ -394,7 +399,8 @@ const Map = ({ facilities, search, height }) => {
                   <h4 className="font-medium text-center mb-2">
                     Fakultas Kedokteran
                   </h4>
-                  {facilities.filter((facility) => facility.fakultas === "FK")
+                  {facilities &&
+                  facilities.filter((facility) => facility.fakultas === "FK")
                     .length > 0 ? (
                     <>
                       <ol className="list-decimal pl-2">
