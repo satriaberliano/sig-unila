@@ -27,8 +27,6 @@ export const useModalFacility = create(
       storage: createJSONStorage(() =>
         isLocalStorageAvailable() ? localStorage : sessionStorage
       ),
-      // getStorage: () =>
-      //   isLocalStorageAvailable() ? localStorage : sessionStorage,
       partialize: (state) => ({ data: state.data }), // hanya menyimpan state data
     }
   )
