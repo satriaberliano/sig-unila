@@ -1,0 +1,915 @@
+{
+  "type": "FeatureCollection",
+  "name": "Fakultas Teknik Universitas Lampung",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 15,
+        "osm_id": null,
+        "osm_way_id": "404897552",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2426609, -5.363328],
+              [105.2427952, -5.3634233],
+              [105.2427105, -5.3635417],
+              [105.2425762, -5.3634464],
+              [105.2426609, -5.363328]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 20,
+        "osm_id": null,
+        "osm_way_id": "404897558",
+        "name": "Gedung G",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.24221, -5.362137],
+              [105.2424272, -5.3623413],
+              [105.2422545, -5.3625234],
+              [105.2420373, -5.3623191],
+              [105.24221, -5.362137]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 62,
+        "osm_id": null,
+        "osm_way_id": "404897603",
+        "name": "Gedung L Teknik Geofisika",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "college",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"building:levels\"=>\"4\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2411431, -5.3608145],
+              [105.2414623, -5.3606676],
+              [105.2415384, -5.3608316],
+              [105.2412193, -5.3609785],
+              [105.2411431, -5.3608145]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 75,
+        "osm_id": null,
+        "osm_way_id": "404897618",
+        "name": "Jurusan Teknik Kimia",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2411927, -5.3610121],
+              [105.2414744, -5.361219],
+              [105.2413583, -5.3613756],
+              [105.2410767, -5.3611686],
+              [105.2411927, -5.3610121]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 82,
+        "osm_id": null,
+        "osm_way_id": "404897630",
+        "name": "Dekanat Fakultas Teknik",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2428661, -5.3628994],
+              [105.2429919, -5.3629886],
+              [105.2427347, -5.3633481],
+              [105.2426089, -5.3632589],
+              [105.2428661, -5.3628994]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 95,
+        "osm_id": null,
+        "osm_way_id": "404897647",
+        "name": "Jurusan Teknik Sipil",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2432255, -5.3624388],
+              [105.2434674, -5.3626103],
+              [105.2433685, -5.3627486],
+              [105.2432297, -5.3626503],
+              [105.2430123, -5.3629542],
+              [105.2429091, -5.362881],
+              [105.2432255, -5.3624388]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 102,
+        "osm_id": null,
+        "osm_way_id": "404897657",
+        "name": "Jurusan Arsitektur",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.242622, -5.3635136],
+              [105.2428166, -5.3636516],
+              [105.2427021, -5.3638115],
+              [105.2425962, -5.3637364],
+              [105.2425617, -5.3637847],
+              [105.2423137, -5.3636088],
+              [105.242414, -5.3634686],
+              [105.2425734, -5.3635817],
+              [105.242622, -5.3635136]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2939,
+        "osm_id": null,
+        "osm_way_id": "547800736",
+        "name": "Laboratorium Terpadu Jurusan Teknik Elektro",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"building:levels\"=>\"3\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2426773, -5.3611483],
+              [105.2429011, -5.3612864],
+              [105.2428275, -5.3614048],
+              [105.2426036, -5.3612667],
+              [105.2426773, -5.3611483]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2940,
+        "osm_id": null,
+        "osm_way_id": "547800737",
+        "name": "Gedung H",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"building:levels\"=>\"3\",\"description\"=>\"Jurusan Teknik Elektro\n- S1 Teknik Elektro\n- S1 Teknik Informatika\n- S2 Teknik Elektro\nJurusan Teknik Mesin\n- D4 Teknik Rekayasa Otomotif\n- S1 Teknik Mesin\n- D3 Teknik Mesin\n- S2 Teknik Mesin\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2422461, -5.3614357],
+              [105.2424935, -5.3613984],
+              [105.2424988, -5.3613443],
+              [105.2426276, -5.3613231],
+              [105.2426542, -5.3613846],
+              [105.2427075, -5.3613863],
+              [105.2427373, -5.3616822],
+              [105.2425361, -5.3617089],
+              [105.2425244, -5.3616093],
+              [105.242261, -5.3616373],
+              [105.2422461, -5.3614357]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2941,
+        "osm_id": null,
+        "osm_way_id": "547800738",
+        "name": "Laboratorium Terpadu Jurusan Teknik Mesin",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"building:levels\"=>\"3\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2424332, -5.3609009],
+              [105.2425811, -5.3610222],
+              [105.2424573, -5.3611875],
+              [105.2424432, -5.3613768],
+              [105.242257954820758, -5.361393129472535],
+              [105.2422484, -5.361107],
+              [105.2424332, -5.3609009]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2955,
+        "osm_id": null,
+        "osm_way_id": "625291245",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": "parking",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2424535, -5.3619307],
+              [105.2427139, -5.3621407],
+              [105.2428092, -5.3620436],
+              [105.242563833842468, -5.361837677191431],
+              [105.242370863184433, -5.36186016005597],
+              [105.2424535, -5.3619307]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2956,
+        "osm_id": null,
+        "osm_way_id": "625291247",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": "motorcycle_parking",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.242596679911941, -5.361833589397791],
+              [105.2428278, -5.3620263],
+              [105.2428946, -5.3619784],
+              [105.2429702, -5.361924],
+              [105.24285534270885, -5.36179884315073],
+              [105.242596679911941, -5.361833589397791]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2958,
+        "osm_id": null,
+        "osm_way_id": "625291262",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": "parking",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.242418240859337, -5.363174784361085],
+              [105.242203222029431, -5.363472412478982],
+              [105.241901612614498, -5.363214807911354],
+              [105.242138931444401, -5.362929279793457],
+              [105.242418240859337, -5.363174784361085]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 3361,
+        "osm_id": null,
+        "osm_way_id": "1081544938",
+        "name": "Jurusan Teknik Geodesi",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2421494, -5.3615787],
+              [105.2421604, -5.3616915],
+              [105.2419556, -5.3617113],
+              [105.2419475, -5.3616289],
+              [105.2419963, -5.3616242],
+              [105.2419934, -5.3615937],
+              [105.2421494, -5.3615787]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 3362,
+        "osm_id": null,
+        "osm_way_id": "1081544939",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2418198, -5.3620415],
+              [105.2418434, -5.362198],
+              [105.2419668, -5.3621879],
+              [105.242053, -5.3622669],
+              [105.2421864, -5.3621374],
+              [105.2420462, -5.3620129],
+              [105.2418198, -5.3620415]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 3363,
+        "osm_id": null,
+        "osm_way_id": "1081544940",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2417761, -5.3614531],
+              [105.2417199, -5.3615283],
+              [105.2417336, -5.3616211],
+              [105.2418091, -5.361677],
+              [105.2419023, -5.3616634],
+              [105.2419585, -5.3615882],
+              [105.2419448, -5.3614955],
+              [105.2418693, -5.3614395],
+              [105.2417761, -5.3614531]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 3366,
+        "osm_id": null,
+        "osm_way_id": "1164081335",
+        "name": "Masjid Al-Fattah",
+        "type": null,
+        "aeroway": null,
+        "amenity": "place_of_worship",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"air_conditioning\"=>\"yes\",\"religion\"=>\"muslim\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.242498141703663, -5.362471284874934],
+              [105.242631578860809, -5.362642972004955],
+              [105.242436555323422, -5.362794220150915],
+              [105.242305171045629, -5.362624576957619],
+              [105.242498141703663, -5.362471284874934]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 3367,
+        "osm_id": null,
+        "osm_way_id": "1164081336",
+        "name": "Lab Mekanika Tanah",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"building:levels\"=>\"3\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2422948, -5.3620066],
+              [105.242585, -5.3622744],
+              [105.2427018, -5.3621616],
+              [105.2423939, -5.3619009],
+              [105.2422948, -5.3620066]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 3376,
+        "osm_id": null,
+        "osm_way_id": "625291271",
+        "name": "Fakultas Teknik Universitas Lampung",
+        "type": null,
+        "aeroway": null,
+        "amenity": "university",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"internet_access\"=>\"yes\",\"internet_access:ssid\"=>\"Wifi@Unila\",\"operator\"=>\"Universitas Lampung\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.242655174901131, -5.363917208517279],
+              [105.242749632694199, -5.363894508449852],
+              [105.242857390690475, -5.363902295162052],
+              [105.24297272858513, -5.363768074948603],
+              [105.24307433021653, -5.363640684775945],
+              [105.243213834942438, -5.363568218387841],
+              [105.243062199370797, -5.36346757061231],
+              [105.243211588331206, -5.363219402222767],
+              [105.243159587649913, -5.363122668393614],
+              [105.243599056607465, -5.362491764530503],
+              [105.243194297689371, -5.362208855326066],
+              [105.24320180314362, -5.362196045139035],
+              [105.243140629548819, -5.361960408871679],
+              [105.243089308125704, -5.361708942953883],
+              [105.243036951159311, -5.361454421228438],
+              [105.24299282279668, -5.361306295065842],
+              [105.242937457882519, -5.361205090799765],
+              [105.242692537895934, -5.360984062611201],
+              [105.242442609687089, -5.360786815341293],
+              [105.241576485443645, -5.360274236494386],
+              [105.241009228964657, -5.360508558345532],
+              [105.24041783391209, -5.360682797612451],
+              [105.2406945, -5.3613267],
+              [105.241249886851804, -5.361736628506765],
+              [105.241547658568876, -5.361991991381381],
+              [105.2418527, -5.3623645],
+              [105.2418582, -5.3625179],
+              [105.2420907, -5.3627319],
+              [105.241709610071666, -5.363199847448596],
+              [105.242138233287534, -5.363527959279621],
+              [105.242655174901131, -5.363917208517279]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

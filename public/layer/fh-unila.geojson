@@ -1,0 +1,373 @@
+{
+  "type": "FeatureCollection",
+  "name": "Fakultas Hukum Universitas Lampung",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897574",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.244992042050384, -5.364055429348674],
+              [105.244887274901217, -5.36398026597155],
+              [105.244678197037842, -5.364241436464063],
+              [105.244695018229123, -5.364254319173891],
+              [105.244594091081396, -5.3643844345279],
+              [105.244716362525793, -5.364475760723837],
+              [105.244919686674308, -5.364205849179445],
+              [105.244897510246915, -5.364181556766778],
+              [105.244992042050384, -5.364055429348674]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897609",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2446219, -5.3631104],
+              [105.2449441, -5.3633434],
+              [105.2448736, -5.36344],
+              [105.2445514, -5.3632069],
+              [105.2446219, -5.3631104]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897652",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2442729, -5.3636378],
+              [105.2443946, -5.3637241],
+              [105.2442518, -5.3639238],
+              [105.2442673, -5.3639348],
+              [105.244175, -5.3640638],
+              [105.2440181, -5.3639524],
+              [105.2441032, -5.3638334],
+              [105.244123, -5.3638474],
+              [105.2442729, -5.3636378]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "625291290",
+        "name": "Fakultas Hukum Universitas Lampung",
+        "type": null,
+        "aeroway": null,
+        "amenity": "university",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"operator\"=>\"Universitas Lampung\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.244527820838044, -5.36302932325165],
+              [105.243884045126464, -5.363964358526502],
+              [105.244803421153748, -5.364587386789688],
+              [105.24532990206167, -5.36383649634628],
+              [105.244908985403328, -5.363550602894042],
+              [105.245032050019532, -5.36337480499045],
+              [105.244527820838044, -5.36302932325165]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "1081547010",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2444603, -5.3632184],
+              [105.2442382, -5.3635353],
+              [105.2443949, -5.3636442],
+              [105.2446445, -5.3632882],
+              [105.2444877, -5.3631793],
+              [105.2444603, -5.3632184]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897574",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2444607, -5.3637713],
+              [105.2447363, -5.3639668],
+              [105.2446565, -5.3640784],
+              [105.2443808, -5.3638829],
+              [105.2444607, -5.3637713]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897574",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.245025567284287, -5.363806240913745],
+              [105.245160245151965, -5.363896723149289],
+              [105.245087978979058, -5.363985025077066],
+              [105.24495814679625, -5.363894364957789],
+              [105.245025567284287, -5.363806240913745]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897574",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.24473869247673, -5.363654710392847],
+              [105.244820813127745, -5.363715758664786],
+              [105.244775920505191, -5.363769175897721],
+              [105.24469598973819, -5.363705947335778],
+              [105.24473869247673, -5.363654710392847]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

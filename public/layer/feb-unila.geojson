@@ -1,0 +1,400 @@
+{
+  "type": "FeatureCollection",
+  "name": "Fakultas Ekonomi dan Bisnis Universitas Lampung",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 31.0,
+        "osm_id": null,
+        "osm_way_id": "404897569",
+        "name": "Gedung A Manajemen",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2437016, -5.3627485],
+              [105.2440253, -5.3629781],
+              [105.2439269, -5.3631157],
+              [105.2436032, -5.3628861],
+              [105.2436544, -5.3628114],
+              [105.2437016, -5.3627485]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 39.0,
+        "osm_id": null,
+        "osm_way_id": "404897577",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2433612, -5.3630881],
+              [105.2435952, -5.3632244],
+              [105.2436229, -5.363182],
+              [105.2437708, -5.3632916],
+              [105.2436569, -5.3634819],
+              [105.2435899, -5.3635349],
+              [105.2435005, -5.3635497],
+              [105.2434153, -5.3635253],
+              [105.2432012, -5.3634733],
+              [105.2433382, -5.3632542],
+              [105.243276, -5.363211],
+              [105.2433612, -5.3630881]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 51.0,
+        "osm_id": null,
+        "osm_way_id": "404897591",
+        "name": "Dekanan Fakultas Ekonomi dan Bisnis",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.243984504033122, -5.363287135469319],
+              [105.2441503, -5.3633972],
+              [105.2439533, -5.3636725],
+              [105.243781290503364, -5.363570992777825],
+              [105.243984504033122, -5.363287135469319]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 100.0,
+        "osm_id": null,
+        "osm_way_id": "404897655",
+        "name": "Jurusan Akuntansi",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2441757, -5.3621901],
+              [105.244411, -5.362357],
+              [105.2441301, -5.3627496],
+              [105.243797, -5.3625133],
+              [105.2438832, -5.3623929],
+              [105.2439235, -5.3624215],
+              [105.2440569, -5.3622352],
+              [105.2441143, -5.3622759],
+              [105.2441757, -5.3621901]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 101.0,
+        "osm_id": null,
+        "osm_way_id": "404897656",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2437157, -5.3618189],
+              [105.2440325, -5.3620436],
+              [105.2438082, -5.362357],
+              [105.243761, -5.3623235],
+              [105.2437272, -5.3623707],
+              [105.2435174, -5.3622218],
+              [105.2435511, -5.3621746],
+              [105.2434915, -5.3621323],
+              [105.2436777, -5.361872],
+              [105.2437157, -5.3618189]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2945.0,
+        "osm_id": null,
+        "osm_way_id": "569925884",
+        "name": "Student Center FEB",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2435467, -5.3626415],
+              [105.2436683, -5.3627311],
+              [105.2434418, -5.3630359],
+              [105.2433202, -5.3629462],
+              [105.2435467, -5.3626415]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2946.0,
+        "osm_id": null,
+        "osm_way_id": "569926809",
+        "name": "Pascasarjana FEB",
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.243319293439868, -5.361563794956922],
+              [105.2436155, -5.3617792],
+              [105.243333663595251, -5.362221929671523],
+              [105.243259781587028, -5.362167356515082],
+              [105.243175591886029, -5.36176205300463],
+              [105.243319293439868, -5.361563794956922]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fid": 2962.0,
+        "osm_id": null,
+        "osm_way_id": "625291285",
+        "name": "Fakultas Ekonomi dan Bisnis Universitas Lampung",
+        "type": null,
+        "aeroway": null,
+        "amenity": "university",
+        "admin_leve": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"operator\"=>\"Universitas Lampung\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.24310795612125, -5.361570399891058],
+              [105.2432731, -5.3614056],
+              [105.2437136, -5.3617162],
+              [105.2445416, -5.3623458],
+              [105.2441603, -5.3628324],
+              [105.244135175809703, -5.362867797625108],
+              [105.244423639171657, -5.363084578872368],
+              [105.243845576255282, -5.363927423656638],
+              [105.243336664675709, -5.363596928759612],
+              [105.243244925446973, -5.363583755073851],
+              [105.243067328082105, -5.363467713144816],
+              [105.243214325209166, -5.363219402222767],
+              [105.243163692966874, -5.363122668393614],
+              [105.2435316, -5.3625897],
+              [105.243629638615531, -5.362458210977629],
+              [105.24324140978257, -5.362189451975452],
+              [105.24310795612125, -5.361570399891058]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

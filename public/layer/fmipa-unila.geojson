@@ -1,0 +1,595 @@
+{
+  "type": "FeatureCollection",
+  "name": "Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Lampung",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897550",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.243707, -5.3666137],
+              [105.2438681, -5.366728],
+              [105.2436279, -5.3670637],
+              [105.2434668, -5.3669494],
+              [105.243707, -5.3666137]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897561",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2441536, -5.3670076],
+              [105.2442606, -5.3670835],
+              [105.24412, -5.36728],
+              [105.244013, -5.3672041],
+              [105.2441536, -5.3670076]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897568",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2447584, -5.3673241],
+              [105.2448885, -5.3674163],
+              [105.244686, -5.3676992],
+              [105.244556, -5.367607],
+              [105.2447584, -5.3673241]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897579",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2440651, -5.3665389],
+              [105.2443318, -5.3667281],
+              [105.2442475, -5.366846],
+              [105.2439807, -5.3666568],
+              [105.2440651, -5.3665389]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897581",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2443521, -5.3667726],
+              [105.2444239, -5.3668236],
+              [105.2442703, -5.3670383],
+              [105.2441984, -5.3669874],
+              [105.2443521, -5.3667726]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897586",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2441375, -5.3672973],
+              [105.2443072, -5.3674177],
+              [105.2442099, -5.3675537],
+              [105.2440402, -5.3674333],
+              [105.2441375, -5.3672973]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897604",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2438049, -5.3673387],
+              [105.2439317, -5.3674287],
+              [105.2437888, -5.3676285],
+              [105.2436619, -5.3675385],
+              [105.2438049, -5.3673387]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897611",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2444701, -5.3668541],
+              [105.2446444, -5.3669777],
+              [105.2444138, -5.3673],
+              [105.2442394, -5.3671764],
+              [105.2444701, -5.3668541]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897635",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2437056, -5.3670877],
+              [105.243873, -5.3672064],
+              [105.2437754, -5.3673427],
+              [105.2436081, -5.3672241],
+              [105.2437056, -5.3670877]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897637",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2447946, -5.3670717],
+              [105.2451349, -5.367313],
+              [105.2450535, -5.3674269],
+              [105.2447132, -5.3671855],
+              [105.2447946, -5.3670717]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "404897650",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": null,
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": "yes",
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2444553, -5.3676298],
+              [105.2446605, -5.3677463],
+              [105.2445532, -5.3678969],
+              [105.244407, -5.3678218],
+              [105.2442555, -5.3678421],
+              [105.2442501, -5.3676565],
+              [105.2444553, -5.3676298]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "625291316",
+        "name": null,
+        "type": null,
+        "aeroway": null,
+        "amenity": "parking",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": null
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2440337, -5.3664892],
+              [105.2445851, -5.366889],
+              [105.2452624, -5.3673425],
+              [105.2453643, -5.3671993],
+              [105.2441476, -5.3663639],
+              [105.2440337, -5.3664892]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": null,
+        "osm_way_id": "625291320",
+        "name": "Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Lampung",
+        "type": null,
+        "aeroway": null,
+        "amenity": "university",
+        "admin_level": null,
+        "barrier": null,
+        "boundary": null,
+        "building": null,
+        "craft": null,
+        "geological": null,
+        "historic": null,
+        "land_area": null,
+        "landuse": null,
+        "leisure": null,
+        "man_made": null,
+        "military": null,
+        "natural": null,
+        "office": null,
+        "place": null,
+        "shop": null,
+        "sport": null,
+        "tourism": null,
+        "other_tags": "\"operator\"=>\"Universitas Lampung\""
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.2430018, -5.3673526],
+              [105.2443814, -5.3682161],
+              [105.2451242, -5.3674742],
+              [105.245339240272003, -5.367382503455071],
+              [105.245449572338401, -5.36720835368321],
+              [105.2442224644779, -5.366325547536268],
+              [105.244125587541561, -5.366261245976398],
+              [105.243953361876919, -5.366180869017029],
+              [105.243759608004197, -5.366226415961973],
+              [105.243614292599659, -5.366274642135262],
+              [105.24350934258527, -5.366376452933023],
+              [105.2432756, -5.3667064],
+              [105.2433323, -5.3667798],
+              [105.2433437, -5.3668758],
+              [105.2430018, -5.3673526]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
