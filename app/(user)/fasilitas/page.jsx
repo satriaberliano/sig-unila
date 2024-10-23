@@ -198,6 +198,7 @@ import dynamic from "next/dynamic";
 import Fuse from "fuse.js";
 import { useRouter, useSearchParams } from "next/navigation";
 import PetunjukVisual from "@/components/LandingPage/PetunjukVisual/PetunjukVisual";
+import { useFacilities } from "@/zustand/useFacilities";
 
 const MapSkeleton = () => (
   <div className="animate-pulse bg-gray-200 rounded-lg h-[28rem] w-full" />
@@ -220,6 +221,7 @@ const Fasilitas = () => {
   const [mapError, setMapError] = useState(null);
 
   const { setFacility } = useFetchData();
+  // const { setAllFacilities } = useFacilities();
 
   const faculties = ["FMIPA", "FT", "FEB", "FKIP", "FH", "FP", "FK", "FISIP"];
 
@@ -250,10 +252,12 @@ const Fasilitas = () => {
       if (error) {
         setFetchError(`Tidak dapat melakukan fetch data Fasilitas`);
         setFacilities(null);
+        // setAllFacilities(null);
       }
 
       if (data) {
         setFacilities(data);
+        // setAllFacilities(data);
         setFetchError(null);
       }
     };
@@ -305,13 +309,9 @@ const Fasilitas = () => {
   };
 
   const filteredAndSearchedResults = useMemo(() => {
-    //Lakukan pencarian fuzzy
     let results = getFuzzySearchResults(search);
-
-    //Filter berdasarkan fakultas
     results = filterByFaculty(results, selectedFaculty);
 
-    //Urutkan hasil
     if (search !== "") {
       results.sort((a, b) => a.score - b.score);
     } else {
@@ -423,11 +423,11 @@ const Fasilitas = () => {
             {filteredAndSearchedResults.map((fasilitas, index) => (
               <div
                 className="w-full shadow-md rounded-md overflow-hidden border hover:shadow-slate-400 hover:ease-in hover:duration-500"
-                key={index}
+                key={fasilitas.id}
               >
                 <Link
                   href={`fasilitas/${fasilitas.id}`}
-                  onClick={() => dataFacilityHandler(fasilitas)}
+                  // onClick={() => dataFacilityHandler(fasilitas)}
                 >
                   <Image
                     src={fasilitas.url_image || assets.defaultImage}

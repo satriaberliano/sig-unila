@@ -1,6 +1,6 @@
 "use client";
 
-import L from "leaflet";
+import L, { DivOverlay } from "leaflet";
 import MarkerIcon from "../../node_modules/leaflet/dist/images/marker-icon.png";
 import MarkerShadow from "../../node_modules/leaflet/dist/images/marker-shadow.png";
 import "../../node_modules/leaflet/dist/leaflet";
@@ -14,6 +14,7 @@ import {
   LayersControl,
   LayerGroup,
   ScaleControl,
+  GeoJSON,
   useMap,
 } from "react-leaflet";
 import { useEffect, useState } from "react";
@@ -98,10 +99,46 @@ const Map = ({ facilities, search, height }) => {
     "https://www.google.com/maps/place/"
   );
 
+  // const [geoDataList, setGeoDataList] = useState([]);
+
+  // useEffect(() => {
+  //   const geoDataUrlList = [
+  //     "/layer/ft-unila.geojson",
+  //     "/layer/feb-unila.geojson",
+  //     "/layer/fisip-unila.geojson",
+  //     "/layer/fh-unila.geojson",
+  //     "/layer/fp-unila.geojson",
+  //     "/layer/fmipa-unila.geojson",
+  //     "/layer/fkip-unila.geojson",
+  //     "/layer/fk-unila.geojson",
+  //     "/layer/unila-map.geojson",
+  //   ];
+
+  //   const fetchGeoJsonFiles = async () => {
+  //     try {
+  //       const geoDataPromises = geoDataUrlList.map((file) =>
+  //         fetch(file).then((response) => response.json())
+  //       );
+  //       const allGeoData = await Promise.all(geoDataPromises);
+  //       setGeoDataList(allGeoData);
+  //     } catch (error) {
+  //       console.error("Error loading GeoJSON files:", error);
+  //     }
+  //   };
+
+  //   fetchGeoJsonFiles();
+  // }, []);
+
   const { setFacility } = useFetchData();
 
   const dataFacilityHandler = (val) => {
     setFacility(val);
+  };
+
+  const geoJsonStyle = {
+    // color: "blue",
+    weight: 2,
+    fillOpacity: 0.5,
   };
 
   return (
@@ -188,6 +225,12 @@ const Map = ({ facilities, search, height }) => {
           <></>
         )}
         <ScaleControl position="bottomright"></ScaleControl>
+
+        {/* {geoDataList.map((geoData, index) => (
+          <GeoJSON key={index} data={geoData} style={geoJsonStyle}>
+            <Popup>{geoData.name}</Popup>
+          </GeoJSON>
+        ))} */}
 
         <LayersControl position="topright">
           <LayersControl.Overlay
@@ -312,13 +355,24 @@ const Map = ({ facilities, search, height }) => {
               </Polygon>
               <Polygon pathOptions={sospolOptions} positions={facultyOfSosPol}>
                 <Popup className={jakarta_sans.className}>
-                  <h4 className="font-medium text-center mb-2">
+                  <h4 className="font-semibold text-center mb-2">
                     Fakultas Ilmu Sosial dan Ilmu Politik
                   </h4>
                   {facilities &&
                   facilities.filter((facility) => facility.fakultas === "FISIP")
                     .length > 0 ? (
                     <>
+                      <p className="text-xs">
+                        Terdapat{" "}
+                        <span className="font-medium">
+                          {
+                            facilities.filter(
+                              (facility) => facility.fakultas === "FISIP"
+                            ).length
+                          }{" "}
+                        </span>
+                        fasilitas di FISIP, antara lain:
+                      </p>
                       <ol className="list-decimal pl-2">
                         {facilities
                           .filter((facility) => facility.fakultas === "FISIP")
