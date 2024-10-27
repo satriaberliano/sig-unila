@@ -90,6 +90,7 @@ const SuntingFasilitasPage = ({ params }) => {
     setValue("nama_kontak", edit.kontak.nama_kontak);
     setValue("nomor_telepon", edit.kontak.nomor_telepon);
     setValue("akses", edit.akses);
+    setValue("fakultas", edit.fakultas);
 
     edit.jam_operasional.forEach((item, index) => {
       setValue(`jam_operasional.${index}.id_jam`, item.id_jam);
@@ -161,6 +162,7 @@ const SuntingFasilitasPage = ({ params }) => {
                 name: input.name,
                 description: input.description,
                 akses: input.akses,
+                fakultas: input.fakultas,
               },
             ])
             .eq("id", edit.id)
@@ -239,6 +241,7 @@ const SuntingFasilitasPage = ({ params }) => {
               name: input.name,
               description: input.description,
               akses: input.akses,
+              fakultas: input.fakultas,
             },
           ])
           .eq("id", edit.id)
@@ -522,6 +525,31 @@ const SuntingFasilitasPage = ({ params }) => {
                   </option>
                   <option value={"Civitas Akademika"}>Civitas Akademika</option>
                   <option value={"Tidak untuk umum"}>Tidak untuk umum</option>
+                </select>
+              </div>
+              <div className="flex flex-col space-y-2">
+                <label
+                  className="font-medium flex justify-start"
+                  htmlFor="fakultas"
+                >
+                  Fakultas{" "}
+                </label>
+                <select
+                  name="fakultas"
+                  id="fakultas"
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-2 text-sm"
+                  {...register("fakultas")}
+                >
+                  <option value={""}>Pilih Fakultas</option>
+                  <option value={"FMIPA"}>FMIPA</option>
+                  <option value={"FT"}>FT</option>
+                  <option value={"FEB"}>FEB</option>
+                  <option value={"FKIP"}>FKIP</option>
+                  <option value={"FH"}>FH</option>
+                  <option value={"FP"}>FP</option>
+                  <option value={"FK"}>FK</option>
+                  <option value={"FISIP"}>FISIP</option>
                 </select>
               </div>
             </div>

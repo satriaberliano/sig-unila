@@ -153,6 +153,7 @@ const TambahFasilitasPage = () => {
               name: input.name,
               description: input.description,
               akses: input.akses,
+              fakultas: input.fakultas,
             },
           ])
           .select();
@@ -249,8 +250,10 @@ const TambahFasilitasPage = () => {
             <div className="flex flex-col space-y-4">
               <label className="font-medium flex justify-start">
                 Gambar Fasilitas
-                {errors.image && (
+                {errors.image ? (
                   <span className="text-red-500 text-xs ml-1">{`*${errors.image.message}`}</span>
+                ) : (
+                  <span className="text-red-600">*</span>
                 )}
               </label>
               <div className="flex flex-col gap-y-4">
@@ -302,8 +305,10 @@ const TambahFasilitasPage = () => {
                 htmlFor="description"
               >
                 Deskripsi Fasilitas{" "}
-                {errors?.description && (
+                {errors?.description ? (
                   <span className="text-red-600 text-xs leading-3 ml-1">{`*${errors.description.message}`}</span>
+                ) : (
+                  <span className="text-red-600">*</span>
                 )}
               </label>
               <Controller
@@ -327,8 +332,10 @@ const TambahFasilitasPage = () => {
                   className="font-medium flex items-start"
                 >
                   Nama Fasilitas
-                  {errors?.name && (
+                  {errors?.name ? (
                     <span className="text-red-600 text-xs leading-3 ml-1">{`*${errors.name.message}`}</span>
+                  ) : (
+                    <span className="text-red-600">*</span>
                   )}
                 </label>
                 <input
@@ -348,7 +355,7 @@ const TambahFasilitasPage = () => {
                   ) : errors?.longitude ? (
                     <span className="text-red-600 text-xs leading-3 ml-1">{`*${errors.longitude.message}`}</span>
                   ) : (
-                    ""
+                    <span className="text-red-600">*</span>
                   )}
                 </h3>
                 <div className="flex gap-5">
@@ -418,8 +425,10 @@ const TambahFasilitasPage = () => {
                   htmlFor="akses"
                 >
                   Akses{" "}
-                  {errors?.akses && (
+                  {errors?.akses ? (
                     <span className="text-red-600 text-xs leading-3 ml-1">{`*${errors.akses.message}`}</span>
+                  ) : (
+                    <span className="text-red-600">*</span>
                   )}
                 </label>
                 <select
@@ -437,15 +446,47 @@ const TambahFasilitasPage = () => {
                   <option value={"Tidak untuk umum"}>Tidak untuk umum</option>
                 </select>
               </div>
+              <div className="flex flex-col space-y-2">
+                <label
+                  className="font-medium flex justify-start"
+                  htmlFor="fakultas"
+                >
+                  Fakultas{" "}
+                </label>
+                <select
+                  name="fakultas"
+                  id="fakultas"
+                  type="text"
+                  className="border-2 rounded-md pl-2 py-2 text-sm"
+                  {...register("fakultas")}
+                >
+                  <option value={""}>Pilih Fakultas</option>
+                  <option value={"FMIPA"}>FMIPA</option>
+                  <option value={"FT"}>FT</option>
+                  <option value={"FEB"}>FEB</option>
+                  <option value={"FKIP"}>FKIP</option>
+                  <option value={"FH"}>FH</option>
+                  <option value={"FP"}>FP</option>
+                  <option value={"FK"}>FK</option>
+                  <option value={"FISIP"}>FISIP</option>
+                </select>
+              </div>
             </div>
 
             <div className="flex flex-col space-y-5">
               {fields.map((item, index) => (
                 <div className="flex flex-col space-y-3" key={item.id}>
                   <h3 className="font-medium">
-                    {fields.length > 1
-                      ? `Jam Operasional ${index}`
-                      : "Jam Operasional"}
+                    Jam Operasional
+                    {fields.length > 1 ? (
+                      <>
+                        {" "}
+                        {index + 1}
+                        <span className="text-red-600">*</span>
+                      </>
+                    ) : (
+                      <span className="text-red-600">*</span>
+                    )}
                   </h3>
                   <div className="flex flex-row gap-x-4 w-full">
                     <div className="flex flex-col w-full space-y-3">

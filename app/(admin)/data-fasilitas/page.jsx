@@ -14,6 +14,7 @@ const DataFasilitas = async () => {
       longitude,
       url_image,
       akses,
+      fakultas,
       kontak (
         nama_kontak,
         nomor_telepon
@@ -29,7 +30,7 @@ const DataFasilitas = async () => {
   // console.log(facilities);
 
   return (
-    <div className="px-10 py-14 h-full bg-white">
+    <div className="px-10 py-16 h-full bg-white">
       <h1 className="text-3xl mb-10 font-medium">Daftar Fasilitas</h1>
       <div className="border-2 border-gray-300 bg-[#F1F1F1] rounded-lg px-8 py-6 space-y-5">
         <ContentFacility facilities={facilities} />
