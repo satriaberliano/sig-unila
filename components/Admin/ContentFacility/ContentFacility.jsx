@@ -72,23 +72,29 @@ export const ContentFacility = ({ facilities }) => {
 
   return (
     <main className={`w-full mb-4 `}>
-      <div className="flex justify-between mb-2">
+      <div className="flex justify-between mb-6">
         <h2 className="font-medium text-lg">Data Fasilitas</h2>
         {/* Tambahin Tombol Add Fasilitas */}
-        <Link
-          className="flex items-center text-xs gap-2 rounded-md bg-[#0F6EE3] text-white p-2"
-          // onClick={setFacility}
-          href="/data-fasilitas/tambah-fasilitas"
-        >
-          <IoAddOutline />
-          <span>Tambah</span>
-        </Link>
+        <div className="flex gap-x-2 gap-y-2 flex-col-reverse  md:flex-row">
+          <input
+            type="text"
+            placeholder="Cari Fasilitas"
+            className="border border-gray-400 rounded-lg placeholder:text-xs py-2 px-4 md:pr-8 text-xs"
+          />
+          <Link
+            className="flex items-center text-xs gap-2 rounded-md bg-[#0F6EE3] text-white p-2 w-fit self-end md:self-auto"
+            href="/data-fasilitas/tambah-fasilitas"
+          >
+            <IoAddOutline />
+            <span>Tambah</span>
+          </Link>
+        </div>
       </div>
 
       {facilities && facilities.length > 0 ? (
-        <>
-          <table className="w-full table-auto mt-4">
-            <tbody className="">
+        <div className="overflow-x-auto rounded-lg border border-gray-200">
+          <table className="min-w-full divide-y-2 divide-gray-200 text-[10px]">
+            <thead className="ltr:text-left rtl:text-right bg-[#0F6EE3]">
               <tr className="py-10 text-sm">
                 <th>No</th>
                 <th>Gambar</th>
@@ -100,10 +106,15 @@ export const ContentFacility = ({ facilities }) => {
                 <th>Akses</th>
                 <th>Aksi</th>
               </tr>
+            </thead>
 
+            <tbody className="divide-y divide-gray-200">
               {facilities.map((fasilitas, index) => (
-                <tr key={index} className="p-2 bg-gray-200">
-                  <td className="text-sm text-center">{index + 1}</td>
+                <tr
+                  key={fasilitas.id}
+                  className=" bg-gray-50 hover:bg-gray-200"
+                >
+                  <td className="text-center">{index + 1}</td>
                   <td>
                     <div
                       className="cursor-pointer"
@@ -122,16 +133,14 @@ export const ContentFacility = ({ facilities }) => {
                       />
                     </div>
                   </td>
-                  <td className="text-xs">{fasilitas.name || "-"}</td>
+                  <td className="px-4 py-2">{fasilitas.name || "-"}</td>
                   <td
-                    className="text-xs line-clamp-5 h-24 border-1"
+                    className=" line-clamp-5 h-24 border-1"
                     dangerouslySetInnerHTML={{
                       __html: `${fasilitas.description}`,
                     }}
-                  >
-                    {/* {fasilitas.description || "-"} */}
-                  </td>
-                  <td className="text-xs">
+                  ></td>
+                  <td className="px-4 py-2">
                     <div className="flex flex-col items-center justify-center">
                       <div>
                         <p>Lat: {fasilitas.latitude || "-"},</p>
@@ -139,7 +148,7 @@ export const ContentFacility = ({ facilities }) => {
                       </div>
                     </div>
                   </td>
-                  <td className="text-xs">
+                  <td className="px-4 py-2">
                     <div className="flex items-center justify-center">
                       {fasilitas.jam_operasional.map((hour, index) => {
                         return (
@@ -155,7 +164,7 @@ export const ContentFacility = ({ facilities }) => {
                       })}
                     </div>
                   </td>
-                  <td className="text-xs">
+                  <td className="px-4 py-2">
                     <div className="flex flex-col items-center justify-center">
                       <div>
                         <p>Nama: {fasilitas.kontak?.nama_kontak || "-"}</p>
@@ -163,10 +172,10 @@ export const ContentFacility = ({ facilities }) => {
                       </div>
                     </div>
                   </td>
-                  <td className="text-xs text-center">
+                  <td className="px-4 py-2 text-center">
                     {fasilitas.akses || "-"}
                   </td>
-                  <td className="space-y-2 text-center align-middle ">
+                  <td className="space-y-2 text-center align-middle text-base">
                     <div className="flex flex-col items-center gap-y-2">
                       <button
                         className="bg-[#2cbc35] rounded-md p-2 text-white"
@@ -186,7 +195,7 @@ export const ContentFacility = ({ facilities }) => {
               ))}
             </tbody>
           </table>
-        </>
+        </div>
       ) : (
         <div className="flex items-center justify-center italic text-sm p-10">
           Tidak ada data fasilitas untuk ditampilkan

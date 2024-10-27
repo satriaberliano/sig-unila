@@ -18,7 +18,7 @@ export default function ContentAdmin({ children }) {
     <div className="relative flex mt-10 bg-white">
       <div className="mt-6">
         <div
-          className={`fixed w-[16rem] ${
+          className={`fixed w-[14rem] ${
             open ? "transform-none" : ""
           } -translate-x-full duration-700 transition-transform z-10 border-r-2`}
         >
@@ -56,7 +56,7 @@ export default function ContentAdmin({ children }) {
 
       <div
         className={`${
-          open ? "lg:pl-[16rem]" : "pl-0"
+          open ? "lg:pl-[14rem]" : "pl-0"
         } h-full w-full duration-700 ease-in-out`}
       >
         {children}
