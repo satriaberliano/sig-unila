@@ -16,6 +16,20 @@ import Loading from "../Loading/Loading";
 
 const supabase = createClientComponentClient();
 
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom",
+    },
+  },
+  scales: {
+    y: {
+      beginAtZero: true,
+    },
+  },
+};
+
 const MetricCardDashboard = ({ title }) => {
   const [facilitiesData, setFacilitiesData] = useState({
     labels: [
@@ -86,9 +100,20 @@ const MetricCardDashboard = ({ title }) => {
   };
 
   return (
-    <div className="flex flex-col shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
-      <h2 className="text-lg font-medium">{title}</h2>
-      {facilitiesData ? <Line data={facilitiesData} /> : <Loading></Loading>}
+    <div className="flex flex-col shadow-md w-full h-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
+      {/* <h2 className="text-lg font-medium">{title}</h2> */}
+      <div className="text-center mb-4">
+        <h2 className="text-xl font-medium">
+          Metrik Penambahan Data Fasilitas
+        </h2>
+      </div>
+      <div className={`flex justify-center items-center w-full h-4/5 `}>
+        {facilitiesData ? (
+          <Line data={facilitiesData} options={options} />
+        ) : (
+          <Loading></Loading>
+        )}
+      </div>
       {/* <Line data={facilitiesData} /> */}
     </div>
   );

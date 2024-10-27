@@ -6,6 +6,7 @@ import MetricCardDashboard from "../MetricCardDashboard/MetricCardDashboard";
 import supabaseServer from "@/lib/supabaseServer";
 import dynamic from "next/dynamic";
 import Loading from "../Loading/Loading";
+import FacilityOfFacultyCardDashboard from "../FacilityOfFacultyCardDashboard/FacilityOfFacultyCardDashboard";
 
 const Map = dynamic(() => import("@/components/Map/Map"), {
   ssr: false,
@@ -19,6 +20,14 @@ const HeadDashboard = async () => {
     .from("fasilitas")
     .select();
 
+  const { data: faculties, error: error2 } = await supabaseServer()
+    .from("fasilitas")
+    .select("fakultas")
+    .neq("fakultas", null)
+    .order("fakultas");
+
+  const uniqueFaculties = [...new Set(faculties.map((item) => item.fakultas))];
+
   const latLongData = fasilitas.map((facility) => {
     return [facility.latitude, facility.longitude];
   });
@@ -31,26 +40,29 @@ const HeadDashboard = async () => {
       <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-none gap-5 w-full">
         <CardDashboard
           total={fasilitas.length}
-          titleCard={"Jumlah Fasilitas"}
+          titleCard={"Total Fasilitas Keseluruhan"}
         />
         <CardDashboard
-          total={latLongData.length}
-          titleCard={"Jumlah Lokasi Pin Point"}
+          total={faculties.length}
+          titleCard={"Total Fasilitas pada Fakultas"}
         />
         <CardDashboard
-          total={""}
-          titleCard={"Jumlah Fasilitas dalam Pemeliharaan"}
+          total={uniqueFaculties.length}
+          titleCard={"Jumlah Fakultas"}
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
         {/* <MetricCardDashboard /> */}
         <MetricCardDashboard title={"Metrik Penambahan Data Fasilitas"} />
-        <MetricCardDashboard title={"Metrik Fasilitas dalam Pemeliharaan"} />
+        {/* <MetricCardDashboard title={"Metrik Fasilitas dalam Pemeliharaan"} /> */}
+        <FacilityOfFacultyCardDashboard
+          title={"Jumlah Fasilitas Berdasarkan Fakultas"}
+        />
       </div>
 
       <div className="grid grid-cols-1 gap-5 pt-5">
-        <Map facilities={null} height={"h-[26rem]"} />
+        <Map facilities={fasilitas} height={"h-[26rem]"} />
       </div>
     </div>
   );
