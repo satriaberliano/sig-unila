@@ -8,7 +8,12 @@ import dynamic from "next/dynamic";
 import Loading from "../Loading/Loading";
 import FacilityOfFacultyCardDashboard from "../FacilityOfFacultyCardDashboard/FacilityOfFacultyCardDashboard";
 
-const Map = dynamic(() => import("@/components/Map/Map"), {
+// const Map = dynamic(() => import("@/components/Map/Map"), {
+//   ssr: false,
+//   loading: () => <Loading></Loading>,
+// });
+
+const MapAdmin = dynamic(() => import("@/components/MapAdmin/MapAdmin"), {
   ssr: false,
   loading: () => <Loading></Loading>,
 });
@@ -62,7 +67,7 @@ const HeadDashboard = async () => {
       </div>
 
       <div className="grid grid-cols-1 gap-5 pt-5">
-        <Map facilities={fasilitas} height={"h-[26rem]"} />
+        <MapAdmin facilities={fasilitas} height={"h-[26rem]"} />
       </div>
     </div>
   );
