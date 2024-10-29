@@ -524,7 +524,7 @@ const SuntingFasilitasPage = ({ params }) => {
                     Umum dan Civitas Akademika
                   </option>
                   <option value={"Civitas Akademika"}>Civitas Akademika</option>
-                  <option value={"Tidak untuk umum"}>Tidak untuk umum</option>
+                  {/* <option value={"Tidak untuk umum"}>Tidak untuk umum</option> */}
                 </select>
               </div>
               <div className="flex flex-col space-y-2">
