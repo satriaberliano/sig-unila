@@ -59,7 +59,7 @@ const HeadDashboard = async () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
         {/* <MetricCardDashboard /> */}
-        <MetricCardDashboard title={"Metrik Penambahan Data Fasilitas"} />
+        <MetricCardDashboard title={"Grafik Penambahan Data Fasilitas"} />
         {/* <MetricCardDashboard title={"Metrik Fasilitas dalam Pemeliharaan"} /> */}
         <FacilityOfFacultyCardDashboard
           title={"Jumlah Fasilitas Berdasarkan Fakultas"}

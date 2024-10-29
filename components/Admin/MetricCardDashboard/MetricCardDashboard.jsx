@@ -119,9 +119,7 @@ const MetricCardDashboard = ({ title }) => {
     return (
       <div className="flex flex-col shadow-md h-80 rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
         <div className="text-center mb-4">
-          <h2 className="text-lg font-medium">
-            Metrik Penambahan Data Fasilitas
-          </h2>
+          <h2 className="text-lg font-medium">{title}</h2>
         </div>
         <div className={`flex justify-center items-center w-full h-4/5 `}>
           <span className="animate-pulse">Memuat data...</span>
@@ -134,9 +132,7 @@ const MetricCardDashboard = ({ title }) => {
     return (
       <div className="flex flex-col shadow-md h-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
         <div className="text-center mb-4">
-          <h2 className="text-lg font-medium">
-            Metrik Penambahan Data Fasilitas
-          </h2>
+          <h2 className="text-lg font-medium">{title}</h2>
         </div>
         <div className={`flex justify-center items-center w-full h-4/5 `}>
           <div className="text-red-600">{error}</div>
@@ -148,9 +144,7 @@ const MetricCardDashboard = ({ title }) => {
   return (
     <div className="flex flex-col justify-between shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
       <div className="text-center mb-4">
-        <h2 className="text-lg font-medium">
-          Metrik Penambahan Data Fasilitas
-        </h2>
+        <h2 className="text-lg font-medium">{title}</h2>
       </div>
       <div className={`flex justify-center items-center w-full h-4/5`}>
         <Line data={facilitiesData} options={options} />
