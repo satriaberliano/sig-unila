@@ -93,7 +93,7 @@ const FacilityOfFacultyCardDashboard = ({ height }) => {
   };
 
   const options = {
-    responsive: true,
+    // responsive: true,
     plugins: {
       legend: {
         position: "bottom",
@@ -120,30 +120,34 @@ const FacilityOfFacultyCardDashboard = ({ height }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <div className="text-gray-600">Memuat data...</div>
+      <div className="flex flex-col py-6 px-7 h-full shadow-md bg-[#F1F1F1] rounded-xl">
+        <div className="text-center mb-4">
+          <h2 className="text-lg font-medium">
+            Distribusi Fasilitas per Fakultas
+          </h2>
+          <p className="text-gray-600 mt-2 text-sm">
+            Total Fasilitas: {totalFasilitas}
+          </p>
+        </div>
+        <div className={`flex justify-center items-center w-full h-4/5`}>
+          <div className="text-gray-600 animate-pulse">Memuat data...</div>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center h-64">
+      <div className="flex items-center justify-center h-full bg-[#F1F1F1] rounded-xl">
         <div className="text-red-600">{error}</div>
       </div>
     );
   }
 
   return (
-    // <div className="flex flex-col shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
-    //   <h2 className="text-lg font-medium">{title}</h2>
-    //   <Pie data={data} className="w-fit" options={options} />
-    // </div>
-    // <div className="container mx-auto py-8">
-    // <div className="flex flex-col shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
-    <div className="flex flex-col w-full rounded-xl shadow bg-[#F1F1F1] py-6 px-7 text-black h-full">
-      <div className="text-center mb-4">
-        <h2 className="text-xl font-medium">
+    <div className="flex flex-col w-full rounded-xl shadow-md bg-[#F1F1F1] py-6 px-7 text-black h-full">
+      <div className="text-center mb-4 text-sm">
+        <h2 className="text-lg font-medium">
           Distribusi Fasilitas per Fakultas
         </h2>
         <p className="text-gray-600 mt-2">Total Fasilitas: {totalFasilitas}</p>
@@ -152,8 +156,6 @@ const FacilityOfFacultyCardDashboard = ({ height }) => {
         <Pie data={chartData} options={options} />
       </div>
     </div>
-    // </div>
-    // </div>
   );
 };
 

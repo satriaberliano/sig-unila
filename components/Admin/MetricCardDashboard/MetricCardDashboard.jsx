@@ -17,10 +17,17 @@ import Loading from "../Loading/Loading";
 const supabase = createClientComponentClient();
 
 const options = {
-  responsive: true,
+  // responsive: true,
   plugins: {
     legend: {
       position: "bottom",
+      labels: {
+        font: {
+          size: 12,
+        },
+        padding: 10,
+        boxWidth: 20,
+      },
     },
   },
   scales: {
@@ -31,6 +38,9 @@ const options = {
 };
 
 const MetricCardDashboard = ({ title }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [facilitiesData, setFacilitiesData] = useState({
     labels: [
       "Januari",
@@ -75,16 +85,22 @@ const MetricCardDashboard = ({ title }) => {
   }, []);
 
   const fetchFacilitiesData = async () => {
-    const { data, error } = await supabase
-      .from("fasilitas")
-      .select("created_at");
+    try {
+      const { data, error } = await supabase
+        .from("fasilitas")
+        .select("created_at");
 
-    if (error) {
-      console.error("Error fetching data:", error);
-      return [];
+      if (error) {
+        console.error("Error fetching data:", error);
+        return [];
+      }
+
+      return data;
+    } catch {
+      setError("Gagal memuat data fasilitas");
+    } finally {
+      setLoading(false);
     }
-
-    return data;
   };
 
   const groupByMonth = (data) => {
@@ -99,22 +115,46 @@ const MetricCardDashboard = ({ title }) => {
     return grouped;
   };
 
+  if (loading) {
+    return (
+      <div className="flex flex-col shadow-md h-80 rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
+        <div className="text-center mb-4">
+          <h2 className="text-lg font-medium">
+            Metrik Penambahan Data Fasilitas
+          </h2>
+        </div>
+        <div className={`flex justify-center items-center w-full h-4/5 `}>
+          <span className="animate-pulse">Memuat data...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col shadow-md h-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
+        <div className="text-center mb-4">
+          <h2 className="text-lg font-medium">
+            Metrik Penambahan Data Fasilitas
+          </h2>
+        </div>
+        <div className={`flex justify-center items-center w-full h-4/5 `}>
+          <div className="text-red-600">{error}</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col shadow-md w-full h-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
-      {/* <h2 className="text-lg font-medium">{title}</h2> */}
+    <div className="flex flex-col justify-between shadow-md w-full rounded-xl bg-[#F1F1F1] py-6 px-7 space-y-4 text-black">
       <div className="text-center mb-4">
-        <h2 className="text-xl font-medium">
+        <h2 className="text-lg font-medium">
           Metrik Penambahan Data Fasilitas
         </h2>
       </div>
-      <div className={`flex justify-center items-center w-full h-4/5 `}>
-        {facilitiesData ? (
-          <Line data={facilitiesData} options={options} />
-        ) : (
-          <Loading></Loading>
-        )}
+      <div className={`flex justify-center items-center w-full h-4/5`}>
+        <Line data={facilitiesData} options={options} />
       </div>
-      {/* <Line data={facilitiesData} /> */}
     </div>
   );
 };
