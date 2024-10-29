@@ -146,7 +146,7 @@ export const ContentFacility = () => {
     let results = getFuzzySearchResults(search);
 
     return results;
-  }, [search]);
+  }, [search, facilities]);
 
   return (
     <main className={`w-full mb-4`}>
