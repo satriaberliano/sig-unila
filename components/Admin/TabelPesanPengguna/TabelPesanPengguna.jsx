@@ -74,8 +74,7 @@ export default function TabelPesanPengguna() {
       .eq("id", updatedPesan.id);
 
     if (error) {
-      console.error("Error updating checkbox status:", error);
-      // Optionally, you can revert the state change if the update fails
+      // console.error("Error updating checkbox status:", error);
       setPesanPengguna(
         pesanPengguna.map((pesan, currentIndex) =>
           currentIndex === index
