@@ -114,10 +114,13 @@ const KontakKamiPage = () => {
         onSubmit={handleSubmit(onSubmitHandler)}
         className="flex flex-col xl:px-20 space-y-2 "
       >
-        <div className="space-y-2 lg:space-y-0 lg:space-x-5 pb-4 grid grid-cols-1 lg:grid-cols-2">
+        <div className="space-y-2 lg:space-y-0 lg:space-x-5 pb-4 grid grid-cols-1 lg:grid-cols-2 ">
           <div className="space-y-3">
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="nama_pengguna" className="flex justify-start">
+            <div className="flex flex-col space-y-1">
+              <label
+                htmlFor="nama_pengguna"
+                className="flex justify-start font-medium text-sm"
+              >
                 Nama
                 <span className="text-red-600 leading-3">*</span>{" "}
                 {/* {errors?.nama_pengguna ? (
@@ -135,8 +138,11 @@ const KontakKamiPage = () => {
               />
             </div>
 
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="email_pengguna" className="flex justify-start">
+            <div className="flex flex-col space-y-1">
+              <label
+                htmlFor="email_pengguna"
+                className="flex justify-start font-medium text-sm"
+              >
                 Email
                 <span className="text-red-600 leading-3">*</span>{" "}
                 {/* {errors?.email_pengguna && (
@@ -152,8 +158,11 @@ const KontakKamiPage = () => {
               />
             </div>
 
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="subjek" className="flex justify-start">
+            <div className="flex flex-col space-y-1">
+              <label
+                htmlFor="subjek"
+                className="flex justify-start font-medium text-sm"
+              >
                 Subjek
                 <span className="text-red-600 leading-3">*</span>{" "}
                 {/* {errors?.subjek && (
@@ -170,8 +179,11 @@ const KontakKamiPage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col space-y-2">
-            <label htmlFor="pesan" className="flex justify-start">
+          <div className="flex flex-col space-y-1">
+            <label
+              htmlFor="pesan"
+              className="flex justify-start font-medium text-sm"
+            >
               Pesan
               <span className="text-red-600 leading-3">*</span>{" "}
               {/* {errors?.pesan && (
