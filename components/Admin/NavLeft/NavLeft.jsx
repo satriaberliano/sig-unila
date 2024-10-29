@@ -114,7 +114,7 @@ export default function NavLeft() {
 
         <div
           onClick={onHandlerLogOut}
-          className="p-4 grid grid-cols-3 gap-2 hover:bg-[#0F6EE3] hover:text-white hover:font-medium px-10"
+          className="p-4 grid grid-cols-3 gap-2 hover:bg-[#0F6EE3] hover:text-white hover:font-medium px-10 cursor-pointer"
         >
           <TbLogout2 className="text-xl col-start-1 col-end-2 justify-self-center" />
           <span className="col-start-2 col-end-4 self-center">Logout</span>
