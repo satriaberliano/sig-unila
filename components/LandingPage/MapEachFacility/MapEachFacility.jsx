@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import MarkerIcon from "../../../node_modules/leaflet/dist/images/marker-icon.png";
