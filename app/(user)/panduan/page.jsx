@@ -1,9 +1,11 @@
 import assets from "@/assets/assets";
+import { faqList } from "@/constant/faq-list";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaUser } from "react-icons/fa";
-import { IoMdPin } from "react-icons/io";
+import { IoIosArrowDown, IoMdPin } from "react-icons/io";
+import { IoLayers } from "react-icons/io5";
 
 const PanduanPage = () => {
   return (
@@ -29,97 +31,116 @@ const PanduanPage = () => {
         </div>
       </div>
       <div className="space-y-10">
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Navigasi Website</h3>
-          <ol className="list-disc ml-4 space-y-2">
-            <li>
-              Beranda: Menampilkan informasi singkat tentang SIG Universitas
-              Lampung.
-            </li>
-            <li>
-              Fasilitas: Menyediakan daftar fasilitas lengkap dengan peta
-              interaktif untuk pencarian detail.
-            </li>
-            <li>
-              Peta: Halaman peta interaktif untuk mengeksplorasi lokasi-lokasi
-              penting di kampus.
-            </li>
-            <li>
-              Tentang: Informasi tentang deskripsi dan tujuan, teknologi yang
-              digunakan, dan tim pengembang.
-            </li>
-            <li>
-              Panduan: Informasi dasar berupa informasi yang dapat digunakan
-              pengguna dalam menggunakan website.
-            </li>
-            <li>
-              Kontak Kami: Layanan untuk mengirim pesan atau saran kepada tim
-              SIG UNILA.
-            </li>
-            <li>
-              Login: Khusus untuk admin yang bertanggung jawab mengelola data
-              fasilitas.
-            </li>
-          </ol>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="space-y-4 bg-gray-100 rounded-lg p-6 shadow-lg border-2 border-gray-200 hover:shadow-slate-400 ease-out duration-700">
+            <h3 className="text-xl font-semibold text-center md:text-left pb-3 md:pb-0">
+              Navigasi Halaman Website
+            </h3>
+            <ol className="list-disc ml-4 space-y-2 text-sm">
+              <li>
+                <span className="font-medium">Beranda:</span> Menampilkan
+                informasi singkat tentang SIG Universitas Lampung.
+              </li>
+              <li>
+                <span className="font-medium">Fasilitas:</span> Menyediakan
+                daftar fasilitas lengkap dengan peta interaktif untuk pencarian
+                detail.
+              </li>
+              <li>
+                <span className="font-medium">Peta:</span> Halaman peta
+                interaktif untuk mengeksplorasi lokasi-lokasi penting di kampus.
+              </li>
+              <li>
+                <span className="font-medium">Tentang:</span> Informasi tentang
+                deskripsi dan tujuan, teknologi yang digunakan, dan tim
+                pengembang.
+              </li>
+              <li>
+                <span className="font-medium">Panduan:</span> Informasi dasar
+                berupa informasi yang dapat digunakan pengguna dalam menggunakan
+                website.
+              </li>
+              <li>
+                <span className="font-medium">Kontak Kami:</span> Layanan untuk
+                mengirim pesan atau saran kepada tim SIG UNILA.
+              </li>
+            </ol>
+          </div>
+
+          <div className="space-y-4 bg-gray-100 rounded-lg p-6 shadow-lg border-2 border-gray-200 hover:shadow-slate-400 ease-out duration-700">
+            <h3 className="text-xl text-center md:text-left font-semibold pb-3 md:pb-0">
+              Cara Penggunaan Peta
+            </h3>
+            <p className="text-sm">
+              Untuk menggunakan peta, Anda dapat mengikuti langkah-langkah
+              berikut:
+            </p>
+            <ol className="list-disc ml-4 space-y-2 text-sm">
+              <li>
+                <span className="font-medium">Zoom In/Out:</span> Gunakan tombol
+                plus (+) dan minus (-) di sudut kiri atas peta untuk memperbesar
+                atau memperkecil tampilan.
+              </li>
+              <li>
+                <span className="font-medium">Geser Peta:</span> Klik dan tahan
+                pada peta, lalu geser untuk melihat area lain.
+              </li>
+              <li>
+                <span className="font-medium">Layer Peta:</span> Gunakan tombol
+                radio checklist untuk melihat atau menonaktifkan layer peta
+              </li>
+              <li>
+                <span className="font-medium">Letak Fasilitas:</span> Klik ikon
+                pin point untuk melihat informasi atau navigasi ke fasilitas
+              </li>
+              <li>
+                <span className="font-medium">Skala Peta:</span> Terdapat di
+                kanan bawah peta untuk melihat skala peta
+              </li>
+            </ol>
+          </div>
         </div>
 
-        <div className="space-y-6">
-          <h3 className="text-xl font-semibold">Penjelasan Ikon dan Warna</h3>
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* <h3 className="text-lg font-semibold">Penjelasan Warna Wilayah</h3> */}
+          {/* <div className="space-y-3">
             <h4 className="text-xl font-medium">Ikon</h4>
             <p>
               Pada website SIG UNILA, Anda akan melihat beberapa ikon penting:
             </p>
             <div className="space-y-2">
-              <div className="flex items-baseline gap-x-3">
-                <span className="flex w-fit rounded-full p-2 border-2 bg-[#25aa1e]">
-                  <FaUser className="text-[10px] text-white" />
-                </span>
-                <p>
-                  Menunjukkan fasilitas dapat diakses oleh Umum dan Civitas
-                  Akademika
-                </p>
-              </div>
-              <div className="flex items-baseline gap-x-3">
-                <span className="flex w-fit rounded-full p-2 border-2 bg-[#2163bf]">
-                  <FaUser className="text-[10px] text-white" />
-                </span>
-                <p>
-                  Menunjukkan fasilitas diperuntukkan bagi Civitas Akademika
-                </p>
-              </div>
-              <div className="flex items-baseline gap-x-3">
-                <span className="flex w-fit rounded-full p-2 border-2 bg-[#b42f20]">
-                  <FaUser className="text-[10px] text-white" />
-                </span>
-                <p>Menunjukkan fasilitas tidak diperuntukkan untuk umum</p>
-              </div>
               <div className="flex items-center gap-x-3">
                 <IoMdPin className="text-3xl text-[#2a9bd3]" />
                 <p>Menunjukkan letak fasilitas di peta</p>
               </div>
+              <div className="flex items-center gap-x-3">
+                <IoLayers className="text-3xl text-[#989d9f]" />
+                <p>Menunjukkan layer wilayah fakultas yang ada</p>
+              </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="space-y-3">
-            <h4 className="text-xl font-medium">Warna pada peta</h4>
-            <p>
+          <div className="space-y-3 bg-gray-100 rounded-lg p-6 shadow-lg border-2 border-gray-200 hover:shadow-slate-400 ease-out duration-700">
+            <h4 className="text-xl font-semibold  text-center md:text-left pb-3 md:pb-0">
+              Penjelasan Warna Wilayah pada Peta
+            </h4>
+            <p className="text-sm">
               Pada peta interaktif, Anda akan melihat beberapa warna penting:
             </p>
-            <div className="space-y-2">
+            <div className="space-y-2 text-sm">
               <div className="flex items-center gap-x-3">
                 <span className="flex w-fit p-3 border-2 bg-[#808080]"></span>
                 <p>Mewakili wilayah dari Fakultas Ekonomi dan Bisnis (FEB)</p>
               </div>
               <div className="flex items-center gap-x-3">
                 <span className="flex w-fit p-3 border-2 bg-[#FF0000]"></span>
-                <p>Mewakili wilayah dari fasilitas Fakultas Hukum (FH)</p>
+                <p>Mewakili wilayah dari Fakultas Hukum (FH)</p>
               </div>
               <div className="flex items-center gap-x-3">
                 <span className="flex w-fit p-3 border-2 bg-[#800080]"></span>
                 <p>
-                  Mewakili wilayah dari fasilitas Fakultas Keguruan dan Ilmu
-                  Pendidikan (FKIP)
+                  Mewakili wilayah dari Fakultas Keguruan dan Ilmu Pendidikan
+                  (FKIP)
                 </p>
               </div>
               <div className="flex items-center gap-x-3">
@@ -128,13 +149,13 @@ const PanduanPage = () => {
               </div>
               <div className="flex items-center gap-x-3">
                 <span className="flex w-fit p-3 border-2 bg-[#00008B]"></span>
-                <p>Mewakili wilayah dari fasilitas Fakultas Teknik (FT)</p>
+                <p>Mewakili wilayah dari Fakultas Teknik (FT)</p>
               </div>
               <div className="flex items-center gap-x-3">
                 <span className="flex w-fit p-3 border-2 bg-[#FFA500]"></span>
                 <p>
-                  Mewakili wilayah dari fasilitas Fakultas Ilmu Sosial dan Ilmu
-                  Politik (FISIP)
+                  Mewakili wilayah dari Fakultas Ilmu Sosial dan Ilmu Politik
+                  (FISIP)
                 </p>
               </div>
               <div className="flex items-center gap-x-3">
@@ -146,90 +167,42 @@ const PanduanPage = () => {
               </div>
               <div className="flex items-center gap-x-3">
                 <span className="flex w-fit p-3 border-2 bg-[#006200]"></span>
-                <p>Mewakili wilayah dari fasilitas Fakultas Kedokeran (FK)</p>
+                <p>Mewakili wilayah dari Fakultas Kedokeran (FK)</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Cara Penggunaan Peta</h3>
-          <p>
-            Untuk menggunakan peta, Anda dapat mengikuti langkah-langkah
-            berikut:
-          </p>
-          <ol className="list-disc ml-4 space-y-2">
-            <li>
-              <span className="font-medium">Zoom In/Out:</span> Gunakan tombol
-              plus (+) dan minus (-) di sudut kiri atas peta untuk memperbesar
-              atau memperkecil tampilan.
-            </li>
-            <li>
-              <span className="font-medium">Geser Peta:</span> Klik dan tahan
-              pada peta, lalu geser untuk melihat area lain.
-            </li>
-            <li>
-              <span className="font-medium">Layer Peta:</span> Gunakan tombol
-              radio checklist untuk melihat atau menonaktifkan layer peta
-            </li>
-            <li>
-              <span className="font-medium">Letak Fasilitas:</span> Klik ikon
-              pin point untuk melihat informasi atau navigasi ke fasilitas
-            </li>
-            <li>
-              <span className="font-medium">Skala Peta:</span> Terdapat di kanan
-              bawah peta untuk melihat skala peta
-            </li>
-          </ol>
-        </div>
-
-        <div className="space-y-4">
           <h3 className="text-xl font-semibold">
-            FAQ (<i>Frequently Asked Question</i>)
+            FAQ (Frequently Asked Question)
           </h3>
           <div className="space-y-4">
-            <div className="space-y-1">
-              <p className="font-medium">
-                Q: Bagaimana cara menenemukan fasilitas tertentu di kampus?
-              </p>
-              <p>
-                A: Anda dapat menggunakan fitur pencarian pada halaman fasilitas
-                dengan memasukkan input nama fasilitas.
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="font-medium">
-                Q: Bagaimana jika fasilitas yang saya cari tidak ada?
-              </p>
-              <p>
-                A: Anda harus memastikan bahwa tidak input yang anda masukkan
-                benar. Jika benar tidak ada, Anda dapat menggunakan fitur
-                layanan form pada halaman kontak kami atau dapat mengirim
-                melalui email kami unila-sig@gmail.com, agar pihak kami
-                melakukan peninjauan dan pembaruan fasilitas
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="font-medium">
-                Q: Bagaimana saya melakukan navigasi ke fasilitas tertentu?
-              </p>
-              <p>
-                A: Anda dapat menggunakan tombol navigasi pada halaman detail
-                fasiltias atau pada pin point fasilitas di peta.
-              </p>
-            </div>
+            {faqList.map((faq, index) => (
+              <details
+                className="group [&_summary::-webkit-details-marker]:hidden"
+                key={index}
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-100 p-4 text-gray-900">
+                  <h2 className="font-medium text-sm">Q: {faq.question}</h2>
+
+                  <IoIosArrowDown className="size-5 shrink-0 transition duration-300 group-open:-rotate-180" />
+                </summary>
+
+                <p className="mt-4 px-4 leading-relaxed text-gray-700 text-sm">
+                  A: {faq.answer}
+                </p>
+              </details>
+            ))}
           </div>
         </div>
 
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Video Panduan</h3>
-          <p>
+          <p className="text-sm">
             Untuk lebih memahami cara menggunakan fitur di website, silakan
             tonton video panduan berikut:{" "}
-            <Link href="#" className="underline">
-              Link Video Panduan
-            </Link>
-            . <span className="text-sm">(Video dalam proses pembuatan)</span>
+            <span className="text-sm">(Video dalam proses pembuatan)</span>
           </p>
         </div>
       </div>
