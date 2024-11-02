@@ -345,7 +345,7 @@ const Fasilitas = () => {
   };
 
   return (
-    <div className="bg-white pt-28 pb-24 px-12 sm:px-20 md:px-28 lg:px-32 min-h-screen">
+    <div className="bg-white pt-28 pb-24 px-10 sm:px-20 md:px-28 lg:px-32 min-h-screen">
       <h2 className="text-3xl font-semibold text-center mb-10">Fasilitas</h2>
       {mapError ? (
         <div
