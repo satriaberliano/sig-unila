@@ -377,7 +377,7 @@ const Fasilitas = () => {
         <div className="relative flex-grow">
           <input
             // className="border-[2px] p-2 w-full rounded-lg pl-9 placeholder:text-sm"
-            className="block ps-10 p-3 w-full pl-9 placeholder:text-sm text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block ps-10 p-3 w-full pl-9 placeholder:text-sm text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
             type="text"
             value={search}
             placeholder="Cari Fasilitas..."
