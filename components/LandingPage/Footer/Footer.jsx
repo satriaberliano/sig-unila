@@ -39,7 +39,10 @@ export default function Footer() {
             <div className="space-y-1 text-sm flex flex-col">
               <Link href="/">Beranda</Link>
               <Link href="/fasilitas">Fasilitas</Link>
+              <Link href="/peta">Peta</Link>
               <Link href="/tentang">Tentang</Link>
+              <Link href="/panduan">Panduan</Link>
+              <Link href="/kontak-kami">Kontak Kami</Link>
             </div>
           </div>
 
@@ -84,7 +87,7 @@ export default function Footer() {
 
         <div>
           <p className="font-medium text-sm text-center">
-            © 2023 SIG UNILA. All rights reserved
+            © 2024 SIG UNILA. All rights reserved
           </p>
         </div>
       </div>
