@@ -1,6 +1,7 @@
 {
   "type": "FeatureCollection",
   "name": "Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Lampung",
+  "faculty": "FMIPA",
   "crs": {
     "type": "name",
     "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
