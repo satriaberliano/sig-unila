@@ -43,6 +43,7 @@ import ResetZoomButton from "../LandingPage/ResetZoomButton/ResetZoomButton";
 import Image from "next/image";
 import assets from "@/assets/assets";
 import Loading from "../Admin/Loading/Loading";
+import { geoJsonStyle } from "@/constant/layer-style";
 
 const jakarta_sans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
@@ -99,46 +100,42 @@ const Map = ({ facilities, search, height }) => {
     "https://www.google.com/maps/place/"
   );
 
-  // const [geoDataList, setGeoDataList] = useState([]);
+  const [geoDataList, setGeoDataList] = useState([]);
 
-  // useEffect(() => {
-  //   const geoDataUrlList = [
-  //     "/layer/ft-unila.geojson",
-  //     "/layer/feb-unila.geojson",
-  //     "/layer/fisip-unila.geojson",
-  //     "/layer/fh-unila.geojson",
-  //     "/layer/fp-unila.geojson",
-  //     "/layer/fmipa-unila.geojson",
-  //     "/layer/fkip-unila.geojson",
-  //     "/layer/fk-unila.geojson",
-  //     "/layer/unila-map.geojson",
-  //   ];
+  useEffect(() => {
+    const geoDataUrlList = [
+      "/layer/ft-unila.geojson",
+      "/layer/feb-unila.geojson",
+      "/layer/fisip-unila.geojson",
+      "/layer/fh-unila.geojson",
+      "/layer/fp-unila.geojson",
+      "/layer/fmipa-unila.geojson",
+      "/layer/fkip-unila.geojson",
+      "/layer/fk-unila.geojson",
+      // "/layer/unila-map.geojson",
+    ];
 
-  //   const fetchGeoJsonFiles = async () => {
-  //     try {
-  //       const geoDataPromises = geoDataUrlList.map((file) =>
-  //         fetch(file).then((response) => response.json())
-  //       );
-  //       const allGeoData = await Promise.all(geoDataPromises);
-  //       setGeoDataList(allGeoData);
-  //     } catch (error) {
-  //       console.error("Error loading GeoJSON files:", error);
-  //     }
-  //   };
+    const fetchGeoJsonFiles = async () => {
+      try {
+        const geoDataPromises = geoDataUrlList.map((file) =>
+          fetch(file).then((response) => response.json())
+        );
+        const allGeoData = await Promise.all(geoDataPromises);
+        setGeoDataList(allGeoData);
+      } catch (error) {
+        console.error("Error loading GeoJSON files:", error);
+      }
+    };
 
-  //   fetchGeoJsonFiles();
-  // }, []);
+    fetchGeoJsonFiles();
+  }, []);
+
+  // console.log(geoDataList);
 
   const { setFacility } = useFetchData();
 
   const dataFacilityHandler = (val) => {
     setFacility(val);
-  };
-
-  const geoJsonStyle = {
-    // color: "blue",
-    weight: 2,
-    fillOpacity: 0.5,
   };
 
   return (
@@ -172,11 +169,11 @@ const Map = ({ facilities, search, height }) => {
                   new L.Icon({
                     iconUrl: MarkerIcon.src,
                     iconRetinaUrl: MarkerIcon.src,
-                    iconSize: [25, 41],
+                    iconSize: [23, 38],
                     iconAnchor: [12.5, 41],
                     popupAnchor: [0, -41],
                     shadowUrl: MarkerShadow.src,
-                    shadowSize: [41, 41],
+                    shadowSize: [38, 38],
                   })
                 }
                 position={[`${fasilitas.latitude}`, `${fasilitas.longitude}`]}
@@ -186,14 +183,6 @@ const Map = ({ facilities, search, height }) => {
                     <span className="font-semibold text-sm">
                       {fasilitas.name}
                     </span>
-                    {/* <Image
-                      src={fasilitas.url_image || assets.defaultImage}
-                      className="aspect-[3/4]"
-                      alt={`${fasilitas.name} image`}
-                      width={100}
-                      height={100}
-                      quality={25}
-                    /> */}
                     <ImageWithLoading
                       src={fasilitas.url_image || assets.defaultImage}
                       alt={`${fasilitas.name} image`}
@@ -226,13 +215,48 @@ const Map = ({ facilities, search, height }) => {
         )}
         <ScaleControl position="bottomright"></ScaleControl>
 
-        {/* {geoDataList.map((geoData, index) => (
-          <GeoJSON key={index} data={geoData} style={geoJsonStyle}>
-            <Popup>{geoData.name}</Popup>
-          </GeoJSON>
-        ))} */}
-
         <LayersControl position="topright">
+          {geoDataList.map((geoData, index) => {
+            const relatedFacilities = facilities.filter(
+              (facility) => facility.fakultas === geoData.faculty
+            );
+
+            return (
+              <LayersControl.Overlay
+                key={index}
+                checked
+                className={jakarta_sans.className}
+                name={geoData.name}
+              >
+                <LayerGroup>
+                  <GeoJSON
+                    data={geoData}
+                    style={(feature) => geoJsonStyle(feature, geoData)}
+                  >
+                    <Popup className={jakarta_sans.className}>
+                      <h4 className="font-medium text-xs text-center mb-2">
+                        {geoData.name}
+                      </h4>
+                      {relatedFacilities.length > 0 ? (
+                        <ol className="list-decimal pl-2">
+                          {relatedFacilities.map((facility, id) => (
+                            <li key={id} className="text-[11px]">
+                              {facility.name}
+                            </li>
+                          ))}
+                        </ol>
+                      ) : (
+                        <p>Tidak ada fasilitas untuk {geoData.name}</p>
+                      )}
+                    </Popup>
+                  </GeoJSON>
+                </LayerGroup>
+              </LayersControl.Overlay>
+            );
+          })}
+        </LayersControl>
+
+        {/* <LayersControl position="topright">
           <LayersControl.Overlay
             checked
             name="Fakultas"
@@ -474,7 +498,7 @@ const Map = ({ facilities, search, height }) => {
               </Polygon>
             </LayerGroup>
           </LayersControl.Overlay>
-        </LayersControl>
+        </LayersControl> */}
       </MapContainer>
     </div>
   );
