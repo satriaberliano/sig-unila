@@ -44,6 +44,8 @@ import Image from "next/image";
 import assets from "@/assets/assets";
 import Loading from "../Admin/Loading/Loading";
 import { geoJsonStyle } from "@/constant/layer-style";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import markerMaintenance from "../../public/images/marker-icon-maintenance.png";
 
 const jakarta_sans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
@@ -167,8 +169,12 @@ const Map = ({ facilities, search, height }) => {
                 key={index}
                 icon={
                   new L.Icon({
-                    iconUrl: MarkerIcon.src,
-                    iconRetinaUrl: MarkerIcon.src,
+                    iconUrl: fasilitas.maintenance
+                      ? markerMaintenance.src
+                      : MarkerIcon.src,
+                    iconRetinaUrl: fasilitas.maintenance
+                      ? markerMaintenance.src
+                      : MarkerIcon.src,
                     iconSize: [23, 38],
                     iconAnchor: [12.5, 41],
                     popupAnchor: [0, -41],

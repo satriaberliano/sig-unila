@@ -17,6 +17,7 @@ import { LuClock4 } from "react-icons/lu";
 import { FaBuildingUser } from "react-icons/fa6";
 import { analyzeNearbyFacilities } from "@/app/analyzeNearbyFacilities";
 import { useFacilities } from "@/zustand/useFacilities";
+import { IoConstruct } from "react-icons/io5";
 
 // ** Import Components
 // import MapEachFacility from "../MapEachFacility/MapEachFacility";
@@ -128,6 +129,16 @@ const DetailFasilitas = ({ facility }) => {
                       "Tidak ada informasi akses"
                     )}
                   </div> */}
+                    </div>
+                    <div className="flex items-center gap-1 text-orange-500">
+                      <IoConstruct />
+                      <p className="text-xs">
+                        [
+                        {fasilitas.maintenance
+                          ? "Sedang dilakukan pemeliharaan atau dibangun"
+                          : ""}
+                        ]
+                      </p>
                     </div>
                     <div
                       dangerouslySetInnerHTML={{
