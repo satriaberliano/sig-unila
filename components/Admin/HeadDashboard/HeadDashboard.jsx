@@ -28,7 +28,7 @@ const HeadDashboard = async () => {
   const { data: faculties, error: error2 } = await supabaseServer()
     .from("fasilitas")
     .select("fakultas")
-    .neq("fakultas", null)
+    .neq("fakultas", "")
     .order("fakultas");
 
   const uniqueFaculties = [...new Set(faculties.map((item) => item.fakultas))];

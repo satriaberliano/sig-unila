@@ -34,7 +34,7 @@ const FacilityOfFacultyCardDashboard = ({ height }) => {
           id
         `
         )
-        .neq("fakultas", null)
+        .neq("fakultas", "")
         .order("fakultas")
         .then((result) => {
           if (result.error) throw result.error;
