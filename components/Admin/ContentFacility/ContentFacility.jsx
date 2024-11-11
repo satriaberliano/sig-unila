@@ -40,6 +40,7 @@ export const ContentFacility = () => {
             url_image,
             akses,
             fakultas,
+            maintenance,
             kontak (
               nama_kontak,
               nomor_telepon
@@ -98,6 +99,7 @@ export const ContentFacility = () => {
             text: "Data Berhasil Dihapus",
           }).then(() => {
             router.refresh();
+            window.location.reload();
           });
         } else {
           Swal.fire({

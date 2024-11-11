@@ -84,6 +84,7 @@ const TambahFasilitasPage = () => {
         jam_tutup: yup.string().required(),
       })
     ),
+    maintenance: yup.boolean().required("Pilih salah satu opsi"),
   });
 
   const {
@@ -154,6 +155,7 @@ const TambahFasilitasPage = () => {
               description: input.description,
               akses: input.akses,
               fakultas: input.fakultas,
+              maintenance: input.maintenance,
             },
           ])
           .select();
@@ -470,6 +472,37 @@ const TambahFasilitasPage = () => {
                   <option value={"FK"}>FK</option>
                   <option value={"FISIP"}>FISIP</option>
                 </select>
+              </div>
+
+              <div className="flex flex-col space-y-2">
+                <label className="font-medium flex justify-start">
+                  Apakah fasilitas sedang dilakukan pemeliharaan?{" "}
+                  {errors?.maintenance ? (
+                    <span className="text-red-600 text-xs leading-3 ml-1">{`*${errors.maintenance.message}`}</span>
+                  ) : (
+                    <span className="text-red-600">*</span>
+                  )}
+                </label>
+                <div className="flex gap-4">
+                  <label className="text-sm flex items-center gap-1">
+                    <input
+                      type="radio"
+                      value={true}
+                      {...register("maintenance")}
+                      className="form-radio"
+                    />
+                    Ya
+                  </label>
+                  <label className="text-sm flex items-center gap-1">
+                    <input
+                      type="radio"
+                      value={false}
+                      {...register("maintenance")}
+                      className="form-radio"
+                    />
+                    Tidak
+                  </label>
+                </div>
               </div>
             </div>
 

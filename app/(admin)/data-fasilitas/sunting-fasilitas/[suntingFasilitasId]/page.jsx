@@ -91,6 +91,7 @@ const SuntingFasilitasPage = ({ params }) => {
     setValue("nomor_telepon", edit.kontak.nomor_telepon);
     setValue("akses", edit.akses);
     setValue("fakultas", edit.fakultas);
+    setValue("maintenance", edit.maintenance);
 
     edit.jam_operasional.forEach((item, index) => {
       setValue(`jam_operasional.${index}.id_jam`, item.id_jam);
@@ -163,6 +164,7 @@ const SuntingFasilitasPage = ({ params }) => {
                 description: input.description,
                 akses: input.akses,
                 fakultas: input.fakultas,
+                maintenance: input.maintenance,
               },
             ])
             .eq("id", edit.id)
@@ -242,6 +244,7 @@ const SuntingFasilitasPage = ({ params }) => {
               description: input.description,
               akses: input.akses,
               fakultas: input.fakultas,
+              maintenance: input.maintenance,
             },
           ])
           .eq("id", edit.id)
@@ -551,6 +554,39 @@ const SuntingFasilitasPage = ({ params }) => {
                   <option value={"FK"}>FK</option>
                   <option value={"FISIP"}>FISIP</option>
                 </select>
+              </div>
+
+              <div className="flex flex-col space-y-2">
+                <label className="font-medium flex justify-start">
+                  Apakah fasilitas sedang dilakukan pemeliharaan?{" "}
+                  {errors?.maintenance ? (
+                    <span className="text-red-600 text-xs leading-3 ml-1">{`*${errors.maintenance.message}`}</span>
+                  ) : (
+                    <span className="text-red-600">*</span>
+                  )}
+                </label>
+                <div className="flex gap-4">
+                  <label className="text-sm flex items-center gap-1">
+                    <input
+                      type="radio"
+                      value={true}
+                      {...register("maintenance")}
+                      checked={edit.maintenance}
+                      className="form-radio"
+                    />
+                    Ya
+                  </label>
+                  <label className="text-sm flex items-center gap-1">
+                    <input
+                      type="radio"
+                      value={false}
+                      checked={edit.maintenance}
+                      {...register("maintenance")}
+                      className="form-radio"
+                    />
+                    Tidak
+                  </label>
+                </div>
               </div>
             </div>
 
