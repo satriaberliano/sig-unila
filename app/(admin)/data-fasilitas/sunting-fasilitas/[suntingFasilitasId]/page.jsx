@@ -100,7 +100,7 @@ const SuntingFasilitasPage = ({ params }) => {
       setValue(`jam_operasional.${index}.jam_buka`, item.jam_buka);
       setValue(`jam_operasional.${index}.jam_tutup`, item.jam_tutup);
     });
-  }, [edit]);
+  }, [edit, setValue]);
 
   const onDeleteJamOperasionalHandler = async (id) => {
     Swal.fire({
@@ -565,27 +565,33 @@ const SuntingFasilitasPage = ({ params }) => {
                     <span className="text-red-600">*</span>
                   )}
                 </label>
-                <div className="flex gap-4">
-                  <label className="text-sm flex items-center gap-1">
+                <div className="flex items-center gap-4">
+                  <div className="flex gap-1">
                     <input
                       type="radio"
                       value={true}
+                      id="radio_yes"
+                      name="option"
+                      defaultChecked={edit.maintenance === true}
                       {...register("maintenance")}
-                      checked={edit.maintenance}
-                      className="form-radio"
                     />
-                    Ya
-                  </label>
-                  <label className="text-sm flex items-center gap-1">
+                    <label className="text-sm" htmlFor="radio_yes">
+                      Ya
+                    </label>
+                  </div>
+                  <div className="flex items-center gap-1">
                     <input
                       type="radio"
                       value={false}
-                      checked={edit.maintenance}
+                      name="option"
+                      id="radio_no"
+                      defaultChecked={edit.maintenance === false}
                       {...register("maintenance")}
-                      className="form-radio"
                     />
-                    Tidak
-                  </label>
+                    <label className="text-sm" htmlFor="radio_no">
+                      Tidak
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
