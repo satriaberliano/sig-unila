@@ -23,6 +23,7 @@ const Peta = () => {
       url_image,
       akses,
       fakultas,
+      maintenance,
       kontak (
         nama_kontak,
         nomor_telepon

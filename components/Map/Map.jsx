@@ -223,9 +223,11 @@ const Map = ({ facilities, search, height }) => {
 
         <LayersControl position="topright">
           {geoDataList.map((geoData, index) => {
-            const relatedFacilities = facilities.filter(
-              (facility) => facility.fakultas === geoData.faculty
-            );
+            const relatedFacilities =
+              facilities &&
+              facilities.filter(
+                (facility) => facility.fakultas === geoData.faculty
+              );
 
             return (
               <LayersControl.Overlay
@@ -243,7 +245,7 @@ const Map = ({ facilities, search, height }) => {
                       <h4 className="font-medium text-xs text-center mb-2">
                         {geoData.name}
                       </h4>
-                      {relatedFacilities.length > 0 ? (
+                      {relatedFacilities && relatedFacilities.length > 0 ? (
                         <ol className="list-decimal pl-2">
                           {relatedFacilities.map((facility, id) => (
                             <li key={id} className="text-[11px]">
