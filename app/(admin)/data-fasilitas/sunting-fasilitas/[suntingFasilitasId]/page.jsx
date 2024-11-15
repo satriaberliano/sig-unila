@@ -571,21 +571,20 @@ const SuntingFasilitasPage = ({ params }) => {
                       type="radio"
                       value={true}
                       id="radio_yes"
-                      name="option"
-                      defaultChecked={edit.maintenance === true}
+                      // defaultChecked={edit.maintenance}
                       {...register("maintenance")}
                     />
                     <label className="text-sm" htmlFor="radio_yes">
                       Ya
                     </label>
                   </div>
+
                   <div className="flex items-center gap-1">
                     <input
                       type="radio"
                       value={false}
-                      name="option"
                       id="radio_no"
-                      defaultChecked={edit.maintenance === false}
+                      // defaultChecked={!edit.maintenance}
                       {...register("maintenance")}
                     />
                     <label className="text-sm" htmlFor="radio_no">
