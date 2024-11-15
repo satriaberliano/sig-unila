@@ -1,0 +1,33 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<url>
+<loc>https://sig-unila.vercel.app/</loc>
+<lastmod>2024-11-15T13:33:41+00:00</lastmod>
+<priority>1.00</priority>
+</url>
+<url>
+<loc>https://sig-unila.vercel.app/fasilitas</loc>
+<lastmod>2024-11-15T13:33:41+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://sig-unila.vercel.app/peta</loc>
+<lastmod>2024-11-15T13:33:41+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://sig-unila.vercel.app/tentang</loc>
+<lastmod>2024-11-15T13:33:41+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://sig-unila.vercel.app/panduan</loc>
+<lastmod>2024-11-15T13:33:41+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://sig-unila.vercel.app/kontak-kami</loc>
+<lastmod>2024-11-15T13:33:41+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+</urlset>
