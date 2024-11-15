@@ -22,6 +22,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta
+          name="google-site-verification"
+          content="SvtqedkfhJV7lnw5BwjyXXKWaMRkUmX5LuMz5d5AKnA"
+        />
       </head>
       <body className={jakarta_sans.className}>{children}</body>
     </html>
