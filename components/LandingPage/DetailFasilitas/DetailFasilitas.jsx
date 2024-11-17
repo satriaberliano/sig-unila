@@ -109,37 +109,22 @@ const DetailFasilitas = ({ facility }) => {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="text-sm lg:basis-1/2">
-                    {fasilitas.akses === "Umum dan Civitas Akademika" ? (
-                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#2EB723] bg-[#bdffb7] rounded-full flex items-center w-fit">
-                        <FaUser className="inline" />
-                        <span>{`${fasilitas.akses}`}</span>
-                      </span>
-                    ) : fasilitas.akses === "Civitas Akademika" ? (
-                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#236db7] bg-[#97c9fb] rounded-full flex items-center w-fit">
-                        <FaUser className="inline" />
-                        <span>{`${fasilitas.akses}`}</span>
-                      </span>
-                    ) : fasilitas.akses === "Tidak untuk umum" ? (
-                      <span className="py-2 px-4 text-xs space-x-2 font-semibold text-[#b72d23] bg-[#f8b1ac] rounded-full flex items-center w-fit">
-                        <FaUser className="inline" />
-                        <span>{`${fasilitas.akses}`}</span>
-                      </span>
+                    </div>
+                    {fasilitas.maintenance ? (
+                      <div className="flex items-center gap-1 text-orange-500">
+                        <IoConstruct />
+                        <p className="text-xs">
+                          [
+                          {fasilitas.maintenance
+                            ? "Sedang dilakukan pemeliharaan atau dibangun"
+                            : ""}
+                          ]
+                        </p>
+                      </div>
                     ) : (
-                      "Tidak ada informasi akses"
+                      <></>
                     )}
-                  </div> */}
-                    </div>
-                    <div className="flex items-center gap-1 text-orange-500">
-                      <IoConstruct />
-                      <p className="text-xs">
-                        [
-                        {fasilitas.maintenance
-                          ? "Sedang dilakukan pemeliharaan atau dibangun"
-                          : ""}
-                        ]
-                      </p>
-                    </div>
+
                     <div
                       dangerouslySetInnerHTML={{
                         __html: `${fasilitas.description}`,
