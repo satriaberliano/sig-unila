@@ -17,13 +17,13 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-[#0F6EE3] py-16 md:pt-20 pb-10 px-10 md:px-16 text-white md:space-y-16">
-      <div className="flex flex-col">
+      <div className="flex flex-col max-w-screen-3xl mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-6 space-y-3 text-center">
           <div className="md:flex md:flex-col justify-start items-start space-y-2 col-start-1 col-end-3 md:col-start-auto md:col-end-auto">
             <Image
               src={assets.logoUnila}
               className="w-20 -mt-2 md:-mt-9 mx-auto md:mx-0"
-              alt="logo geomuda indonesia text white"
+              alt="Logo Universitas Lampung"
             />
             <h4 className="font-semibold text-xl text-center md:text-left">
               SIG UNILA

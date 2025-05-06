@@ -11,7 +11,7 @@ export default function Navigasi() {
         <Image
           src="/images/maps.png"
           alt="Navigasi image"
-          className="w-80 rounded-2xl"
+          className="w-60 md:w-80 rounded-2xl"
           width={500}
           height={500}
         />

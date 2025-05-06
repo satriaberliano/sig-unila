@@ -46,6 +46,7 @@ export default function Navbar() {
           src={assets.logoUnila}
           alt="universitas lampung logo"
           className="w-10"
+          priority
         />
         <FiMenu
           className="text-2xl block md:hidden cursor-pointer"

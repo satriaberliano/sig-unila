@@ -18,6 +18,7 @@ import { FaBuildingUser } from "react-icons/fa6";
 import { analyzeNearbyFacilities } from "@/app/analyzeNearbyFacilities";
 import { useFacilities } from "@/zustand/useFacilities";
 import { IoConstruct } from "react-icons/io5";
+import { shimmer, toBase64 } from "@/lib/shimmer";
 
 // ** Import Components
 // import MapEachFacility from "../MapEachFacility/MapEachFacility";
@@ -44,15 +45,15 @@ const DetailFasilitas = ({ facility }) => {
                 <div className="flex flex-col lg:flex-row justify-center lg:items-start gap-10 md:gap-20">
                   <div className="md:basis-1/2 flex lg:justify-center md:items-center w-full">
                     <Image
-                      src={
-                        fasilitas.url_image
-                          ? fasilitas.url_image
-                          : assets.fasilitas
-                      }
+                      src={fasilitas.url_image}
                       alt={`Gambar fasilitas ${fasilitas.name}`}
                       className=" rounded-lg "
                       width={500}
                       height={600}
+                      placeholder="blur"
+                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                        shimmer(500, 600)
+                      )}`}
                     />
                   </div>
                   <div className=" md:basis-1/2 space-y-8">

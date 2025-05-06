@@ -20,7 +20,7 @@ export default function Banner() {
       <div className="absolute inset-0 bg-gradient-to-t from-sky-900/30 to-sky-900/90"></div>
       <div className="absolute mt-20 top-0 right-0 bottom-0 left-0 flex justify-center items-center text-white flex-col space-y-6">
         <div className="flex flex-col items-center justify-center gap-y-16">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold drop-shadow-md [text-shadow:_0_2px_0_rgb(0_0_0_/_30%)]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-center font-semibold drop-shadow-md [text-shadow:_0_2px_0_rgb(0_0_0_/_30%)]">
             Sistem Informasi Geografis <br />
             Universitas Lampung
           </h1>
