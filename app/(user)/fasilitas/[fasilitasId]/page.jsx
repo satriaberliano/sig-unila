@@ -3,7 +3,7 @@
 import DetailFasilitas from "@/components/LandingPage/DetailFasilitas/DetailFasilitas";
 import { supabase } from "@/lib/supabase";
 import { useFetchData } from "@/zustand/useFetchData";
-import { notFound, usePathname } from "next/navigation";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const FasilitasLain = async ({ params }) => {
