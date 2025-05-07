@@ -3,7 +3,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
-  subsets: ["devanagari"],
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
 const jakarta_sans = Plus_Jakarta_Sans({
