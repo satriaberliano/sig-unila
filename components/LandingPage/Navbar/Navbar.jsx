@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoIosClose } from "react-icons/io";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import { motion } from "motion/react";
 
 export default function Navbar() {
   const [dropdown, setDropdown] = useState(false);
@@ -41,7 +42,13 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={navbarClassName}>
+      <motion.nav
+        className={navbarClassName}
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.5 }}
+      >
         <Image
           src={assets.logoUnila}
           alt="universitas lampung logo"
@@ -137,7 +144,7 @@ export default function Navbar() {
             Admin
           </Link> */}
         </div>
-      </nav>
+      </motion.nav>
 
       <nav
         className={`justify-center items-center flex-col w-full h-full fixed gap-10 z-[10000000] bg-[#0F6EE3] text-white -translate-x-full duration-700 transition-transform flex ${

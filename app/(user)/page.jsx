@@ -2,7 +2,6 @@
 
 import BackToTopButton from "@/components/LandingPage/BackToTopButton/BackToTopButton";
 import Banner from "@/components/LandingPage/Banner/Banner";
-import MotionScrollDown from "@/components/LandingPage/MotionScrollDown/MotionScrollDown";
 import Navigasi from "@/components/LandingPage/Navigasi/Navigasi";
 import StatistikKampus from "@/components/LandingPage/StatisikKampus/StatistikKampus";
 import Tentang from "@/components/LandingPage/Tentang/Tentang";

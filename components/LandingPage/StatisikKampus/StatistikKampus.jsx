@@ -1,10 +1,17 @@
 import React from "react";
 import { LuBookOpen, LuBuilding, LuUsers } from "react-icons/lu";
+import { motion } from "motion/react";
 
 const StatistikKampus = () => {
   return (
     <section className="bg-gray-100 p-20">
-      <div className="flex flex-col">
+      <motion.div
+        className="flex flex-col"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <h3 className="text-2xl sm:text-3xl font-bold mb-20 text-center">
           Statistik Universitas Lampung
         </h3>
@@ -25,7 +32,7 @@ const StatistikKampus = () => {
             <p>Fakultas</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
